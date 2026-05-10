@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "PUWF Mobile",
+    "slug": "puwf-mobile",
+    "scheme": "puwf",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "splash": {
+      "image": "./assets/images/puwf_logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#f6faf7"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "pk.puwf.mobile"
+    },
+    "android": {
+      "package": "pk.puwf.mobile",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/puwf_logo.png",
+        "backgroundColor": "#f6faf7"
+      }
+    },
+    "plugins": ["expo-router", "expo-localization", "expo-secure-store", "expo-local-authentication", "expo-splash-screen"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

@@ -1,0 +1,1550 @@
+{
+  "app": {
+    "name": "پی یو ڈبلیو ایف موبائل",
+    "subtitle": "مزدور اور یونین آپریشنز"
+  },
+  "common": {
+    "yes": "جی ہاں",
+    "no": "نہیں",
+    "notSure": "معلوم نہیں",
+    "back": "واپس",
+    "next": "اگلا",
+    "finish": "مکمل کریں",
+    "save": "محفوظ کریں",
+    "remove": "ہٹائیں",
+    "cancel": "منسوخ",
+    "continue": "جاری رکھیں",
+    "pending": "زیر التوا",
+    "available": "دستیاب",
+    "none": "کوئی نہیں",
+    "complete": "مکمل",
+    "switchLanguage": "زبان تبدیل کریں"
+  },
+  "states": {
+    "loading": "ورکر معلومات لوڈ ہو رہی ہیں...",
+    "error": "یہ اسکرین لوڈ نہیں ہو سکی۔ دوبارہ کوشش کریں۔",
+    "empty": "ابھی کوئی ریکارڈ موجود نہیں۔"
+  },
+  "stats": {
+    "workers": "مزدور",
+    "unions": "یونینز",
+    "regions": "ریجنز"
+  },
+  "role": {
+    "menuLabel": "مین مینو",
+    "heading": "آپ کون سا پورٹل استعمال کرنا چاہتے ہیں؟",
+    "body": "اپنا کردار منتخب کریں تاکہ ایپ آپ کو درست ڈیش بورڈ اور قانونی ورک فلو دکھا سکے۔",
+    "trustLabel": "PUWF تصدیق شدہ موبائل رسائی",
+    "fastAccess": "فوری رسائی",
+    "recommendedTitle": "زیادہ تر مزدوروں کے لیے ورکر پورٹل بہترین آغاز ہے",
+    "recommendedBody": "اسی ایک راستے سے ڈیجیٹل آئی ڈی، واجبات، شکایات، ووٹنگ، حقوق اور یونین رابطہ کھلتا ہے۔",
+    "chooseTitle": "اپنا درست راستہ منتخب کریں",
+    "chooseBody": "ہر کارڈ الگ ورک فلو کھولتا ہے۔ وہی راستہ منتخب کریں جو آپ کے اصل کردار سے میل کھاتا ہو۔",
+    "workerTitle": "کیا آپ فیکٹری ورکر ہیں؟",
+    "workerSubtitle": "آئی ڈی، واجبات، شکایت، ووٹنگ، حقوق۔",
+    "workerBadge": "کیا آپ ورکر ہیں؟",
+    "workerMeta": "یہ مختصر Form C طرز کی معلومات لیتا ہے تاکہ ایپ آپ کو درست رہنمائی دے سکے۔",
+    "workerEntry": "کیا آپ ورکر ہیں؟",
+    "workerMetric": "آئی ڈی + واجبات + مدد",
+    "workerMetricLabel": "یہاں سے شروع کریں",
+    "unionTitle": "کیا آپ یونین عہدیدار ہیں؟",
+    "unionSubtitle": "ممبرز، ریٹرن، مالیات، قانونی کیسز۔",
+    "unionBadge": "کیا آپ یونین ممبر ہیں؟",
+    "unionMeta": "جنرل سیکرٹری، مالیات سیکرٹری اور مجاز یونین دفتر کے عملے کے لیے۔",
+    "unionEntry": "کیا آپ یونین ممبر ہیں؟",
+    "unionMetric": "625+",
+    "unionMetricLabel": "یونین آپریشنز",
+    "helpTitle": "کیا آپ مدد یا معلومات چاہتے ہیں؟",
+    "helpSubtitle": "لاگ اِن کے بغیر حقوق اور رہنمائی۔",
+    "helpBadge": "مجھے رہنمائی چاہیے",
+    "helpMeta": "ورکر پروفائل بنائے بغیر مزدور حقوق اور یونین معلومات دیکھیں۔",
+    "helpEntry": "مجھے رہنمائی چاہیے",
+    "helpMetric": "حقوق",
+    "helpMetricLabel": "لاگ اِن نہیں",
+    "workerHighlights": {
+      "id": "ڈیجیٹل آئی ڈی",
+      "dues": "ماہانہ چندہ کی صورتحال",
+      "grievance": "شکایت مدد"
+    },
+    "unionHighlights": {
+      "members": "ممبر رجسٹری",
+      "returns": "سالانہ گوشوارہ",
+      "elections": "انتخابات"
+    },
+    "helpHighlights": {
+      "rights": "مزدور حقوق",
+      "union": "یونین معلومات",
+      "guides": "عملی رہنمائی"
+    },
+    "guidanceTitle": "یہ مینو کیا کھولتا ہے",
+    "guidanceBody": "یہ ایپ ان مزدوروں کے لیے ہے جنہیں فون سے فوری رسائی چاہیے، اور ان یونین عہدیداروں کے لیے ہے جنہیں موبائل پر ہی آپریشنل اوزار درکار ہیں۔",
+    "guidanceWorker": "ورکر راستہ",
+    "guidanceWorkerValue": "آئی ڈی + واجبات + حقوق",
+    "guidanceUnion": "یونین راستہ",
+    "guidanceUnionValue": "ممبرز + ریٹرن + قانونی کام",
+    "coBrand": "PUWF کے لیے Fruit of Sustainability کے ساتھ تیار کیا گیا",
+    "heroTitle": "پاکستان کا مربوط ڈیجیٹل پلیٹ فارم برائے",
+    "heroSubtitle": "مزدور، یونینز اور مزدور حقوق",
+    "helpline": "PUWF ہیلپ لائن: 0333-4333387"
+  },
+  "auth": {
+    "unionLogin": "یونین لاگ اِن",
+    "welcome": "یونین ایڈمن پورٹل",
+    "email": "ای میل",
+    "emailPlaceholder": "union@puwf.org.pk",
+    "password": "پاس ورڈ",
+    "passwordPlaceholder": "پاس ورڈ",
+    "signIn": "سائن اِن",
+    "demoHint": ""
+  },
+  "onboarding": {
+    "eyebrow": "ورکر معلومات",
+    "flowTitle": "ورکر پروفائل",
+    "privacyNote": "",
+    "sources": {
+      "prd": "ماخذ: PUWF ورکر موبائل دائرہ کار",
+      "formC": "ماخذ: Form C ممبرشپ فیلڈز",
+      "membersList": "ماخذ: ممبرز لسٹ ورکر رجسٹر",
+      "operational": "ماخذ: PUWF آپریشنل ڈیٹا",
+      "grievance": "ماخذ: شکایت اندراج ورک فلو",
+      "localization": "ماخذ: اردو/انگریزی زبان پالیسی"
+    },
+    "routeHints": {
+      "standard": "سروے کے بعد ایپ آپ کی پروفائل حالت کے مطابق محفوظ اگلی اسکرین کھولے گی۔",
+      "grievance": "آپ نے فوری مدد منتخب کی ہے، اس لیے سروے کے بعد شکایت درج کرنے والی اسکرین کھلے گی۔"
+    },
+    "questions": {
+      "workerStatus": {
+        "title": "آپ کس قسم کے ورکر ہیں؟",
+        "description": "اس سے ایپ فیصلہ کرے گی کہ ورکر پورٹل یا رہنمائی لائبریری پہلے دکھانی ہے۔"
+      },
+      "unionMembership": {
+        "title": "کیا آپ پہلے سے یونین ممبر ہیں؟",
+        "description": "ممبرشپ اسٹیٹس ڈیجیٹل آئی ڈی، واجبات، ووٹنگ اور شکایت follow-up کے لیے اہم ہے۔"
+      },
+      "fullName": {
+        "title": "آپ کا مکمل نام کیا ہے؟",
+        "description": "وہی نام لکھیں جو یونین یا آجر کے ریکارڈ میں استعمال ہوتا ہے۔"
+      },
+      "fatherName": {
+        "title": "آپ کے والد کا نام کیا ہے؟",
+        "description": "یہ Form C طرز کی شناخت ملانے میں مدد دیتا ہے۔"
+      },
+      "cnic": {
+        "title": "آپ کا CNIC نمبر کیا ہے؟",
+        "description": "CNIC ورکر شناخت کے لیے استعمال ہوگا اور display screens میں mask کیا جائے گا۔"
+      },
+      "mobile": {
+        "title": "آپ کا موبائل نمبر کیا ہے؟",
+        "description": "یہ بعد میں OTP، notices اور شکایت updates کے لیے استعمال ہوگا۔"
+      },
+      "employer": {
+        "title": "آپ کا آجر کون ہے؟",
+        "description": "وہ کمپنی، محکمہ یا آجر لکھیں جو آپ کے کام کی نگرانی یا ادائیگی کرتا ہے۔"
+      },
+      "establishment": {
+        "title": "آپ کہاں کام کرتے ہیں؟",
+        "description": "فیکٹری، دفتر، پلانٹ، سائٹ یا ادارے کا نام لکھیں۔"
+      },
+      "designation": {
+        "title": "آپ کی designation کیا ہے؟",
+        "description": "مثال: کلینر، مشین آپریٹر، ڈرائیور، کلرک، گارڈ یا ٹیکنیشن۔"
+      },
+      "department": {
+        "title": "آپ کا department یا posting place؟",
+        "description": "اس سے یونین آپ کا درست unit یا کام کی جگہ شناخت کرے گی۔"
+      },
+      "district": {
+        "title": "آپ کس ضلع میں کام کرتے ہیں؟",
+        "description": "ضلع آپ کے کیس کو درست یونین یا ریجن سے جوڑنے میں مدد دیتا ہے۔"
+      },
+      "city": {
+        "title": "آپ کا شہر یا علاقہ کون سا ہے؟",
+        "description": "وہ شہر، قصبہ یا علاقہ لکھیں جہاں آپ عموماً کام کرتے ہیں۔"
+      },
+      "province": {
+        "title": "آپ کا صوبہ کون سا ہے؟",
+        "description": "صوبہ مستقبل کے قانونی اور یونین ورک فلو کو درست route کرنے میں مدد دیتا ہے۔"
+      },
+      "urgency": {
+        "title": "کیا آپ کو فوری شکایت میں مدد چاہیے؟",
+        "description": "برطرفی، تنخواہ نہ ملنا، ہراسانی، حفاظتی خطرہ یا فوری دباؤ ہو تو فوری منتخب کریں۔"
+      },
+      "language": {
+        "title": "ایپ کس زبان میں استعمال کرنی ہے؟",
+        "description": "آپ بعد میں زبان کے بٹن سے اسے تبدیل کر سکتے ہیں۔"
+      }
+    },
+    "answers": {
+      "factoryWorker": "فیکٹری یا ادارے کا ورکر",
+      "otherWorker": "دوسری قسم کا ورکر",
+      "activeMember": "جی، میں یونین ممبر ہوں",
+      "notMember": "نہیں، میں ممبر نہیں ہوں",
+      "urgent": "جی، مجھے فوری مدد چاہیے",
+      "notUrgent": "ابھی فوری شکایت نہیں",
+      "urdu": "اردو",
+      "english": "English"
+    },
+    "answerDescriptions": {
+      "factoryWorker": "میں فیکٹری، پلانٹ، کمپنی، محکمہ یا ادارے میں کام کرتا ہوں۔",
+      "otherWorker": "میں کام کرتا ہوں، مگر مجھے یقین نہیں کہ یہ پورٹل میرے کام سے متعلق ہے۔",
+      "notSureWorker": "درست پورٹل منتخب کرنے سے پہلے مجھے رہنمائی چاہیے۔",
+      "activeMember": "میں پہلے سے یونین یا worker body سے منسلک ہوں۔",
+      "notMember": "پہلے مجھے حقوق اور رہنمائی دکھائیں۔",
+      "notSureMember": "مجھے یقین نہیں کہ میرا نام member register میں ہے۔",
+      "urgent": "اس مختصر سروے کے بعد شکایت درج کرنے والی اسکرین کھولیں۔",
+      "notUrgent": "سیٹ اپ کے بعد مجھے ڈیش بورڈ یا رہنمائی دکھائیں۔",
+      "notSureUrgency": "پہلے مجھے اپنے حقوق سمجھنے میں مدد دیں۔",
+      "urdu": "اردو کو بنیادی زبان بنائیں۔",
+      "english": "مکمل English mode استعمال کریں۔"
+    },
+    "placeholders": {
+      "fullName": "مثال: محمد اکرم",
+      "fatherName": "مثال: محمد بشیر",
+      "cnic": "00000-0000000-0",
+      "mobile": "03XX-XXXXXXX",
+      "employer": "مثال: LWMC",
+      "establishment": "مثال: ورکشاپ، فیکٹری، پلانٹ، زون",
+      "designation": "مثال: سینیٹری ورکر",
+      "department": "مثال: Zone V یا production unit",
+      "district": "مثال: لاہور",
+      "city": "مثال: لاہور",
+      "province": "مثال: پنجاب"
+    },
+    "validation": {
+      "required": "برائے مہربانی اس سوال کا جواب دیں۔",
+      "cnic": "CNIC میں 13 ہندسے ہونے چاہئیں۔",
+      "mobile": "پاکستان کا درست موبائل نمبر درج کریں۔"
+    }
+  },
+  "tabs": {
+    "home": "ہوم",
+    "id": "آئی ڈی",
+    "dues": "واجبات",
+    "grievance": "شکایت",
+    "vote": "ووٹ",
+    "rights": "حقوق",
+    "union": "یونین",
+    "notifications": "اطلاعات",
+    "more": "مزید"
+  },
+  "worker": {
+    "dashboard": "ورکر ڈیش بورڈ",
+    "activeMember": "فعال ممبر",
+    "dues": "واجبات",
+    "grievances": "شکایات",
+    "vote": "انتخابات / ووٹنگ",
+    "notices": "اطلاعات",
+    "quickStatus": "موجودہ صورتحال",
+    "digitalId": "ڈیجیٹل ورکر آئی ڈی",
+    "socialSecurity": "سوشل سکیورٹی",
+    "latestCase": "آخری کیس",
+    "rights": "مزدور حقوق",
+    "myUnion": "میری یونین"
+  },
+  "grievance": {
+    "new": "نئی شکایت",
+    "placeholder": "اپنی شکایت مختصر اور صاف الفاظ میں لکھیں...",
+    "voice": "آواز",
+    "attach": "ثبوت",
+    "submit": "شکایت جمع کریں",
+    "categories": {
+      "wages": "اجرت",
+      "termination": "برطرفی",
+      "safety": "حفاظت",
+      "harassment": "ہراسانی",
+      "union_rights": "یونین حقوق",
+      "eobi_social_security": "EOBI/سوشل سکیورٹی",
+      "other": "دیگر"
+    },
+    "validation": {
+      "employer": "آجر کا نام درج کریں۔",
+      "establishment": "کام کی جگہ یا ادارہ درج کریں۔",
+      "description": "مسئلہ کم از کم 12 حروف میں لکھیں۔"
+    }
+  },
+  "voting": {
+    "cast": "OTP کے ساتھ ووٹ کاسٹ کریں",
+    "auditNote": "ووٹنگ کا ریکارڈ audit کے لیے محفوظ رہے گا، مگر ballot شناخت ظاہر نہیں کرے گا۔"
+  },
+  "rights": {
+    "search": "حقوق تلاش کریں"
+  },
+  "union": {
+    "dashboard": "یونین ڈیش بورڈ",
+    "registration": "رجسٹریشن نمبر",
+    "officeBearers": "عہدیداران",
+    "officeBearersShort": "عہدیدار",
+    "president": "صدر",
+    "generalSecretary": "جنرل سیکرٹری",
+    "members": "ممبرز",
+    "searchMembers": "نام، CNIC یا ممبر آئی ڈی تلاش کریں",
+    "outsiderWarning": "بیرونی عہدیدار: {{count}}۔ حد 25٪ سے زیادہ نہیں ہونی چاہیے۔",
+    "outsider": "بیرونی",
+    "finance": "مالیات",
+    "duesHealth": "واجبات",
+    "activeCases": "فعال کیس",
+    "compliance": "قانونی تقاضے",
+    "attention": "فوری توجہ",
+    "annualReturnDue": "سالانہ گوشوارہ",
+    "cbaExpiry": "سی بی اے ختم ہونے کی تاریخ",
+    "nextElection": "اگلا انتخابات",
+    "collected": "وصولی",
+    "outstanding": "باقی",
+    "remittances": "Employer remittances",
+    "return": "سالانہ گوشوارہ",
+    "elections": "انتخابات",
+    "cbaSubtitle": "سی بی اے سرٹیفکیٹ اور چارٹر آف ڈیمانڈ ورک فلو",
+    "legal": "قانونی",
+    "legalSubtitle": "شکایات، عدالت اور سماعتیں",
+    "docs": "دستاویزات",
+    "docsSubtitle": "DMS، قانونی پیکٹ اور قانونی تقاضے",
+    "cbaCod": "سی بی اے / چارٹر آف ڈیمانڈ"
+  },
+  "status": {
+    "membership": {
+      "active": "فعال ممبر",
+      "pending": "زیر التوا ممبر",
+      "suspended": "معطل",
+      "resigned": "مستعفی",
+      "transferred": "منتقل",
+      "terminated": "برطرف",
+      "retired": "ریٹائرڈ",
+      "deceased": "مرحوم"
+    },
+    "dues": {
+      "paid": "ادا شدہ",
+      "pending": "زیر التوا",
+      "overdue": "باقی",
+      "waived": "معاف"
+    },
+    "grievance": {
+      "new": "نئی",
+      "submitted": "جمع",
+      "triage": "جائزہ",
+      "investigating": "تحقیقات",
+      "resolved": "حل شدہ",
+      "escalated": "آگے بھیجی گئی"
+    },
+    "election": {
+      "upcoming": "آنے والا",
+      "nomination": "نامزدگی",
+      "open": "کھلا",
+      "closed": "بند",
+      "results": "نتائج"
+    },
+    "benefits": {
+      "verified": "تصدیق شدہ",
+      "pending": "زیر التوا",
+      "missing": "موجود نہیں"
+    },
+    "affiliation": {
+      "affiliated": "PUWF سے منسلک",
+      "pending": "زیر التوا",
+      "unknown": "نامعلوم"
+    },
+    "cba": {
+      "active": "فعال",
+      "expired": "ختم",
+      "pending": "زیر التوا"
+    },
+    "document": {
+      "current": "درست",
+      "needs_refresh": "اپ ڈیٹ چاہیے"
+    },
+    "compliance": {
+      "current": "درست",
+      "due_soon": "قریب الادا",
+      "overdue": "تاخیر",
+      "missing": "غائب",
+      "draft": "ڈرافٹ"
+    }
+  },
+  "unionCore": {
+    "dashboard": {
+      "quickActions": "اہم ایڈمن کارروائیاں"
+    },
+    "actions": {
+      "members": "Form C رجسٹری، CNIC چیک، واجبات اور انتخابی اہلیت۔",
+      "officeBearers": "Form A Schedule 1، مدت، بیرونی عہدیدار حد اور ثبوت۔",
+      "documents": "DMS، قانونی ذمہ داریاں، ختم ہونے کی تاریخ اور ثبوت پیکٹ۔",
+      "annualReturn": "قانونی سالانہ گوشوارہ workspace کھولیں۔",
+      "finance": "واجبات، رسیدیں، remittances اور finance prefill۔",
+      "more": "انتخابات، سی بی اے، قانونی، دستاویزات اور عہدیدار کھولیں۔"
+    },
+    "more": {
+      "subtitle": "تمام یونین ماڈیولز",
+      "modules": "آپریشنز اور ریکارڈز",
+      "officeBearers": "ایگزیکٹو باڈی، مدت، بیرونی حد اور Form A ثبوت۔",
+      "documents": "قانونی تقاضے پیکٹ، ماخذ دستاویزات، DMS اور expiry tracking۔",
+      "elections": "شیڈول، نامزدگیs، voter readiness اور نتائج کی اشاعت۔",
+      "cba": "سرٹیفکیٹ اسٹیٹس، Charter of Demand stages اور negotiation timeline۔",
+      "legal": "شکایت queue، قانونی escalation اور hearing logs۔"
+    },
+    "risks": {
+      "annualReturn": {
+        "title": "سالانہ گوشوارہ آخری تاریخ",
+        "detail": "Form L/J packet کو جمع کرانے سے پہلے GS اور FS جائزہ چاہیے۔"
+      },
+      "formC": {
+        "title": "Form C تکمیل کا فرق",
+        "detail": "158 ممبر ریکارڈز کو دستخط، CNIC یا ماہانہ چندہ ثبوت چاہیے۔"
+      },
+      "grievance": {
+        "title": "فوری شکایات",
+        "detail": "4 ورکر کیسز کو آج ہی یونین آفس جائزہ چاہیے۔"
+      }
+    },
+    "cba": {
+      "workspaceTitle": "بارگیننگ ورک اسپیس",
+      "workspaceSubtitle": "رجسٹری، چارٹر آف ڈیمانڈ، rounds اور ثبوت",
+      "workspaceBody": "ایک ہی موبائل ورک اسپیس سے سی بی اے سرٹیفکیٹس، renewal risk، مطالبات کا چارٹر progress، negotiation rounds اور settlement ثبوت کو ٹریک کریں۔",
+      "detailSubtitle": "سرٹیفکیٹ پروفائل، readiness، linked چارٹر آف ڈیمانڈ اور history",
+      "emptyRegistry": "اس فلٹر کے مطابق کوئی bargaining record نہیں ملا۔",
+      "emptyWorkflow": "ابھی کوئی فعال مطالبات کا چارٹر ورک فلو موجود نہیں۔",
+      "emptyRounds": "ابھی کوئی negotiation round لاگ نہیں ہوا۔",
+      "emptyEvidence": "ابھی کوئی bargaining ثبوت لنک نہیں کیا گیا۔",
+      "advanceConfirmTitle": "کیا bargaining stage آگے بڑھانی ہے؟",
+      "searchPlaceholder": "ادارہ، certificate، issuer یا reference تلاش کریں",
+      "tabs": {
+        "registry": "Registry",
+        "cod": "چارٹر آف ڈیمانڈ",
+        "rounds": "Rounds",
+        "evidence": "ثبوت"
+      },
+      "metrics": {
+        "active": "فعال سی بی اے",
+        "renewal": "Renewal زیر التوا",
+        "expiring": "90 دن کے اندر",
+        "covered": "Covered workers"
+      },
+      "hero": {
+        "stage": "Stage: {{stage}}",
+        "expiry": "ختم ہونے میں {{count}} دن",
+        "missingEvidence": "{{count}} ثبوت gaps"
+      },
+      "filters": {
+        "all": "تمام"
+      },
+      "registry": {
+        "covered": "{{count}} covered",
+        "expiryLabel": "{{count}} دن",
+        "readiness": "{{percent}}% ready"
+      },
+      "sections": {
+        "identity": "Certificate identity",
+        "validity": "Validity اور authority",
+        "coverage": "Coverage اور workforce",
+        "basis": "Determination basis",
+        "history": "History اور posture",
+        "evidence": "ثبوت readiness"
+      },
+      "fields": {
+        "title": "Record title",
+        "employer": "Employer / management",
+        "establishment": "ادارہ",
+        "certificateNumber": "Certificate number",
+        "issuer": "Issuing authority",
+        "reference": "Registry / file reference",
+        "issueDate": "Issue date",
+        "effectiveDate": "Effective date",
+        "expiryDate": "Expiry date",
+        "region": "Region",
+        "coveredWorkers": "Covered workers",
+        "membershipAtCert": "Membership at certification",
+        "totalWorkforce": "Total workforce",
+        "membershipPercent": "Membership percentage",
+        "legalForm": "Legal form",
+        "ruleReference": "Rule reference",
+        "sectionReference": "Section reference",
+        "determinationBasis": "Determination basis",
+        "linkedCba": "Linked سی بی اے record ID",
+        "demandTitle": "Demand title",
+        "currentValue": "Current value",
+        "demandedValue": "Demanded value",
+        "justification": "Justification",
+        "submissionDate": "Submission date",
+        "managementResponseDate": "Management response date",
+        "managementNotes": "Management / bargaining notes",
+        "conciliationOfficer": "Conciliation officer",
+        "conciliationStart": "Conciliation start date",
+        "arbitrator": "Arbitrator",
+        "strikeNoticeDate": "Strike notice date",
+        "strikeNoticeExpiry": "Strike notice expiry",
+        "settlementDate": "Settlement date",
+        "mosReference": "MoS reference",
+        "settlementNotes": "Settlement notes",
+        "nextDeadline": "Next deadline",
+        "meetingDate": "Meeting date",
+        "attendees": "Attendees",
+        "outcomes": "Outcomes",
+        "nextSteps": "Next steps"
+      },
+      "status": {
+        "cba": {
+          "active": "فعال",
+          "renewal_pending": "تجدید زیر التوا",
+          "expired": "ختم",
+          "revoked": "منسوخ"
+        },
+        "cod": {
+          "draft": "Draft",
+          "submitted": "جمع",
+          "response_pending": "جواب زیر التوا",
+          "negotiation": "Negotiation",
+          "conciliation": "Conciliation",
+          "arbitration": "Arbitration",
+          "strike_notice": "Strike notice",
+          "settlement": "Settlement",
+          "closed": "بند"
+        }
+      },
+      "responses": {
+        "accepted": "قبول",
+        "partial": "جزوی قبول",
+        "counter_offer": "Counter-offer",
+        "rejected": "مسترد"
+      },
+      "categories": {
+        "wages": "اجرت",
+        "allowances": "الاؤنس",
+        "benefits": "فوائد",
+        "working_conditions": "کام کے حالات",
+        "leave": "رخصت",
+        "health_safety": "صحت اور سیفٹی",
+        "job_security": "جاب سکیورٹی",
+        "other": "دیگر"
+      },
+      "actions": {
+        "view": "پروفائل دیکھیں",
+        "editRecord": "ریکارڈ تبدیل کریں",
+        "markRenewal": "Renewal زیر التوا کریں",
+        "addRecord": "سی بی اے record شامل کریں",
+        "addWorkflow": "چارٹر آف ڈیمانڈ شامل کریں",
+        "addRound": "Round شامل کریں",
+        "advanceStage": "Stage آگے بڑھائیں",
+        "editWorkflow": "Workflow تبدیل کریں",
+        "addDemand": "Demand شامل کریں",
+        "openLinkedModule": "Linked module کھولیں",
+        "openDocuments": "Documents کھولیں"
+      },
+      "form": {
+        "addTitle": "Bargaining record شامل کریں",
+        "editTitle": "Bargaining record تبدیل کریں",
+        "subtitle": "Certificate identity، validity، workforce coverage اور determination basis"
+      },
+      "cod": {
+        "addTitle": "مطالبات کا چارٹر شامل کریں",
+        "editTitle": "مطالبات کا چارٹر تبدیل کریں",
+        "formSubtitle": "Demands، response، conciliation، arbitration اور settlement posture",
+        "submittedOn": "{{date}} کو جمع",
+        "nextDeadline": "Next deadline {{date}}",
+        "noResponseNote": "ابھی management response note ریکارڈ نہیں ہوا۔",
+        "currentValue": "Current: {{value}}",
+        "demandedValue": "Demanded: {{value}}",
+        "demandNumber": "Demand {{count}}",
+        "sections": {
+          "core": "Core ورک فلو",
+          "demands": "Demand list",
+          "response": "Response اور negotiation",
+          "settlement": "Conciliation، arbitration اور settlement"
+        }
+      },
+      "rounds": {
+        "addTitle": "Negotiation round شامل کریں",
+        "round": "Round {{count}}",
+        "nextSteps": "Next steps: {{value}}",
+        "highlights": "Current bargaining activity",
+        "latest": "Latest round {{round}} on {{date}}"
+      },
+      "evidence": {
+        "category": {
+          "certificate": "Certificate",
+          "cod": "چارٹر آف ڈیمانڈ",
+          "order": "Order / tribunal",
+          "settlement": "Settlement",
+          "staff_agreement": "Staff agreement",
+          "mos": "MoS"
+        },
+        "status": {
+          "available": "دستیاب",
+          "pending": "زیر التوا",
+          "missing": "غائب",
+          "expiring": "قریب ختم"
+        },
+        "expiresOn": "{{date}} کو ختم"
+      },
+      "evidenceWarnings": {
+        "mosTitle": "Settlement ثبوت gap",
+        "mosBody": "{{count}} bargaining file(s) کو ابھی MoS یا settlement ثبوت چاہیے۔",
+        "expiryTitle": "Renewal risk موجود ہے",
+        "expiryBody": "{{count}} certificate(s) 90 دن کے renewal window میں ہیں۔"
+      },
+      "validation": {
+        "title": "واضح record title درج کریں۔",
+        "employer": "Employer یا management name درج کریں۔",
+        "establishment": "ادارہ name درج کریں۔",
+        "certificateNumber": "Certificate number درج کریں۔",
+        "legalForm": "Legal form درج کریں۔",
+        "ruleReference": "Rule reference درج کریں۔",
+        "sectionReference": "Section reference درج کریں۔",
+        "issuer": "Issuing authority درج کریں۔",
+        "region": "Region درج کریں۔",
+        "date": "درست YYYY-MM-DD date درج کریں۔",
+        "counts": "درست non-negative number درج کریں۔",
+        "percentage": "درست percentage درج کریں۔",
+        "basis": "Determination basis درج کریں۔",
+        "reference": "Official reference درج کریں۔",
+        "linkedCba": "اس ورک فلو کو سی بی اے record سے link کریں۔",
+        "demandTitle": "Demand title درج کریں۔",
+        "justification": "Justification درج کریں۔",
+        "demandCount": "کم از کم ایک demand item شامل کریں۔",
+        "settlementDate": "Settlement stage میں settlement date ضروری ہے۔",
+        "mosReference": "Settlement stage میں MoS reference ضروری ہے۔",
+        "strikeDate": "Strike notice stage میں strike notice date ضروری ہے۔",
+        "strikeExpiry": "Strike notice stage میں strike notice expiry ضروری ہے۔",
+        "attendees": "Meeting attendees درج کریں۔",
+        "outcomes": "Meeting outcomes درج کریں۔",
+        "nextSteps": "Next steps درج کریں۔",
+        "expiryOrder": "Expiry date، effective date کے بعد ہونی چاہیے۔"
+      }
+    },
+    "members": {
+      "subtitle": "Form C کے مطابق موبائل رجسٹری",
+      "workspaceTitle": "ممبر مینجمنٹ ورک اسپیس",
+      "workspaceSubtitle": "رجسٹری، انٹیک، جائزہ اور لائف سائیکل کنٹرول",
+      "workspaceBody": "اسی موبائل ورک اسپیس سے یونین رجسٹری چلائیں: Form C مکمل کریں، قانونی تقاضے فرق دیکھیں، انتخابی اہلیت چیک کریں اور ممبر لائف سائیکل ایونٹس درج کریں۔",
+      "snapshot": "رجسٹری خلاصہ",
+      "empty": "کوئی matching ممبر نہیں ملا۔",
+      "total": "{{count}} ممبرز",
+      "active": "{{count}} فعال",
+      "formCIssues": "{{count}} Form C مسائل",
+      "electionReady": "انتخاب کے لیے تیار",
+      "electionBlocked": "انتخابی رکاوٹ",
+      "tabs": {
+        "registry": "رجسٹری",
+        "intake": "انٹیک",
+        "review": "جائزہ",
+        "lifecycle": "لائف سائیکل"
+      },
+      "metrics": {
+        "total": "کل رجسٹری",
+        "active": "فعال",
+        "ready": "انتخابی طور پر تیار",
+        "risk": "فوری رسک",
+        "formComplete": "Form C مکمل",
+        "overdue": "بقایا واجبات"
+      },
+      "filtersLabel": "فلٹر قطاریں",
+      "sortLabel": "رجسٹری ترتیب",
+      "batchSelected": "{{count}} منتخب",
+      "batchHint": "ان ریکارڈز پر بعد میں بیچ ایکشن لگائے جا سکتے ہیں۔",
+      "readinessMeta": "{{score}}٪ تیار · واجبات {{واجبات}}",
+      "detailSubtitle": "شناخت، قانونی تقاضے، فوائد اور لائف سائیکل ریکارڈ",
+      "sections": {
+        "identity": "شناخت اور رابطہ",
+        "employment": "ملازمت اور پوسٹنگ",
+        "compliance": "قانونی تقاضے اور تصدیق",
+        "timeline": "لائف سائیکل ٹائم لائن",
+        "actions": "آپریشنل ایکشنز",
+        "beneficiary": "نامزد مستحق ریکارڈ"
+      },
+      "risk": {
+        "low": "مستحکم",
+        "medium": "نگرانی",
+        "urgent": "انتہائی اہم"
+      },
+      "verification": {
+        "verified": "تصدیق شدہ",
+        "pending": "زیر التوا",
+        "failed": "ناکام"
+      },
+      "filters": {
+        "all": "سب",
+        "active": "فعال",
+        "pending": "زیر التوا",
+        "verification": "تصدیقی فرق",
+        "dues": "بقایا واجبات",
+        "election": "انتخابی رکاوٹ",
+        "deceased": "مرحوم"
+      },
+      "sorts": {
+        "risk": "زیادہ رسک پہلے",
+        "newest": "نیا شامل",
+        "name": "نام",
+        "dues": "واجبات پہلے"
+      },
+      "actions": {
+        "view": "پروفائل کھولیں",
+        "edit": "ریکارڈ ترمیم",
+        "verify": "چیکس دیکھیں",
+        "toggleVerification": "NADRA اسٹیٹس بدلیں",
+        "openDues": "واجبات",
+        "openDocuments": "دستاویزات",
+        "openElection": "انتخابات"
+      },
+      "review": {
+        "formC": "Form C تکمیلی فرق",
+        "formCBody": "وہ ریکارڈز جن میں دستخط، انگوٹھا، پتہ یا چندہ ثبوت ابھی باقی ہے۔",
+        "verification": "تصدیقی واچ لسٹ",
+        "verificationBody": "وہ ممبرز جو ابھی NADRA/EOBI اعتماد یا رجسٹری چیک میں زیر نظر ہیں۔",
+        "dues": "بقایا واجبات رکاوٹیں",
+        "duesBody": "وہ ورکرز جن کے ماہانہ چندہ کی صورتحال رجسٹری اور readiness کو روک رہی ہے۔",
+        "election": "انتخابی رول رکاوٹیں",
+        "electionBody": "وہ ریکارڈز جو ابھی محفوظ طریقے سے ووٹر تیاری میں نہیں جا سکتے۔",
+        "annualReturn": "سالانہ گوشوارہ رکاوٹیں",
+        "annualReturnBody": "وہ ممبر ریکارڈز جو سالانہ گنتی یا قانونی تقاضے اعتماد کو کمزور کرتے ہیں۔"
+      },
+      "intake": {
+        "addTitle": "Form C ممبر شامل کریں",
+        "addBody": "شناخت، ملازمت، ممبرشپ، فوائد، دستاویزات اور لائف سائیکل ایک ہی گائیڈڈ موبائل فلو میں درج کریں۔",
+        "importTitle": "بلک روسٹر امپورٹ",
+        "importBody": "فائل منتخب کریں، ڈپلیکیٹس اور row errors دیکھیں، پھر امپورٹ جاب کنفرم کریں۔",
+        "reviewTitle": "جائزہ قطاریں کھولیں",
+        "reviewBody": "انٹیک سے سیدھا ان قطاروں میں جائیں جہاں دستخط، تصدیق یا واجبات فالو اپ باقی ہے۔"
+      },
+      "form": {
+        "addTitle": "ممبر شامل کریں",
+        "editTitle": "ممبر ریکارڈ ترمیم",
+        "steps": {
+          "identity": "شناخت",
+          "employment": "ملازمت",
+          "membership": "ممبرشپ",
+          "benefits": "فوائد اور تصدیق",
+          "documents": "دستاویزات",
+          "lifecycle": "لائف سائیکل"
+        }
+      },
+      "fields": {
+        "member": "ممبر",
+        "name": "پورا نام",
+        "fatherName": "والد / parentage",
+        "cnic": "CNIC",
+        "dob": "تاریخ پیدائش (YYYY-MM-DD)",
+        "gender": "جنس",
+        "phone": "موبائل نمبر",
+        "email": "ای میل",
+        "address": "مستقل پتہ",
+        "currentAddress": "موجودہ پتہ",
+        "district": "ضلع",
+        "province": "صوبہ",
+        "establishment": "ادارہ / پوسٹنگ جگہ",
+        "employer": "آجر",
+        "department": "شعبہ",
+        "designation": "عہدہ",
+        "trade": "ہنر / تخصص",
+        "employmentDate": "تاریخ ملازمت",
+        "employmentType": "ملازمت کی قسم",
+        "salary": "ماہانہ تنخواہ",
+        "joinedUnion": "یونین شمولیت کی تاریخ",
+        "subscription": "ماہانہ چندہ",
+        "membershipStatus": "ممبرشپ اسٹیٹس",
+        "duesStatus": "واجبات اسٹیٹس",
+        "statusReason": "اسٹیٹس نوٹ",
+        "eobi": "EOBI نمبر",
+        "socialSecurity": "سوشل سکیورٹی نمبر",
+        "pfStatus": "پراویڈنٹ فنڈ اسٹیٹس",
+        "gratuityStatus": "گریجویٹی اسٹیٹس",
+        "wwfEligible": "WWF اہل",
+        "digitalId": "ڈیجیٹل آئی ڈی جاری",
+        "nadraStatus": "NADRA اسٹیٹس",
+        "eobiStatus": "EOBI اسٹیٹس",
+        "photoAttached": "تصویر منسلک",
+        "signatureAttached": "دستخط منسلک",
+        "thumbAttached": "انگوٹھا منسلک",
+        "cnicCopyAttached": "CNIC کاپی منسلک",
+        "subscriptionConsent": "چندہ رضامندی درج",
+        "supportingNotes": "سپورٹنگ نوٹس",
+        "lifecycleType": "لائف سائیکل ایونٹ",
+        "lifecycleDate": "ایونٹ تاریخ",
+        "lifecycleNotes": "ایونٹ نوٹس",
+        "beneficiaryName": "مستحق کا نام",
+        "beneficiaryCnic": "مستحق CNIC",
+        "beneficiaryRelation": "مستحق رشتہ",
+        "beneficiaryPhone": "مستحق فون"
+      },
+      "options": {
+        "male": "مرد",
+        "female": "خاتون",
+        "other": "دیگر",
+        "permanent": "مستقل",
+        "temporary": "عارضی",
+        "contract": "کنٹریکٹ",
+        "dailyWage": "دیہاڑی"
+      },
+      "validation": {
+        "name": "ممبر کا پورا نام درج کریں۔",
+        "fatherName": "رجسٹری کے مطابق parentage درج کریں۔",
+        "cnic": "درست 13 ہندسوں والا CNIC درج کریں۔",
+        "phone": "درست پاکستانی موبائل نمبر درج کریں۔",
+        "email": "درست ای میل درج کریں۔",
+        "address": "مستقل پتہ درج کریں۔",
+        "currentAddress": "موجودہ پتہ درج کریں۔",
+        "district": "ضلع درج کریں۔",
+        "province": "صوبہ درج کریں۔",
+        "age": "ورکر کی عمر کم از کم 18 سال ہونی چاہیے۔",
+        "date": "YYYY-MM-DD فارمیٹ میں درست تاریخ درج کریں۔",
+        "establishment": "ادارہ یا پوسٹنگ جگہ درج کریں۔",
+        "employer": "آجر کا نام درج کریں۔",
+        "department": "شعبہ درج کریں۔",
+        "designation": "عہدہ درج کریں۔",
+        "salary": "درست تنخواہ درج کریں۔",
+        "subscription": "ماہانہ چندہ درج کریں۔",
+        "statusReason": "مختصر اسٹیٹس نوٹ درج کریں۔",
+        "lifecycleNotes": "محفوظ کرنے سے پہلے لائف سائیکل نوٹ درج کریں۔",
+        "beneficiaryName": "مستحق کا نام درج کریں۔",
+        "beneficiaryCnic": "درست مستحق CNIC درج کریں۔",
+        "beneficiaryRelation": "مستحق کا رشتہ درج کریں۔",
+        "beneficiaryPhone": "مستحق فون درج کریں۔",
+        "beneficiaryNeeded": "مرحوم ممبر کے لیے beneficiary فیلڈز لازمی ہیں۔",
+        "duplicateCnic": "یہ CNIC پہلے ہی رجسٹری میں موجود ہے۔",
+        "fixAll": "محفوظ کرنے سے پہلے ہائی لائٹ شدہ فیلڈز درست کریں۔",
+        "missingDesignation": "عہدہ درج نہیں ہے۔"
+      },
+      "lifecycle": {
+        "summaryTitle": "لائف سائیکل آپریشنز",
+        "summaryBody": "ترقی، تبادلہ، ریٹائرمنٹ، برطرفی اور مرحوم کیس beneficiary follow-up کے ساتھ درج کریں۔",
+        "recordTitle": "لائف سائیکل ایونٹ درج کریں",
+        "recordBody": "وہ آپریشنل ایونٹ درج کریں جو ممبر کی رجسٹری حالت بدلتا ہے۔",
+        "recordCta": "لائف سائیکل ایونٹ محفوظ کریں",
+        "types": {
+          "joined": "شامل ہوا",
+          "promoted": "ترقی",
+          "transferred": "منتقل",
+          "salary_change": "تنخواہ تبدیلی",
+          "converted": "کنورٹ",
+          "reinstated": "بحال",
+          "terminated": "برطرف",
+          "retired": "ریٹائرڈ",
+          "deceased": "مرحوم"
+        },
+        "joinedTitle": "ورکر رجسٹری میں شامل ہوا",
+        "joinedBody": "ابتدائی رجسٹری ایونٹ جب ورکر یونین ریکارڈ کا حصہ بنا۔",
+        "promotedTitle": "ترقی درج ہوئی",
+        "promotedBody": "عہدہ یا گریڈ worker profile میں اوپر گیا۔",
+        "transferredTitle": "تبادلہ درج ہوا",
+        "transferredBody": "پوسٹنگ جگہ یا شعبہ تبدیل ہوا اور رجسٹری اپڈیٹ کی گئی۔",
+        "salaryTitle": "تنخواہ تبدیلی درج ہوئی",
+        "salaryBody": "روسٹر اور فوائد ٹریکنگ کے لیے نئی تنخواہ درج کی گئی۔",
+        "convertedTitle": "ملازمت تبدیلی درج ہوئی",
+        "convertedBody": "ورکر نئی employment arrangement میں منتقل ہوا۔",
+        "reinstatedTitle": "ورکر بحال ہوا",
+        "reinstatedBody": "وقفے یا تنازع کے بعد ممبر دوبارہ فعال ہوا۔",
+        "terminatedTitle": "برطرفی درج ہوئی",
+        "terminatedBody": "ممبر terminated ہوا اور فعال readiness counts سے نکلا۔",
+        "retiredTitle": "ریٹائرمنٹ درج ہوئی",
+        "retiredBody": "ممبر ریٹائر ہوا اور فعال lifecycle counts سے نکلا۔",
+        "deceasedTitle": "مرحوم ریکارڈ شروع ہوا",
+        "deceasedBody": "ممبر کو مرحوم نشان زد کیا گیا اور beneficiary handling شروع ہوئی۔"
+      },
+      "import": {
+        "title": "بلک امپورٹ",
+        "subtitle": "روسٹر پجائزہ، dedupe اور import confirmation",
+        "pickFile": "روسٹر فائل منتخب کریں",
+        "flow": "فائل منتخب کریں، mapping اور duplicate warnings دیکھیں، پھر محفوظ rows کنفرم کریں۔",
+        "previewRows": "پجائزہ rows",
+        "issueTitle": "امپورٹ مسائل",
+        "confirm": "امپورٹ کنفرم کریں",
+        "completed": "امپورٹ جاب مکمل ہوئی اور ready rows رجسٹری میں شامل ہو گئیں۔",
+        "ready": "{{count}} تیار",
+        "duplicates": "{{count}} ڈپلیکیٹ",
+        "errors": "{{count}} غلطیاں",
+        "jobMeta": "{{date}} · {{imported}} امپورٹ از {{total}} rows",
+        "issueRow": "Row {{row}}:",
+        "status": {
+          "preview": "پجائزہ",
+          "completed": "مکمل",
+          "failed": "ناکام"
+        },
+        "rowStatus": {
+          "ready": "تیار",
+          "duplicate": "ڈپلیکیٹ",
+          "error": "غلطی"
+        },
+        "issues": {
+          "duplicate": "ممکنہ duplicate CNIC موجودہ رجسٹری میں پایا گیا۔",
+          "invalidCnic": "CNIC غلط فارمیٹ میں ہے۔",
+          "existingPending": "اسی worker کا زیر التوا registry record پہلے سے جائزہ میں ہے۔",
+          "missingDesignation": "Designation فیلڈ غائب ہے۔"
+        }
+      }
+    },
+    "formC": {
+      "complete": "Form C مکمل",
+      "draft": "Form C ڈرافٹ",
+      "missing_signature": "دستخط باقی"
+    },
+    "elections": {
+      "workspaceTitle": "انتخابات ورک اسپیس",
+      "workspaceSubtitle": "شیڈول، نامزدگیاں، نتائج اور اعتراضات",
+      "workspaceBody": "اس موبائل ورک اسپیس سے انتخابات کا شیڈول، نامزدگیاں، پولنگ اور نتائج کا انتظام کریں۔",
+      "detailSubtitle": "انتخابی ٹائم لائن، اختیار، اور نتائج کی صورتحال",
+      "emptyRegistry": "اس فلٹر کے مطابق کوئی انتخابی ریکارڈ نہیں ملا۔",
+      "emptyNominations": "ابھی جائزہ کے لیے کوئی نامزدگی موجود نہیں۔",
+      "emptyResults": "ابھی کوئی فعال نتیجہ موجود نہیں۔",
+      "emptyDisputes": "ابھی کوئی اعتراض یا تنازعہ موجود نہیں۔",
+      "searchPlaceholder": "انتخاب کا عنوان، حوالہ، افسر یا تاریخ سے تلاش کریں",
+      "tabs": {
+        "registry": "رجسٹری",
+        "nominations": "نامزدگیاں",
+        "results": "نتائج",
+        "disputes": "اعتراضات"
+      },
+      "metrics": {
+        "registry": "انتخابی فائلیں",
+        "review": "زیر جائزہ",
+        "pollingSoon": "پولنگ قریب",
+        "pendingResults": "نتائج باقی"
+      },
+      "hero": {
+        "daysRemaining": "پولنگ تک {{count}} دن",
+        "eligible": "{{count}} اہل ووٹر",
+        "review": "{{count}} نامزدگیاں زیر جائزہ"
+      },
+      "filters": {
+        "all": "سب"
+      },
+      "watchlist": {
+        "nominationOpen": "{{count}} نامزدگی ونڈوز کھلی ہیں",
+        "pollingSoon": "{{count}} پولنگ قریب",
+        "pendingResults": "{{count}} نتائج باقی ہیں"
+      },
+      "meta": "پولنگ {{poll}} • پریزائیڈنگ افسر {{officer}}",
+      "actions": {
+        "view": "تفصیل کھولیں",
+        "edit": "شیڈول تبدیل کریں",
+        "openNominations": "نامزدگیاں کھولیں",
+        "publishResults": "نتائج جاری کریں",
+        "approve": "منظور کریں",
+        "object": "اعتراض درج کریں",
+        "reject": "مسترد کریں",
+        "markSyncReady": "عہدیداران سنک کے لیے تیار",
+        "addSchedule": "انتخابی شیڈول شامل کریں",
+        "addNomination": "نامزدگی شامل کریں",
+        "openOfficeBearers": "عہدیداران کھولیں",
+        "openLegal": "قانونی ماڈیول کھولیں"
+      },
+      "fields": {
+        "reference": "انتخابی حوالہ",
+        "title": "انتخاب کا عنوان",
+        "announcementDate": "اعلان کی تاریخ",
+        "nominationStart": "نامزدگی شروع",
+        "nominationEnd": "نامزدگی ختم",
+        "objectionEnd": "اعتراض ختم",
+        "finalListDate": "حتمی فہرست کی تاریخ",
+        "pollingDate": "پولنگ کی تاریخ",
+        "pollingTime": "پولنگ کا وقت",
+        "presidingOfficer": "پریزائیڈنگ افسر",
+        "presidingOfficerCnic": "پریزائیڈنگ افسر CNIC",
+        "eligibleCount": "اہل ووٹر تعداد",
+        "rollNote": "ووٹر لسٹ نوٹ",
+        "notes": "انتظامی نوٹ",
+        "position": "عہدہ",
+        "candidateName": "امیدوار کا نام",
+        "candidateCnic": "امیدوار CNIC",
+        "membershipNumber": "ممبرشپ نمبر",
+        "joinDate": "یونین شمولیت کی تاریخ",
+        "address": "پتہ",
+        "proposer": "تجویز کنندہ کا نام",
+        "proposerCnic": "تجویز کنندہ CNIC",
+        "seconder": "تائید کنندہ کا نام",
+        "seconderCnic": "تائید کنندہ CNIC"
+      },
+      "form": {
+        "addTitle": "انتخابی شیڈول شامل کریں",
+        "editTitle": "انتخابی شیڈول تبدیل کریں",
+        "subtitle": "ٹائم لائن، اختیار اور ووٹر لسٹ پوزیشن",
+        "timeline": "ٹائم لائن",
+        "authority": "اختیار",
+        "voterRoll": "ووٹر لسٹ"
+      },
+      "nominationForm": {
+        "title": "نامزدگی داخل کریں",
+        "photoAttached": "تصویر منسلک",
+        "legalNote": "تجویز کنندہ اور تائید کنندہ کا ووٹر لسٹ میں ہونا ضروری ہے۔"
+      },
+      "sections": {
+        "timeline": "شیڈول ٹائم لائن",
+        "authority": "اختیار اور ووٹر لسٹ",
+        "actions": "کارروائیاں"
+      },
+      "status": {
+        "announced": "اعلان شدہ",
+        "nomination_open": "نامزدگیاں کھلی ہیں",
+        "nomination_closed": "نامزدگیاں بند ہیں",
+        "objection_period": "اعتراض کا وقت",
+        "candidates_final": "امیدواران حتمی",
+        "polling": "پولنگ",
+        "results_announced": "نتائج جاری",
+        "completed": "مکمل",
+        "cancelled": "منسوخ"
+      },
+      "candidateStatus": {
+        "submitted": "جمع",
+        "under_objection": "اعتراض میں",
+        "approved": "منظور",
+        "rejected": "مسترد",
+        "withdrawn": "واپس لی گئی"
+      },
+      "nominationMeta": "تجویز کنندہ {{proposer}}، تائید کنندہ {{seconder}}",
+      "result": {
+        "published": "جاری شدہ",
+        "pending": "جاری کرنا باقی",
+        "meta": "{{votes}} ووٹ کاسٹ • {{turnout}}% ٹرن آؤٹ • {{date}}",
+        "winner": "{{position}}: {{name}}",
+        "syncReady": "عہدیداران سنک تیار",
+        "syncPending": "عہدیداران سنک باقی",
+        "workerVoting": "ورکر ووٹنگ منسلک"
+      },
+      "disputeStatus": {
+        "open": "کھلا",
+        "resolved": "حل شدہ"
+      },
+      "disputeStage": {
+        "objection": "اعتراض کیٹیگری",
+        "final_list": "حتمی فہرست کیٹیگری",
+        "result": "نتائج کیٹیگری"
+      },
+      "validation": {
+        "cnic": "درست 13 ہندسوں والا CNIC درج کریں۔",
+        "date": "YYYY-MM-DD کی درست تاریخ درج کریں۔",
+        "time": "پولنگ کا وقت درج کریں۔",
+        "reference": "انتخابی حوالہ درج کریں۔",
+        "title": "انتخاب کا عنوان درج کریں۔",
+        "presidingOfficer": "پریزائیڈنگ افسر کا نام درج کریں۔",
+        "eligibleCount": "اہل ووٹر تعداد کم از کم 1 ہونی چاہیے۔",
+        "rollNote": "ووٹر لسٹ نوٹ درج کریں۔",
+        "notes": "مختصر انتظامی نوٹ درج کریں۔",
+        "position": "عہدہ درج کریں۔",
+        "candidateName": "امیدوار کا نام درج کریں۔",
+        "membershipNumber": "ممبرشپ نمبر درج کریں۔",
+        "address": "امیدوار کا پتہ درج کریں۔",
+        "proposer": "تجویز کنندہ کا نام درج کریں۔",
+        "seconder": "تائید کنندہ کا نام درج کریں۔",
+        "scheduleOrder": "شیڈول کی تاریخیں درست ترتیب میں ہونی چاہئیں۔"
+      }
+    },
+    "office": {
+      "workspaceTitle": "عہدیدار ورک اسپیس",
+      "workspaceSubtitle": "ایگزیکٹو باڈی رجسٹری، جائزہ اور ہسٹری",
+      "workspaceBody": "اسی موبائل ورک اسپیس سے ایگزیکٹو باڈی چلائیں: Schedule 1 پوسچر دیکھیں، outsider ratio چیک کریں، مدت ختم ہونے والی نشستیں دیکھیں، اور استعفیٰ، replacement، اور reinstatement درج کریں۔",
+      "snapshot": "مجلس عاملہ خلاصہ",
+      "empty": "ابھی کوئی عہدیدار درج نہیں۔",
+      "total": "{{count}} عہدیدار",
+      "outsiderPercent": "{{percent}}٪ بیرونی",
+      "expiringSoon": "{{count}} مدت قریب ختم",
+      "termExpiry": "مدت ختم {{date}}",
+      "term": "مدت {{start}} سے {{expiry}}",
+      "workerBearer": "ورکر عہدیدار",
+      "womenSeat": "خواتین نمائندگی",
+      "searchPlaceholder": "نام، CNIC، عہدہ یا رابطہ سے تلاش کریں",
+      "detailSubtitle": "شناخت، مدت پوسچر، اور گورننس ہسٹری",
+      "tabs": {
+        "registry": "رجسٹری",
+        "review": "جائزہ",
+        "history": "ہسٹری"
+      },
+      "metrics": {
+        "active": "فعال باڈی",
+        "women": "خواتین نشستیں",
+        "expiring": "مدت ختم قریب",
+        "outsider": "بیرونی تناسب"
+      },
+      "meta": "مدت {{term}} · رابطہ {{contact}}",
+      "daysLeft": "مدت ختم ہونے تک {{count}} دن",
+      "vacancyList": "خالی نشستیں",
+      "sections": {
+        "identity": "شناخت اور رابطہ",
+        "term": "مدت اور گورننس پوسچر",
+        "actions": "ایکشنز"
+      },
+      "actions": {
+        "view": "پروفائل کھولیں",
+        "edit": "ریکارڈ ترمیم",
+        "history": "ہسٹری دیکھیں",
+        "resign": "استعفیٰ درج کریں",
+        "replace": "replacement درج کریں",
+        "reinstate": "عدالتی بحالی",
+        "openGovernance": "گورننس ماڈیول کھولیں"
+      },
+      "status": {
+        "active": "فعال",
+        "resigned": "مستعفی",
+        "replaced": "تبدیل",
+        "reinstated": "بحال"
+      },
+      "form": {
+        "addTitle": "عہدیدار شامل کریں",
+        "editTitle": "عہدیدار ترمیم",
+        "sections": {
+          "identity": "شناخت",
+          "position": "عہدہ اور مدت",
+          "governance": "گورننس پوسچر"
+        }
+      },
+      "fields": {
+        "name": "نام",
+        "cnic": "CNIC",
+        "contact": "رابطہ نمبر",
+        "email": "ای میل",
+        "region": "علاقہ",
+        "position": "عہدہ",
+        "appointmentDate": "تاریخ تقرری",
+        "termStart": "مدت آغاز",
+        "termExpiry": "مدت اختتام",
+        "gender": "جنس",
+        "status": "اسٹیٹس",
+        "outsider": "بیرونی حیثیت",
+        "notes": "گورننس نوٹس"
+      },
+      "gender": {
+        "male": "مرد",
+        "female": "خاتون",
+        "other": "دیگر"
+      },
+      "outsiderInternal": "اندرونی عہدیدار",
+      "outsiderExternal": "بیرونی نشست",
+      "history": {
+        "appointed": "تقرر",
+        "resigned": "استعفیٰ",
+        "replaced": "تبدیل",
+        "reinstated": "بحال",
+        "court_order": "عدالتی حکم"
+      },
+      "historyNotes": {
+        "resigned": "گورننس رجسٹری میں نشست کو مستعفی درج کیا گیا۔",
+        "replaced": "اس نشست کے لیے replacement درج کی گئی۔",
+        "reinstated": "عدالتی بحالی رجسٹری میں درج کی گئی۔"
+      },
+      "guardrails": {
+        "outsiderTitle": "بیرونی تناسب",
+        "outsiderBody": "بیرونی حد 25٪ ہے۔ 20٪ پر warning اور حد سے اوپر update block ہونی چاہیے۔",
+        "womenTitle": "خواتین نمائندگی",
+        "womenBody": "گورننس filings اور انتخابات preparation سے پہلے خواتین نشستیں واضح دکھائیں۔",
+        "expiryTitle": "مدت ختم ہونے کی نگرانی",
+        "expiryBody": "180 دن کے اندر ختم ہونے والی نشستیں notices اور filings سے پہلے جائزہ ہونی چاہئیں۔",
+        "vacancyTitle": "خالی نشست نگرانی",
+        "vacancyBody": "آفیشل ایگزیکٹو باڈی کی خالی نشستیں sign-off سے پہلے واضح ہونی چاہئیں۔"
+      },
+      "validation": {
+        "name": "عہدیدار کا نام درج کریں۔",
+        "cnic": "درست 13 ہندسوں والا CNIC درج کریں۔",
+        "phone": "درست پاکستانی موبائل نمبر درج کریں۔",
+        "email": "درست ای میل درج کریں۔",
+        "region": "علاقہ درج کریں۔",
+        "date": "YYYY-MM-DD فارمیٹ میں درست تاریخ درج کریں۔",
+        "notes": "مختصر گورننس نوٹ درج کریں۔",
+        "termOrder": "مدت اختتام، مدت آغاز کے بعد ہونی چاہیے۔",
+        "outsiderBlock": "یہ update 25٪ outsider حد سے تجاوز کرے گی۔"
+      },
+      "actor": {
+        "unionAdmin": "یونین ایڈمن"
+      }
+    },
+    "officeStatus": {
+      "active": "فعال",
+      "resigned": "مستعفی",
+      "replaced": "تبدیل",
+      "reinstated": "بحال"
+    },
+    "designations": {
+      "president": "صدر",
+      "generalSecretary": "جنرل سیکرٹری",
+      "financeSecretary": "مالیات سیکرٹری",
+      "legalSecretary": "سیکرٹری قانونی امور",
+      "secretaryWomen": "سیکرٹری خواتین",
+      "officeBearer": "عہدیدار"
+    },
+    "roles": {
+      "president": "صدر",
+      "generalSecretary": "جنرل سیکرٹری",
+      "financeSecretary": "مالیات سیکرٹری"
+    },
+    "compliance": {
+      "snapshot": "قانونی تقاضے خلاصہ",
+      "openObligations": "{{count}} کھلی ذمہ داریاں",
+      "obligationsTitle": "قانونی ذمہ داریاں",
+      "due": "آخری تاریخ {{date}}",
+      "obligations": {
+        "annualReturn": "سالانہ گوشوارہ جمع کرانا",
+        "officeBearers": "عہدیدار مدت ریکارڈ",
+        "memberRecords": "ممبر Form C رجسٹر",
+        "cba": "سی بی اے certificate renewal"
+      }
+    },
+    "documents": {
+      "registry": "دستاویز رجسٹری",
+      "empty": "کوئی compliance document نہیں ملا۔",
+      "needsEvidence": "ثبوت چاہیے",
+      "total": "{{count}} دستاویزات",
+      "evidenceCount": "{{count}} ثبوت آئٹمز",
+      "expiry": "ختم {{date}}",
+      "uploadMock": "اپ لوڈ اور ڈاؤن لوڈ actions اس frontend phase میں placeholders ہیں۔",
+      "formASchedule1": "Form A Schedule 1",
+      "formCRegister": "Form C ممبر رجسٹر",
+      "annualReturn": "سالانہ گوشوارہ 2025-2026",
+      "cbaCertificate": "سی بی اے certificate and order",
+      "resolution": "یونین قرارداد"
+    },
+    "sources": {
+      "dashboard": "Sources: PRD/SRS Union Admin ڈیش بورڈ، سالانہ گوشوارہ، سی بی اے certificate، Election Schedule اور compliance دستاویزات۔",
+      "formC": "Source: Form C اور Members List۔ CNIC display views میں masked ہے۔",
+      "formASchedule1": "Source: Form A Schedule 1۔ Outsider عہدیداران کو 25٪ حد کے اندر رہنا چاہیے۔",
+      "annualReturn": "Source: سالانہ گوشوارہ / Saalana Goshwara Form L۔",
+      "cbaOrder": "Source: سی بی اے Certificate & Order dated 23.04.2024۔",
+      "resolution": "Source: Resolution اور Khalfiya Biyan packet۔",
+      "documents": "Sources: official PUWF legal forms، governance دستاویزات، affiliation packet اور DMS requirements۔"
+    }
+  },
+  "unionOps": {
+    "sources": {
+      "finance": "ماخذ: FIN-001 واجبات، employer remittance اور سالانہ گوشوارہ finance prefill۔",
+      "election": "ماخذ: Election Schedule-1 اور NGC نامزدگی Form۔",
+      "grievanceLegal": "ماخذ: شکایت SLA، legal case management اور hearing logs۔",
+      "approval": "ماخذ: سالانہ گوشوارہ GS/FS approval ورک فلو۔"
+    },
+    "status": {
+      "remittance": {
+        "received": "موصول",
+        "pending": "زیر التوا",
+        "late": "تاخیر",
+        "missing": "غائب"
+      },
+      "annual": {
+        "draft": "ڈرافٹ",
+        "gs_review": "GS جائزہ",
+        "fs_review": "FS جائزہ",
+        "ready": "تیار",
+        "submitted": "جمع",
+        "returned": "واپس"
+      },
+      "nomination": {
+        "draft": "ڈرافٹ",
+        "submitted": "جمع",
+        "scrutiny": "جائزہ",
+        "accepted": "منظور",
+        "rejected": "مسترد"
+      },
+      "cba": {
+        "active": "فعال",
+        "expiring": "قریب ختم",
+        "expired": "ختم",
+        "pending": "زیر التوا"
+      },
+      "cod": {
+        "draft": "ڈرافٹ",
+        "submitted": "جمع",
+        "management_response": "انتظامیہ جواب",
+        "negotiation": "مذاکرات",
+        "conciliation": "مصالحت",
+        "settlement": "تصفیہ"
+      },
+      "priority": {
+        "normal": "عام",
+        "urgent": "فوری",
+        "critical": "انتہائی فوری"
+      },
+      "legal": {
+        "filed": "فائل",
+        "hearing_scheduled": "سماعت مقرر",
+        "adjourned": "ملتوی",
+        "order_issued": "حکم جاری",
+        "closed": "بند"
+      }
+    },
+    "finance": {
+      "subtitle": "واجبات، remittances، receipts اور annual return prefill",
+      "overdueMembers": "باقی ممبرز",
+      "prefill": "Return prefill",
+      "snapshot": "Finance control خلاصہ",
+      "welfare": "Welfare claims",
+      "recordMock": "واجبات درج کریں",
+      "recorded": "receipt {{ref}}",
+      "lateRule": "15 دن سے زیادہ remittance late ہے",
+      "bulkMock": "Bulk payroll deduction placeholder",
+      "remitMeta": "{{count}} workers، Rs. {{amount}}",
+      "bankRef": "Bank reference: {{ref}}",
+      "ledgerMeta": "{{period}}، Rs. {{amount}}، {{receipt}}"
+    },
+    "annual": {
+      "subtitle": "Form L/J statutory annual return wizard",
+      "memberMovement": "ممبر movement",
+      "closingBalance": "Closing balance",
+      "reviewState": "جائزہ اور submission state",
+      "income": "Income Rs. {{amount}}",
+      "expense": "Expense Rs. {{amount}}",
+      "gsReview": "جنرل سیکرٹری جائزہ",
+      "fsReview": "Finance Secretary جائزہ",
+      "approveMock": "return approve کریں",
+      "approved": "approval {{ref}}",
+      "completePct": "{{percent}}٪ مکمل",
+      "steps": {
+        "identity": "Union identity",
+        "membership": "Membership movement",
+        "income": "Income اور واجبات",
+        "expenses": "Expenses",
+        "balance": "Balance sheet",
+        "documents": "Documents اور ثبوت",
+        "gsReview": "GS جائزہ",
+        "fsReview": "FS جائزہ"
+      }
+    },
+    "elections": {
+      "subtitle": "Schedule، نامزدگیs، voter readiness اور results",
+      "title2026": "Office Bearer Election 2026",
+      "voters": "Voters",
+      "eligible": "Eligible",
+      "turnout": "{{percent}}٪ turnout",
+      "nominationDeadline": "نامزدگی",
+      "objectionDeadline": "Objection",
+      "withdrawalDeadline": "Withdrawal",
+      "pollingDate": "پولنگ",
+      "submitMock": "نامزدگی جمع کریں",
+      "nominationSubmitted": "نامزدگی {{ref}}",
+      "nominations": "نامزدگیs",
+      "nominationMeta": "Nominator {{nominator}}، seconder {{seconder}}",
+      "manifesto": {
+        "service": "Field service counters اور شکایت response پر توجہ۔",
+        "finance": "شفاف receipts اور welfare fund records پر توجہ۔",
+        "legal": "Legal ثبوت، hearings اور worker representation پر توجہ۔"
+      }
+    },
+    "cba": {
+      "certificate": "سی بی اے certificate status",
+      "certificateNo": "Certificate no.",
+      "issuer": "Issuer",
+      "orderDate": "Order date",
+      "effective": "Effective {{date}}",
+      "advanceMock": "چارٹر آف ڈیمانڈ stage آگے بڑھائیں",
+      "stageAdvanced": "چارٹر آف ڈیمانڈ update {{ref}}",
+      "demandsTitle": "Charter of Demand items",
+      "timelineTitle": "Negotiation timeline",
+      "categories": {
+        "wages": "اجرت",
+        "allowances": "Allowances",
+        "benefits": "Benefits",
+        "working_conditions": "Working conditions"
+      },
+      "demands": {
+        "wages": {
+          "title": "Wage revision demand",
+          "justification": "Demand inflation، overtime اور wage parity ثبوت سے linked ہے۔"
+        },
+        "allowance": {
+          "title": "Risk and field allowance",
+          "justification": "Field operations، safety risk اور night duty کے لیے allowance چاہیے۔"
+        },
+        "safety": {
+          "title": "Safety equipment and duty conditions",
+          "justification": "Demand PPE، rest areas اور safe equipment standards کو cover کرتی ہے۔"
+        }
+      },
+      "timeline": {
+        "draftTitle": "چارٹر آف ڈیمانڈ draft تیار",
+        "draftBody": "Union office نے demand categories اور ثبوت packet تیار کیا۔",
+        "submittedTitle": "Management کو جمع",
+        "submittedBody": "Charter management response کے لیے جمع کیا گیا۔",
+        "responseTitle": "Management response due",
+        "responseBody": "Response satisfactory نہ ہو تو conciliation packet تیار کریں۔"
+      }
+    },
+    "legal": {
+      "legalCases": "Legal cases",
+      "queue": "شکایت triage queue",
+      "urgentCount": "{{count}} فوری",
+      "maskedNote": "Worker identifiers masked",
+      "updateMock": "شکایت update کریں",
+      "updated": "update {{ref}}",
+      "caseList": "Legal case list",
+      "logHearingMock": "hearing log کریں",
+      "hearingLogged": "hearing {{ref}}",
+      "hearingsTitle": "Hearing timeline",
+      "sla": "SLA {{date}}",
+      "handler": "Handler: {{handler}}",
+      "caseMeta": "{{forum}}، next {{hearing}}",
+      "hearings": {
+        "agendaEvidence": "ثبوت packet اور employer response جائزہ۔",
+        "agendaNotice": "Notice، parties اور first appearance preparation۔",
+        "outcomeAdjourned": "ملتوی"
+      }
+    },
+    "validation": {
+      "period": "YYYY-MM period استعمال کریں۔",
+      "amount": "درست amount درج کریں۔",
+      "workerCount": "Worker count درج کریں۔",
+      "date": "درست date درج کریں۔",
+      "time": "Time درج کریں۔",
+      "reference": "Reference درج کریں۔",
+      "balanceEquation": "Income لازمی expenditure plus closing balance کے برابر ہو۔",
+      "candidate": "Candidate name درج کریں۔",
+      "position": "Position درج کریں۔",
+      "nominator": "Nominator درج کریں۔",
+      "seconder": "Seconder درج کریں۔",
+      "demandTitle": "Demand title درج کریں۔",
+      "justification": "Justification درج کریں۔",
+      "note": "Update note درج کریں۔",
+      "forum": "Forum درج کریں۔",
+      "parties": "Parties درج کریں۔",
+      "agenda": "Agenda درج کریں۔"
+    }
+  },
+  "workerPortal": {
+    "identity": {
+      "cnic": "CNIC",
+      "id": "آئی ڈی"
+    },
+    "dashboard": {
+      "duesNow": "واجبات",
+      "caseNow": "کیس",
+      "voteNow": "ووٹ",
+      "nextActions": "اگلے اہم کام",
+      "idAction": "ماسک شدہ آئی ڈی اور QR دیکھیں",
+      "grievanceAction": "شکایت درج یا ٹریک کریں",
+      "rightsAction": "آسان زبان میں حقوق پڑھیں",
+      "unionAction": "یونین قیادت اور سی بی اے دیکھیں",
+      "noticeAction": "راستے کے مطابق اطلاعات پڑھیں",
+      "moreAction": "ووٹ، حقوق، یونین پروفائل اور اطلاعات کھولیں",
+      "sla": "شکایت SLA",
+      "slaTwoDays": "2 دن باقی"
+    },
+    "more": {
+      "subtitle": "ورکر سروسز",
+      "modules": "مزید ورکر ماڈیولز",
+      "vote": "انتخابات availability، candidates، OTP اور ballot confirmation۔",
+      "rights": "اردو اور English میں آسان حقوق library۔",
+      "union": "یونین پروفائل، عہدیداران، سی بی اے status اور documents۔",
+      "notifications": "واجبات، شکایات، انتخابات اور حقوق کی grouped notices۔"
+    },
+    "digitalId": {
+      "title": "PUWF ڈیجیٹل ورکر آئی ڈی",
+      "issued": "جاری",
+      "offlineReady": "آف لائن پیش منظر دستیاب",
+      "actions": "actions",
+      "downloadMock": "ڈاؤن لوڈ",
+      "shareMock": "شیئر"
+    },
+    "dues": {
+      "empty": "ابھی واجبات لیجر موجود نہیں۔",
+      "summary": "واجبات خلاصہ",
+      "ledger": "ماہانہ لیجر",
+      "outstanding": "باقی",
+      "paidMonths": "ادا شدہ ماہ",
+      "latestReceipt": "آخری رسید",
+      "receipt": "رسید",
+      "noReceipt": "رسید زیر التوا",
+      "amount": "Rs. {{amount}}",
+      "employerDeduction": "آجر کٹوتی collected دکھائی گئی ہے مگر remittance کی تصدیق ابھی باقی ہے۔",
+      "periods": {
+        "april2026": "اپریل 2026",
+        "may2026": "مئی 2026",
+        "march2026": "مارچ 2026"
+      }
+    },
+    "grievance": {
+      "chooseCategory": "بنیادی مسئلہ منتخب کریں",
+      "submitting": "کیس بن رہا ہے...",
+      "submitted": "شکایت بن گئی: {{ref}}",
+      "empty": "ابھی کوئی شکایت کیس نہیں۔",
+      "activeCases": "فعال کیسز",
+      "timelineTitle": "کیس ٹائم لائن",
+      "sla": "SLA آخری تاریخ: {{date}}",
+      "timeline": {
+        "submittedTitle": "شکایت موصول",
+        "submittedBody": "ورکر شکایت intake میں ریکارڈ ہوئی۔",
+        "triageTitle": "یونین جائزہ",
+        "triageBody": "یونین آفس category اور urgency دیکھ رہی ہے۔",
+        "investigatingTitle": "تحقیقات شروع",
+        "investigatingBody": "assigned handler آجر اور ورکر تفصیل جمع کر رہا ہے۔"
+      }
+    },
+    "voting": {
+      "empty": "ابھی کوئی فعال انتخابات دستیاب نہیں۔",
+      "electionTitle": "یونین عہدیداران انتخابات 2026",
+      "eligible": "اہل ووٹر",
+      "notEligible": "اہل نہیں",
+      "candidates": "امیدوار",
+      "otpTitle": "OTP تصدیق",
+      "otpPlaceholder": "OTP درج کریں",
+      "confirming": "تصدیق ہو رہی ہے...",
+      "confirmed": "ballot confirmation: {{ref}}",
+      "validation": {
+        "otp": "4 سے 6 ہندسوں کا OTP درج کریں۔",
+        "candidate": "پہلے امیدوار منتخب کریں۔"
+      },
+      "manifesto": {
+        "service": "شکایت response، field visits، اور worker service counters پر توجہ۔",
+        "finance": "شفاف واجبات receipts اور welfare fund records پر توجہ۔"
+      }
+    },
+    "rights": {
+      "empty": "اس تلاش سے کوئی حقوق موضوع نہیں ملا۔",
+      "categories": {
+        "all": "سب",
+        "wages": "اجرت",
+        "safety": "حفاظت",
+        "union_rights": "یونین حقوق",
+        "benefits": "EOBI/سوشل سکیورٹی",
+        "termination": "برطرفی",
+        "cba_cod": "سی بی اے/چارٹر آف ڈیمانڈ",
+        "grievance": "شکایت"
+      },
+      "actions": {
+        "openGrievance": "شکایت مدد کھولیں",
+        "viewUnion": "میری یونین دیکھیں"
+      },
+      "topics": {
+        "unionRights": {
+          "title": "یونین ممبرشپ حقوق",
+          "body": "ورکر ٹریڈ یونین میں شامل ہو سکتا ہے، collective bargaining میں حصہ لے سکتا ہے، اور عہدیداران سے رابطہ کر سکتا ہے۔"
+        },
+        "eobi": {
+          "title": "EOBI اور سوشل سکیورٹی",
+          "body": "اہل ورکرز کو old-age benefits اور social security protection میں enroll ہونا چاہیے۔"
+        },
+        "wages": {
+          "title": "اجرت اور اوور ٹائم",
+          "body": "غیر ادا شدہ اجرت، overtime، illegal deductions، یا delayed remittance رپورٹ کی جا سکتی ہے۔"
+        },
+        "safety": {
+          "title": "کام کی جگہ حفاظت",
+          "body": "غیر محفوظ کام، protective equipment کی کمی، یا خطرناک ڈیوٹی یونین کو بتائی جا سکتی ہے۔"
+        },
+        "termination": {
+          "title": "برطرفی یا دباؤ",
+          "body": "اگر برطرفی، دھمکی، یا forced resignation ہو تو تاریخ اور آجر تفصیل کے ساتھ مسئلہ فوراً record کریں۔"
+        },
+        "cba": {
+          "title": "سی بی اے اور چارٹر آف ڈیمانڈ",
+          "body": "سی بی اے یونین workers کی bargaining نمائندگی کرتی ہے اور demands official negotiation stages سے اٹھاتی ہے۔"
+        }
+      }
+    },
+    "union": {
+      "callOffice": "یونین دفتر کال کریں",
+      "documentsTitle": "یونین دستاویزات",
+      "documents": {
+        "cba": "سی بی اے سرٹیفکیٹ",
+        "constitution": "یونین آئین",
+        "notice": "ورکر نوٹس"
+      }
+    },
+    "notifications": {
+      "empty": "ابھی کوئی اطلاع نہیں۔",
+      "read": "پڑھا ہوا",
+      "unread": "نیا",
+      "categories": {
+        "grievance": "شکایت",
+        "dues": "واجبات",
+        "election": "انتخابات",
+        "rights": "حقوق",
+        "union": "یونین"
+      },
+      "cbaTitle": "سی بی اے renewal reminder",
+      "cbaBody": "آپ کی یونین سی بی اے certificate کے renewal checkpoint کے قریب ہے۔",
+      "duesTitle": "واجبات receipt updated",
+      "duesBody": "April واجبات receipt pجائزہ میں دستیاب ہے۔",
+      "grievanceTitle": "شکایت status updated",
+      "grievanceBody": "آپ کا کیس timeline میں investigation پر منتقل ہوا۔"
+    }
+  }
+}

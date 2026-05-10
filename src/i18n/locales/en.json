@@ -1,0 +1,1550 @@
+{
+  "app": {
+    "name": "PUWF Mobile",
+    "subtitle": "Worker and union operations"
+  },
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "notSure": "Not sure",
+    "back": "Back",
+    "next": "Next",
+    "finish": "Finish",
+    "save": "Save",
+    "remove": "Remove",
+    "cancel": "Cancel",
+    "continue": "Continue",
+    "pending": "Pending",
+    "available": "Available",
+    "none": "None",
+    "complete": "Complete",
+    "switchLanguage": "Switch language"
+  },
+  "stats": {
+    "workers": "workers",
+    "unions": "unions",
+    "regions": "regions"
+  },
+  "role": {
+    "menuLabel": "Main menu",
+    "heading": "Which portal do you want to use?",
+    "body": "Choose your role so the app can show the right dashboard and legal workflow.",
+    "trustLabel": "PUWF verified mobile access",
+    "fastAccess": "Fast access",
+    "recommendedTitle": "Workers should usually start with the Worker portal",
+    "recommendedBody": "It opens digital ID, dues, grievances, voting, rights guidance, and union contact from one place.",
+    "chooseTitle": "Choose your entry point",
+    "chooseBody": "Each menu opens a different workflow. Pick the path that matches your current role, not just the information you want to read.",
+    "workerTitle": "Are you a factory worker?",
+    "workerSubtitle": "ID, dues, grievances, voting, rights.",
+    "workerBadge": "Are you a worker?",
+    "workerMeta": "Starts with a short Form C-aligned intake so the app can guide you safely.",
+    "workerEntry": "Are you a worker?",
+    "workerMetric": "ID + Dues + Help",
+    "workerMetricLabel": "Start here",
+    "unionTitle": "Are you a union office bearer?",
+    "unionSubtitle": "Members, returns, finance, legal cases.",
+    "unionBadge": "Are you a Union Member?",
+    "unionMeta": "For General Secretary, Finance Secretary, and authorized union office staff.",
+    "unionEntry": "Are you a Union Member?",
+    "unionMetric": "625+",
+    "unionMetricLabel": "union operations",
+    "helpTitle": "Do you need help or information?",
+    "helpSubtitle": "Rights and guidance without sign-in.",
+    "helpBadge": "I need guidance",
+    "helpMeta": "Open rights guidance without creating a worker profile.",
+    "helpEntry": "I need guidance",
+    "helpMetric": "Rights",
+    "helpMetricLabel": "No login",
+    "workerHighlights": {
+      "id": "Digital ID",
+      "dues": "Dues status",
+      "grievance": "Grievance help"
+    },
+    "unionHighlights": {
+      "members": "Member registry",
+      "returns": "Annual Return",
+      "elections": "Elections"
+    },
+    "helpHighlights": {
+      "rights": "Worker rights",
+      "union": "Union information",
+      "guides": "Practical guidance"
+    },
+    "guidanceTitle": "What this menu opens",
+    "guidanceBody": "This app is built for workers who need quick mobile access and union office bearers who need dense operational tools without desktop screens.",
+    "guidanceWorker": "Worker path",
+    "guidanceWorkerValue": "ID + Dues + Rights",
+    "guidanceUnion": "Union path",
+    "guidanceUnionValue": "Members + Returns + Legal",
+    "coBrand": "Built with Fruit of Sustainability for PUWF",
+    "heroTitle": "Pakistan's unified digital platform for",
+    "heroSubtitle": "workers, unions & labour rights",
+    "helpline": "PUWF Helpline: 0333-4333387"
+  },
+  "auth": {
+    "unionLogin": "Union Login",
+    "welcome": "Union Admin Portal",
+    "email": "Email",
+    "emailPlaceholder": "union@puwf.org.pk",
+    "password": "Password",
+    "passwordPlaceholder": "password",
+    "signIn": "Sign in",
+    "demoHint": ""
+  },
+  "onboarding": {
+    "eyebrow": "Worker intake",
+    "flowTitle": "Short survey for your worker profile",
+    "privacyNote": "",
+    "sources": {
+      "prd": "Source: PUWF Worker Mobile scope",
+      "formC": "Source: Form C membership fields",
+      "membersList": "Source: Members List worker register",
+      "operational": "Source: PUWF operational data",
+      "grievance": "Source: grievance intake workflow",
+      "localization": "Source: Urdu/English language policy"
+    },
+    "routeHints": {
+      "standard": "After the survey, we will open the safest next screen for your profile status.",
+      "grievance": "Because you selected urgent help, the app will open grievance filing after this survey."
+    },
+    "questions": {
+      "workerStatus": {
+        "title": "What kind of worker are you?",
+        "description": "This helps us decide whether the Worker portal or guidance library is the right first step."
+      },
+      "unionMembership": {
+        "title": "Are you already a union member?",
+        "description": "Membership status affects digital ID, dues, voting, and grievance follow-up."
+      },
+      "fullName": {
+        "title": "What is your full name?",
+        "description": "Use the name you use in union or employer records."
+      },
+      "fatherName": {
+        "title": "What is your father name?",
+        "description": "This supports Form C-style identity matching."
+      },
+      "cnic": {
+        "title": "What is your CNIC number?",
+        "description": "CNIC is used for worker identity matching and will be masked in display screens."
+      },
+      "mobile": {
+        "title": "What is your mobile number?",
+        "description": "This will later support OTP, notices, and grievance updates."
+      },
+      "employer": {
+        "title": "Who is your employer?",
+        "description": "Enter the employer, company, or department that pays or supervises your work."
+      },
+      "establishment": {
+        "title": "Where do you work?",
+        "description": "Enter the factory, office, plant, site, or establishment name."
+      },
+      "designation": {
+        "title": "What is your designation?",
+        "description": "Examples include cleaner, machine operator, driver, clerk, guard, or technician."
+      },
+      "department": {
+        "title": "Which department or posting place?",
+        "description": "This helps your union identify the right unit or workplace location."
+      },
+      "district": {
+        "title": "Which district do you work in?",
+        "description": "District helps connect your case to the correct union or region."
+      },
+      "city": {
+        "title": "Which city or area?",
+        "description": "Add the city, town, or local area where you usually work."
+      },
+      "province": {
+        "title": "Which province?",
+        "description": "Province helps route future legal and union workflows correctly."
+      },
+      "urgency": {
+        "title": "Do you need urgent grievance help?",
+        "description": "Choose urgent if there is termination, non-payment, harassment, safety danger, or immediate pressure."
+      },
+      "language": {
+        "title": "Which language should the app use?",
+        "description": "You can change this later from the language button."
+      }
+    },
+    "answers": {
+      "factoryWorker": "Factory or establishment worker",
+      "otherWorker": "Other kind of worker",
+      "activeMember": "Yes, I am a union member",
+      "notMember": "No, I am not a member",
+      "urgent": "Yes, I need urgent help",
+      "notUrgent": "No urgent complaint right now",
+      "urdu": "Urdu",
+      "english": "English"
+    },
+    "answerDescriptions": {
+      "factoryWorker": "I work in a factory, plant, company, department, or establishment.",
+      "otherWorker": "I work, but I am not sure this portal matches my workplace.",
+      "notSureWorker": "I need guidance before choosing the right portal.",
+      "activeMember": "I am already connected with a union or worker body.",
+      "notMember": "Show me rights and guidance first.",
+      "notSureMember": "I am not sure if my name is in the member register.",
+      "urgent": "Open grievance filing after this short survey.",
+      "notUrgent": "Take me to my worker dashboard or guidance after setup.",
+      "notSureUrgency": "Help me understand my rights first.",
+      "urdu": "Use Urdu as the main language.",
+      "english": "Use full English mode."
+    },
+    "placeholders": {
+      "fullName": "Example: Muhammad Akram",
+      "fatherName": "Example: Muhammad Bashir",
+      "cnic": "00000-0000000-0",
+      "mobile": "03XX-XXXXXXX",
+      "employer": "Example: LWMC",
+      "establishment": "Example: Workshop, factory, plant, zone",
+      "designation": "Example: Sanitary worker",
+      "department": "Example: Zone V or production unit",
+      "district": "Example: Lahore",
+      "city": "Example: Lahore",
+      "province": "Example: Punjab"
+    },
+    "validation": {
+      "required": "Please answer this step before continuing.",
+      "cnic": "CNIC must contain 13 digits.",
+      "mobile": "Enter a valid Pakistan mobile number."
+    }
+  },
+  "tabs": {
+    "home": "Home",
+    "id": "ID",
+    "dues": "Dues",
+    "grievance": "Grievance",
+    "vote": "Vote",
+    "rights": "Rights",
+    "union": "Union",
+    "notifications": "Notices",
+    "more": "More"
+  },
+  "worker": {
+    "dashboard": "Worker Dashboard",
+    "activeMember": "Active member",
+    "dues": "Dues",
+    "grievances": "Grievances",
+    "vote": "Voting",
+    "notices": "Notices",
+    "quickStatus": "Quick status",
+    "digitalId": "Digital Worker ID",
+    "socialSecurity": "Social security",
+    "latestCase": "Latest case",
+    "rights": "Worker Rights",
+    "myUnion": "My Union"
+  },
+  "grievance": {
+    "new": "New grievance",
+    "placeholder": "Write your grievance clearly and briefly...",
+    "voice": "Voice",
+    "attach": "Evidence",
+    "submit": "Submit grievance",
+    "categories": {
+      "wages": "Wages",
+      "termination": "Termination",
+      "safety": "Safety",
+      "harassment": "Harassment",
+      "union_rights": "Union rights",
+      "eobi_social_security": "EOBI/social security",
+      "other": "Other"
+    },
+    "validation": {
+      "employer": "Enter employer name.",
+      "establishment": "Enter workplace or establishment.",
+      "description": "Write at least 12 characters about the issue."
+    }
+  },
+  "voting": {
+    "cast": "Cast vote with OTP",
+    "auditNote": "The voting record is retained for audit, while ballot identity remains protected."
+  },
+  "rights": {
+    "search": "Search rights"
+  },
+  "union": {
+    "dashboard": "Union Dashboard",
+    "registration": "Registration number",
+    "officeBearers": "Office Bearers",
+    "officeBearersShort": "Bearers",
+    "president": "President",
+    "generalSecretary": "General Secretary",
+    "members": "Members",
+    "searchMembers": "Search by name, CNIC, or member ID",
+    "outsiderWarning": "Outsider office bearers: {{count}}. Must stay within 25%.",
+    "outsider": "Outsider",
+    "finance": "Finance",
+    "duesHealth": "Dues",
+    "activeCases": "Active cases",
+    "compliance": "Compliance",
+    "attention": "Needs attention",
+    "annualReturnDue": "Annual return",
+    "cbaExpiry": "CBA expiry",
+    "nextElection": "Next election",
+    "collected": "Collected",
+    "outstanding": "Outstanding",
+    "remittances": "Employer remittances",
+    "return": "Annual Return",
+    "elections": "Elections",
+    "cbaSubtitle": "CBA certificate and Charter of Demand workflow",
+    "legal": "Legal",
+    "legalSubtitle": "Grievances, court cases, and hearings",
+    "docs": "Documents",
+    "docsSubtitle": "DMS, legal packet, and compliance",
+    "cbaCod": "CBA / CoD"
+  },
+  "states": {
+    "loading": "Loading worker data...",
+    "error": "We could not load this screen. Please try again.",
+    "empty": "No records available yet."
+  },
+  "status": {
+    "membership": {
+      "active": "Active member",
+      "pending": "Pending member",
+      "suspended": "Suspended",
+      "resigned": "Resigned",
+      "transferred": "Transferred",
+      "terminated": "Terminated",
+      "retired": "Retired",
+      "deceased": "Deceased"
+    },
+    "dues": {
+      "paid": "Paid",
+      "pending": "Pending",
+      "overdue": "Overdue",
+      "waived": "Waived"
+    },
+    "grievance": {
+      "new": "New",
+      "submitted": "Submitted",
+      "triage": "Triage",
+      "investigating": "Investigating",
+      "resolved": "Resolved",
+      "escalated": "Escalated"
+    },
+    "election": {
+      "upcoming": "Upcoming",
+      "nomination": "Nomination",
+      "open": "Open",
+      "closed": "Closed",
+      "results": "Results"
+    },
+    "benefits": {
+      "verified": "Verified",
+      "pending": "Pending",
+      "missing": "Missing"
+    },
+    "affiliation": {
+      "affiliated": "PUWF affiliated",
+      "pending": "Pending",
+      "unknown": "Unknown"
+    },
+    "cba": {
+      "active": "Active",
+      "expired": "Expired",
+      "pending": "Pending"
+    },
+    "document": {
+      "current": "Current",
+      "needs_refresh": "Needs update"
+    },
+    "compliance": {
+      "current": "Current",
+      "due_soon": "Due soon",
+      "overdue": "Overdue",
+      "missing": "Missing",
+      "draft": "Draft"
+    }
+  },
+  "unionCore": {
+    "dashboard": {
+      "quickActions": "Core admin actions"
+    },
+    "actions": {
+      "members": "Form C registry, CNIC check, dues and election readiness.",
+      "officeBearers": "Form A Schedule 1, terms, outsider limit and evidence.",
+      "documents": "DMS, obligations, expiry and evidence packet.",
+      "annualReturn": "Open the statutory annual return workspace.",
+      "finance": "Dues, receipts, remittances, and finance prefill.",
+      "more": "Open elections, CBA, legal, documents, and office bearers."
+    },
+    "more": {
+      "subtitle": "All admin modules",
+      "modules": "Operations and records",
+      "officeBearers": "Executive body, term dates, outsider limit and Form A evidence.",
+      "documents": "Compliance packet, source documents, DMS and expiry tracking.",
+      "elections": "Schedule, nominations, voter readiness and result publication.",
+      "cba": "Certificate status, Charter of Demand stages and negotiation timeline.",
+      "legal": "Grievance queue, legal escalation and hearing logs."
+    },
+    "risks": {
+      "annualReturn": {
+        "title": "Annual Return deadline",
+        "detail": "Form L/J packet needs GS and FS review before submission."
+      },
+      "formC": {
+        "title": "Form C completion gap",
+        "detail": "158 member records need signature, CNIC or subscription evidence."
+      },
+      "grievance": {
+        "title": "Urgent grievances",
+        "detail": "4 worker cases need same-day triage by the union desk."
+      }
+    },
+    "cba": {
+      "workspaceTitle": "Bargaining workspace",
+      "workspaceSubtitle": "Registry, CoD, rounds and evidence",
+      "workspaceBody": "Track bargaining certificates, renewal risk, Charter of Demands progress, negotiation rounds and settlement evidence from one mobile workspace.",
+      "detailSubtitle": "Certificate profile, readiness, linked CoD and history",
+      "emptyRegistry": "No bargaining records match this filter.",
+      "emptyWorkflow": "No active Charter of Demands workflow yet.",
+      "emptyRounds": "No negotiation rounds have been logged yet.",
+      "emptyEvidence": "No bargaining evidence is linked yet.",
+      "advanceConfirmTitle": "Advance bargaining stage?",
+      "searchPlaceholder": "Search establishment, certificate, issuer or reference",
+      "tabs": {
+        "registry": "Registry",
+        "cod": "CoD",
+        "rounds": "Rounds",
+        "evidence": "Evidence"
+      },
+      "metrics": {
+        "active": "Active CBA",
+        "renewal": "Renewal pending",
+        "expiring": "Expiring <=90d",
+        "covered": "Covered workers"
+      },
+      "hero": {
+        "stage": "Stage: {{stage}}",
+        "expiry": "{{count}} days to expiry",
+        "missingEvidence": "{{count}} evidence gaps"
+      },
+      "filters": {
+        "all": "All"
+      },
+      "registry": {
+        "covered": "{{count}} covered",
+        "expiryLabel": "{{count}} days",
+        "readiness": "{{percent}}% ready"
+      },
+      "sections": {
+        "identity": "Certificate identity",
+        "validity": "Validity and authority",
+        "coverage": "Coverage and workforce",
+        "basis": "Determination basis",
+        "history": "History and posture",
+        "evidence": "Evidence readiness"
+      },
+      "fields": {
+        "title": "Record title",
+        "employer": "Employer / management",
+        "establishment": "Establishment",
+        "certificateNumber": "Certificate number",
+        "issuer": "Issuing authority",
+        "reference": "Registry / file reference",
+        "issueDate": "Issue date",
+        "effectiveDate": "Effective date",
+        "expiryDate": "Expiry date",
+        "region": "Region",
+        "coveredWorkers": "Covered workers",
+        "membershipAtCert": "Membership at certification",
+        "totalWorkforce": "Total workforce",
+        "membershipPercent": "Membership percentage",
+        "legalForm": "Legal form",
+        "ruleReference": "Rule reference",
+        "sectionReference": "Section reference",
+        "determinationBasis": "Determination basis",
+        "linkedCba": "Linked CBA record ID",
+        "demandTitle": "Demand title",
+        "currentValue": "Current value",
+        "demandedValue": "Demanded value",
+        "justification": "Justification",
+        "submissionDate": "Submission date",
+        "managementResponseDate": "Management response date",
+        "managementNotes": "Management / bargaining notes",
+        "conciliationOfficer": "Conciliation officer",
+        "conciliationStart": "Conciliation start date",
+        "arbitrator": "Arbitrator",
+        "strikeNoticeDate": "Strike notice date",
+        "strikeNoticeExpiry": "Strike notice expiry",
+        "settlementDate": "Settlement date",
+        "mosReference": "MoS reference",
+        "settlementNotes": "Settlement notes",
+        "nextDeadline": "Next deadline",
+        "meetingDate": "Meeting date",
+        "attendees": "Attendees",
+        "outcomes": "Outcomes",
+        "nextSteps": "Next steps"
+      },
+      "status": {
+        "cba": {
+          "active": "Active",
+          "renewal_pending": "Renewal pending",
+          "expired": "Expired",
+          "revoked": "Revoked"
+        },
+        "cod": {
+          "draft": "Draft",
+          "submitted": "Submitted",
+          "response_pending": "Response pending",
+          "negotiation": "Negotiation",
+          "conciliation": "Conciliation",
+          "arbitration": "Arbitration",
+          "strike_notice": "Strike notice",
+          "settlement": "Settlement",
+          "closed": "Closed"
+        }
+      },
+      "responses": {
+        "accepted": "Accepted",
+        "partial": "Partial acceptance",
+        "counter_offer": "Counter-offer",
+        "rejected": "Rejected"
+      },
+      "categories": {
+        "wages": "Wages",
+        "allowances": "Allowances",
+        "benefits": "Benefits",
+        "working_conditions": "Working conditions",
+        "leave": "Leave",
+        "health_safety": "Health and safety",
+        "job_security": "Job security",
+        "other": "Other"
+      },
+      "actions": {
+        "view": "View profile",
+        "editRecord": "Edit record",
+        "markRenewal": "Mark renewal pending",
+        "addRecord": "Add CBA record",
+        "addWorkflow": "Add CoD",
+        "addRound": "Add round",
+        "advanceStage": "Advance stage",
+        "editWorkflow": "Edit workflow",
+        "addDemand": "Add demand",
+        "openLinkedModule": "Open linked module",
+        "openDocuments": "Open documents"
+      },
+      "form": {
+        "addTitle": "Add bargaining record",
+        "editTitle": "Edit bargaining record",
+        "subtitle": "Certificate identity, validity, workforce coverage and determination basis"
+      },
+      "cod": {
+        "addTitle": "Add Charter of Demands",
+        "editTitle": "Edit Charter of Demands",
+        "formSubtitle": "Demands, response, conciliation, arbitration and settlement posture",
+        "submittedOn": "Submitted {{date}}",
+        "nextDeadline": "Next deadline {{date}}",
+        "noResponseNote": "No management response note is recorded yet.",
+        "currentValue": "Current: {{value}}",
+        "demandedValue": "Demanded: {{value}}",
+        "demandNumber": "Demand {{count}}",
+        "sections": {
+          "core": "Core workflow",
+          "demands": "Demand list",
+          "response": "Response and negotiation",
+          "settlement": "Conciliation, arbitration and settlement"
+        }
+      },
+      "rounds": {
+        "addTitle": "Add negotiation round",
+        "round": "Round {{count}}",
+        "nextSteps": "Next steps: {{value}}",
+        "highlights": "Current bargaining activity",
+        "latest": "Latest round {{round}} on {{date}}"
+      },
+      "evidence": {
+        "category": {
+          "certificate": "Certificate",
+          "cod": "CoD",
+          "order": "Order / tribunal",
+          "settlement": "Settlement",
+          "staff_agreement": "Staff agreement",
+          "mos": "MoS"
+        },
+        "status": {
+          "available": "Available",
+          "pending": "Pending",
+          "missing": "Missing",
+          "expiring": "Expiring"
+        },
+        "expiresOn": "Expires {{date}}"
+      },
+      "evidenceWarnings": {
+        "mosTitle": "Settlement evidence gap",
+        "mosBody": "{{count}} bargaining file(s) still need MoS or settlement evidence.",
+        "expiryTitle": "Renewal risk in view",
+        "expiryBody": "{{count}} certificate(s) are inside the 90-day renewal window."
+      },
+      "validation": {
+        "title": "Enter a clear record title.",
+        "employer": "Enter the employer or management name.",
+        "establishment": "Enter the establishment name.",
+        "certificateNumber": "Enter the certificate number.",
+        "legalForm": "Enter the legal form.",
+        "ruleReference": "Enter the rule reference.",
+        "sectionReference": "Enter the section reference.",
+        "issuer": "Enter the issuing authority.",
+        "region": "Enter the region.",
+        "date": "Enter a valid date in YYYY-MM-DD format.",
+        "counts": "Enter a valid non-negative number.",
+        "percentage": "Enter a valid percentage.",
+        "basis": "Add the determination basis.",
+        "reference": "Enter the official reference.",
+        "linkedCba": "Link this workflow to a CBA record.",
+        "demandTitle": "Enter a demand title.",
+        "justification": "Enter the demand justification.",
+        "demandCount": "Add at least one demand item.",
+        "settlementDate": "Settlement date is required at settlement stage.",
+        "mosReference": "MoS reference is required at settlement stage.",
+        "strikeDate": "Strike notice date is required at strike notice stage.",
+        "strikeExpiry": "Strike notice expiry is required at strike notice stage.",
+        "attendees": "Enter the meeting attendees.",
+        "outcomes": "Enter meeting outcomes.",
+        "nextSteps": "Enter the next steps.",
+        "expiryOrder": "Expiry date must be after the effective date."
+      }
+    },
+    "members": {
+      "subtitle": "Form C aligned mobile registry",
+      "workspaceTitle": "Member management workspace",
+      "workspaceSubtitle": "Registry, intake, review and lifecycle control",
+      "workspaceBody": "Run the union registry from one mobile workspace: inspect compliance gaps, complete Form C, check election readiness, and record member lifecycle events.",
+      "snapshot": "Registry snapshot",
+      "empty": "No matching members found.",
+      "total": "{{count}} members",
+      "active": "{{count}} active",
+      "formCIssues": "{{count}} Form C issues",
+      "electionReady": "Election ready",
+      "electionBlocked": "Election blocked",
+      "tabs": {
+        "registry": "Registry",
+        "intake": "Intake",
+        "review": "Review",
+        "lifecycle": "Lifecycle"
+      },
+      "metrics": {
+        "total": "Total registry",
+        "active": "Active",
+        "ready": "Election ready",
+        "risk": "Urgent risk",
+        "formComplete": "Form C complete",
+        "overdue": "Overdue dues"
+      },
+      "filtersLabel": "Filter queues",
+      "sortLabel": "Sort register",
+      "batchSelected": "{{count}} selected",
+      "batchHint": "Batch actions can be applied after reviewing these records.",
+      "readinessMeta": "{{score}}% ready · dues {{dues}}",
+      "detailSubtitle": "Identity, compliance, benefits and lifecycle record",
+      "sections": {
+        "identity": "Identity and contact",
+        "employment": "Employment and posting",
+        "compliance": "Compliance and verification",
+        "timeline": "Lifecycle timeline",
+        "actions": "Operational actions",
+        "beneficiary": "Beneficiary record"
+      },
+      "risk": {
+        "low": "Stable",
+        "medium": "Watch",
+        "urgent": "Critical"
+      },
+      "verification": {
+        "verified": "Verified",
+        "pending": "Pending",
+        "failed": "Failed"
+      },
+      "filters": {
+        "all": "All",
+        "active": "Active",
+        "pending": "Pending",
+        "verification": "Verification gaps",
+        "dues": "Overdue dues",
+        "election": "Election blocked",
+        "deceased": "Deceased"
+      },
+      "sorts": {
+        "risk": "Highest risk",
+        "newest": "Newest join",
+        "name": "Name",
+        "dues": "Dues first"
+      },
+      "actions": {
+        "view": "Open profile",
+        "edit": "Edit record",
+        "verify": "Review checks",
+        "toggleVerification": "Toggle NADRA status",
+        "openDues": "Dues",
+        "openDocuments": "Documents",
+        "openElection": "Election"
+      },
+      "review": {
+        "formC": "Form C completion gaps",
+        "formCBody": "Records missing signature, thumb, address, or subscription evidence.",
+        "verification": "Verification watchlist",
+        "verificationBody": "Members still pending NADRA/EOBI confidence or flagged by the registry.",
+        "dues": "Overdue dues blockers",
+        "duesBody": "Workers whose dues status is blocking registry confidence and readiness.",
+        "election": "Election-roll blockers",
+        "electionBody": "Records that cannot safely move into voter preparation yet.",
+        "annualReturn": "Annual return blockers",
+        "annualReturnBody": "Member records that still weaken year-end totals or compliance confidence."
+      },
+      "intake": {
+        "addTitle": "Add Form C member",
+        "addBody": "Capture identity, employment, membership, benefits, documents and lifecycle details in one guided mobile flow.",
+        "importTitle": "Bulk import roster",
+        "importBody": "Pick a roster file, preview duplicates and row errors, then confirm the import job.",
+        "reviewTitle": "Open review queues",
+        "reviewBody": "Jump from intake to the queues that still need signature, verification or dues follow-up."
+      },
+      "form": {
+        "addTitle": "Add member",
+        "editTitle": "Edit member record",
+        "steps": {
+          "identity": "Identity",
+          "employment": "Employment",
+          "membership": "Membership",
+          "benefits": "Benefits and verification",
+          "documents": "Documents",
+          "lifecycle": "Lifecycle"
+        }
+      },
+      "fields": {
+        "member": "Member",
+        "name": "Full name",
+        "fatherName": "Father / parentage",
+        "cnic": "CNIC",
+        "dob": "Date of birth (YYYY-MM-DD)",
+        "gender": "Gender",
+        "phone": "Mobile number",
+        "email": "Email",
+        "address": "Permanent address",
+        "currentAddress": "Current address",
+        "district": "District",
+        "province": "Province",
+        "establishment": "Establishment / posting place",
+        "employer": "Employer",
+        "department": "Department",
+        "designation": "Designation",
+        "trade": "Trade / specialization",
+        "employmentDate": "Employment date",
+        "employmentType": "Employment type",
+        "salary": "Monthly salary",
+        "joinedUnion": "Union join date",
+        "subscription": "Monthly subscription",
+        "membershipStatus": "Membership status",
+        "duesStatus": "Dues status",
+        "statusReason": "Status notes",
+        "eobi": "EOBI number",
+        "socialSecurity": "Social security number",
+        "pfStatus": "Provident fund status",
+        "gratuityStatus": "Gratuity status",
+        "wwfEligible": "WWF eligible",
+        "digitalId": "Digital ID issued",
+        "nadraStatus": "NADRA status",
+        "eobiStatus": "EOBI status",
+        "photoAttached": "Photo attached",
+        "signatureAttached": "Signature attached",
+        "thumbAttached": "Thumb impression attached",
+        "cnicCopyAttached": "CNIC copy attached",
+        "subscriptionConsent": "Subscription consent recorded",
+        "supportingNotes": "Supporting notes",
+        "lifecycleType": "Lifecycle event",
+        "lifecycleDate": "Event date",
+        "lifecycleNotes": "Event notes",
+        "beneficiaryName": "Beneficiary name",
+        "beneficiaryCnic": "Beneficiary CNIC",
+        "beneficiaryRelation": "Beneficiary relation",
+        "beneficiaryPhone": "Beneficiary phone"
+      },
+      "options": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other",
+        "permanent": "Permanent",
+        "temporary": "Temporary",
+        "contract": "Contract",
+        "dailyWage": "Daily wage"
+      },
+      "validation": {
+        "name": "Enter the member's full name.",
+        "fatherName": "Enter parentage exactly as used in the registry.",
+        "cnic": "Enter a valid 13-digit CNIC.",
+        "phone": "Enter a valid Pakistan mobile number.",
+        "email": "Enter a valid email address.",
+        "address": "Enter the permanent address.",
+        "currentAddress": "Enter the current address.",
+        "district": "Enter the district.",
+        "province": "Enter the province.",
+        "age": "Worker must be at least 18 years old.",
+        "date": "Enter a valid date in YYYY-MM-DD format.",
+        "establishment": "Enter the establishment or posting place.",
+        "employer": "Enter the employer name.",
+        "department": "Enter the department.",
+        "designation": "Enter the designation.",
+        "salary": "Enter a valid salary amount.",
+        "subscription": "Enter the monthly subscription amount.",
+        "statusReason": "Add a short status note.",
+        "lifecycleNotes": "Add a lifecycle note before saving.",
+        "beneficiaryName": "Enter the beneficiary name.",
+        "beneficiaryCnic": "Enter a valid beneficiary CNIC.",
+        "beneficiaryRelation": "Enter the beneficiary relation.",
+        "beneficiaryPhone": "Enter the beneficiary phone number.",
+        "beneficiaryNeeded": "Beneficiary fields are required for deceased members.",
+        "duplicateCnic": "This CNIC already exists in the registry.",
+        "fixAll": "Please fix the highlighted fields before saving.",
+        "missingDesignation": "Designation is missing."
+      },
+      "lifecycle": {
+        "summaryTitle": "Lifecycle operations",
+        "summaryBody": "Record promotions, transfers, retirements, terminations and deceased cases with beneficiary follow-up.",
+        "recordTitle": "Record lifecycle event",
+        "recordBody": "Capture the operational event that changes the member's registry status.",
+        "recordCta": "Save lifecycle event",
+        "types": {
+          "joined": "Joined",
+          "promoted": "Promoted",
+          "transferred": "Transferred",
+          "salary_change": "Salary change",
+          "converted": "Converted",
+          "reinstated": "Reinstated",
+          "terminated": "Terminated",
+          "retired": "Retired",
+          "deceased": "Deceased"
+        },
+        "joinedTitle": "Worker joined registry",
+        "joinedBody": "Initial registry event when the worker became part of the union record.",
+        "promotedTitle": "Promotion recorded",
+        "promotedBody": "Designation or grade moved upward in the worker profile.",
+        "transferredTitle": "Transfer recorded",
+        "transferredBody": "Posting place or department changed and the registry was updated.",
+        "salaryTitle": "Salary change recorded",
+        "salaryBody": "Latest salary information updated for roster and benefits tracking.",
+        "convertedTitle": "Employment conversion recorded",
+        "convertedBody": "Worker moved into a new employment arrangement inside the roster.",
+        "reinstatedTitle": "Worker reinstated",
+        "reinstatedBody": "Member returned to active status after a break or dispute.",
+        "terminatedTitle": "Termination recorded",
+        "terminatedBody": "Member marked terminated and excluded from active readiness counts.",
+        "retiredTitle": "Retirement recorded",
+        "retiredBody": "Member retired from service and moved out of active lifecycle counts.",
+        "deceasedTitle": "Deceased record opened",
+        "deceasedBody": "Member marked deceased and beneficiary handling started."
+      },
+      "import": {
+        "title": "Bulk import",
+        "subtitle": "Roster preview, dedupe and import confirmation",
+        "pickFile": "Pick roster file",
+        "flow": "Pick a file, review mapping and duplicate warnings, then confirm the rows safe to import.",
+        "previewRows": "Preview rows",
+        "issueTitle": "Import issues",
+        "confirm": "Confirm import",
+        "completed": "Import job completed and ready rows were added to the registry.",
+        "ready": "{{count}} ready",
+        "duplicates": "{{count}} duplicates",
+        "errors": "{{count}} errors",
+        "jobMeta": "{{date}} · {{imported}} imported of {{total}} rows",
+        "issueRow": "Row {{row}}:",
+        "status": {
+          "preview": "Preview",
+          "completed": "Completed",
+          "failed": "Failed"
+        },
+        "rowStatus": {
+          "ready": "Ready",
+          "duplicate": "Duplicate",
+          "error": "Error"
+        },
+        "issues": {
+          "duplicate": "Possible duplicate CNIC in existing registry.",
+          "invalidCnic": "CNIC is malformed.",
+          "existingPending": "Existing pending registry record already needs review.",
+          "missingDesignation": "Designation field is missing."
+        }
+      }
+    },
+    "formC": {
+      "complete": "Form C complete",
+      "draft": "Form C draft",
+      "missing_signature": "Signature pending"
+    },
+    "elections": {
+      "workspaceTitle": "Election registry workspace",
+      "workspaceSubtitle": "Schedules, nominations, results, and objections",
+      "workspaceBody": "Run the union election lifecycle from one dense mobile workspace: publish schedules, scrutinize nominations, monitor polling posture, and close results with office-bearer sync readiness.",
+      "detailSubtitle": "Election timeline, authority, and closure posture",
+      "emptyRegistry": "No election records match this filter.",
+      "emptyNominations": "No nomination records need scrutiny right now.",
+      "emptyResults": "No result or closure items are active right now.",
+      "emptyDisputes": "No registry objections or disputes are open right now.",
+      "searchPlaceholder": "Search election title, reference, officer, or date",
+      "tabs": {
+        "registry": "Registry",
+        "nominations": "Nominations",
+        "results": "Results",
+        "disputes": "Disputes"
+      },
+      "metrics": {
+        "registry": "Election files",
+        "review": "Under review",
+        "pollingSoon": "Polling soon",
+        "pendingResults": "Pending closure"
+      },
+      "hero": {
+        "daysRemaining": "{{count}} days to polling",
+        "eligible": "{{count}} eligible voters",
+        "review": "{{count}} nominations under review"
+      },
+      "filters": {
+        "all": "All"
+      },
+      "watchlist": {
+        "nominationOpen": "{{count}} nomination windows open",
+        "pollingSoon": "{{count}} polling windows approaching",
+        "pendingResults": "{{count}} result / sync closures pending"
+      },
+      "meta": "Polling {{poll}} • Presiding officer {{officer}}",
+      "actions": {
+        "view": "Open detail",
+        "edit": "Edit schedule",
+        "openNominations": "Open nominations",
+        "publishResults": "Publish results",
+        "approve": "Approve",
+        "object": "Move to objection",
+        "reject": "Reject",
+        "markSyncReady": "Mark office-bearer sync ready",
+        "addSchedule": "Add election schedule",
+        "addNomination": "Add nomination",
+        "openOfficeBearers": "Open office-bearers",
+        "openLegal": "Open legal module"
+      },
+      "fields": {
+        "reference": "Election reference",
+        "title": "Election title",
+        "announcementDate": "Announcement date",
+        "nominationStart": "Nomination start",
+        "nominationEnd": "Nomination end",
+        "objectionEnd": "Objection end",
+        "finalListDate": "Final list date",
+        "pollingDate": "Polling date",
+        "pollingTime": "Polling time",
+        "presidingOfficer": "Presiding officer",
+        "presidingOfficerCnic": "Presiding officer CNIC",
+        "eligibleCount": "Eligible voter count",
+        "rollNote": "Voter-roll note",
+        "notes": "Administrative notes",
+        "position": "Contested position",
+        "candidateName": "Candidate name",
+        "candidateCnic": "Candidate CNIC",
+        "membershipNumber": "Membership number",
+        "joinDate": "Union join date",
+        "address": "Address",
+        "proposer": "Proposer name",
+        "proposerCnic": "Proposer CNIC",
+        "seconder": "Seconder name",
+        "seconderCnic": "Seconder CNIC"
+      },
+      "form": {
+        "addTitle": "Add election schedule",
+        "editTitle": "Edit election schedule",
+        "subtitle": "Timeline, authority, and voter-roll posture",
+        "timeline": "Timeline",
+        "authority": "Authority",
+        "voterRoll": "Voter roll"
+      },
+      "nominationForm": {
+        "title": "Nomination intake",
+        "photoAttached": "Photo attached",
+        "legalNote": "Proposer and seconder must appear on the valid voter roll."
+      },
+      "sections": {
+        "timeline": "Schedule timeline",
+        "authority": "Authority and voter roll",
+        "actions": "Actions"
+      },
+      "status": {
+        "announced": "Announced",
+        "nomination_open": "Nomination open",
+        "nomination_closed": "Nomination closed",
+        "objection_period": "Objection period",
+        "candidates_final": "Candidates final",
+        "polling": "Polling",
+        "results_announced": "Results announced",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      },
+      "candidateStatus": {
+        "submitted": "Submitted",
+        "under_objection": "Under objection",
+        "approved": "Approved",
+        "rejected": "Rejected",
+        "withdrawn": "Withdrawn"
+      },
+      "nominationMeta": "Proposer {{proposer}}, seconder {{seconder}}",
+      "result": {
+        "published": "Published",
+        "pending": "Pending publication",
+        "meta": "{{votes}} votes cast • {{turnout}}% turnout • {{date}}",
+        "winner": "{{position}}: {{name}}",
+        "syncReady": "Office-bearer sync ready",
+        "syncPending": "Office-bearer sync pending",
+        "workerVoting": "Worker voting / polling linked"
+      },
+      "disputeStatus": {
+        "open": "Open",
+        "resolved": "Resolved"
+      },
+      "disputeStage": {
+        "objection": "Objection stage",
+        "final_list": "Final-list stage",
+        "result": "Result stage"
+      },
+      "validation": {
+        "cnic": "Enter a valid 13-digit CNIC.",
+        "date": "Enter a valid date in YYYY-MM-DD format.",
+        "time": "Enter polling time.",
+        "reference": "Enter the election reference.",
+        "title": "Enter the election title.",
+        "presidingOfficer": "Enter the presiding officer name.",
+        "eligibleCount": "Eligible voter count must be at least 1.",
+        "rollNote": "Add a short voter-roll note.",
+        "notes": "Add a short administrative note.",
+        "position": "Enter the contested position.",
+        "candidateName": "Enter the candidate name.",
+        "membershipNumber": "Enter the membership number.",
+        "address": "Enter the candidate address.",
+        "proposer": "Enter the proposer name.",
+        "seconder": "Enter the seconder name.",
+        "scheduleOrder": "Schedule dates must follow the legal election sequence."
+      }
+    },
+    "office": {
+      "workspaceTitle": "Office-bearer workspace",
+      "workspaceSubtitle": "Executive body registry, review, and history",
+      "workspaceBody": "Manage the executive body from one mobile workspace: review Schedule 1 posture, track outsider ratio, watch expiring terms, and record resignations, replacements, and reinstatements.",
+      "snapshot": "Executive body snapshot",
+      "empty": "No office bearers recorded yet.",
+      "total": "{{count}} bearers",
+      "outsiderPercent": "{{percent}}% outsiders",
+      "expiringSoon": "{{count}} expiring soon",
+      "termExpiry": "Term expiry {{date}}",
+      "term": "Term {{start}} to {{expiry}}",
+      "workerBearer": "Worker bearer",
+      "womenSeat": "Women representation",
+      "searchPlaceholder": "Search by name, CNIC, position, or contact",
+      "detailSubtitle": "Identity, term posture, and governance history",
+      "tabs": {
+        "registry": "Registry",
+        "review": "Review",
+        "history": "History"
+      },
+      "metrics": {
+        "active": "Active body",
+        "women": "Women seats",
+        "expiring": "Expiring terms",
+        "outsider": "Outsider ratio"
+      },
+      "meta": "Term {{term}} · contact {{contact}}",
+      "daysLeft": "{{count}} days until expiry",
+      "vacancyList": "Vacant positions",
+      "sections": {
+        "identity": "Identity and contact",
+        "term": "Term and governance posture",
+        "actions": "Actions"
+      },
+      "actions": {
+        "view": "Open profile",
+        "edit": "Edit record",
+        "history": "View history",
+        "resign": "Mark resigned",
+        "replace": "Record replacement",
+        "reinstate": "Court reinstatement",
+        "openGovernance": "Open governance modules"
+      },
+      "status": {
+        "active": "Active",
+        "resigned": "Resigned",
+        "replaced": "Replaced",
+        "reinstated": "Reinstated"
+      },
+      "form": {
+        "addTitle": "Add office-bearer",
+        "editTitle": "Edit office-bearer",
+        "sections": {
+          "identity": "Identity",
+          "position": "Position and term",
+          "governance": "Governance posture"
+        }
+      },
+      "fields": {
+        "name": "Name",
+        "cnic": "CNIC",
+        "contact": "Contact number",
+        "email": "Email",
+        "region": "Region",
+        "position": "Position",
+        "appointmentDate": "Date of appointment",
+        "termStart": "Term start date",
+        "termExpiry": "Term expiry date",
+        "gender": "Gender",
+        "status": "Status",
+        "outsider": "Outsider status",
+        "notes": "Governance notes"
+      },
+      "gender": {
+        "male": "Male",
+        "female": "Female",
+        "other": "Other"
+      },
+      "outsiderInternal": "Internal office-bearer",
+      "outsiderExternal": "Outsider seat",
+      "history": {
+        "appointed": "Appointed",
+        "resigned": "Resigned",
+        "replaced": "Replaced",
+        "reinstated": "Reinstated",
+        "court_order": "Court order"
+      },
+      "historyNotes": {
+        "resigned": "Seat marked resigned in governance registry.",
+        "replaced": "Replacement recorded for this seat.",
+        "reinstated": "Court-backed reinstatement recorded."
+      },
+      "guardrails": {
+        "outsiderTitle": "Outsider ratio",
+        "outsiderBody": "The outsider ceiling remains 25%. Show warning at 20% and block updates above the limit.",
+        "womenTitle": "Women representation",
+        "womenBody": "Track women-designated seats and women office-bearers before governance filings or election preparations.",
+        "expiryTitle": "Term expiry watch",
+        "expiryBody": "Seats expiring within 180 days should be reviewed before notices, filings, or elections.",
+        "vacancyTitle": "Vacancy watch",
+        "vacancyBody": "Open positions in the official executive body should be visible before governance sign-off."
+      },
+      "validation": {
+        "name": "Enter the office-bearer's name.",
+        "cnic": "Enter a valid 13-digit CNIC.",
+        "phone": "Enter a valid Pakistan mobile number.",
+        "email": "Enter a valid email address.",
+        "region": "Enter the region.",
+        "date": "Enter a valid date in YYYY-MM-DD format.",
+        "notes": "Add a short governance note.",
+        "termOrder": "Term expiry must be after term start.",
+        "outsiderBlock": "This update would exceed the 25% outsider limit."
+      },
+      "actor": {
+        "unionAdmin": "Union admin"
+      }
+    },
+    "officeStatus": {
+      "active": "Active",
+      "resigned": "Resigned",
+      "replaced": "Replaced",
+      "reinstated": "Reinstated"
+    },
+    "designations": {
+      "president": "President",
+      "generalSecretary": "General Secretary",
+      "financeSecretary": "Finance Secretary",
+      "legalSecretary": "Secretary Legal Affairs",
+      "secretaryWomen": "Secretary Women",
+      "officeBearer": "Office-bearer"
+    },
+    "roles": {
+      "president": "President",
+      "generalSecretary": "General Secretary",
+      "financeSecretary": "Finance Secretary"
+    },
+    "compliance": {
+      "snapshot": "Compliance snapshot",
+      "openObligations": "{{count}} open obligations",
+      "obligationsTitle": "Legal obligations",
+      "due": "Due {{date}}",
+      "obligations": {
+        "annualReturn": "Annual Return submission",
+        "officeBearers": "Office bearer term record",
+        "memberRecords": "Member Form C register",
+        "cba": "CBA certificate renewal"
+      }
+    },
+    "documents": {
+      "registry": "Document registry",
+      "empty": "No compliance documents found.",
+      "needsEvidence": "Needs evidence",
+      "total": "{{count}} documents",
+      "evidenceCount": "{{count}} evidence items",
+      "expiry": "Expires {{date}}",
+      "uploadMock": "Upload and download actions are placeholders in this frontend phase.",
+      "formASchedule1": "Form A Schedule 1",
+      "formCRegister": "Form C member register",
+      "annualReturn": "Annual Return 2025-2026",
+      "cbaCertificate": "CBA certificate and order",
+      "resolution": "Union resolution"
+    },
+    "sources": {
+      "dashboard": "Sources: PRD/SRS Union Admin dashboard, Annual Return, CBA certificate, Election Schedule and compliance docs.",
+      "formC": "Source: Form C and Members List. CNIC is masked in display views.",
+      "formASchedule1": "Source: Form A Schedule 1. Outsider office bearers must stay within the 25% threshold.",
+      "annualReturn": "Source: Annual Return / Saalana Goshwara Form L.",
+      "cbaOrder": "Source: CBA Certificate & Order dated 23.04.2024.",
+      "resolution": "Source: Resolution and Khalfiya Biyan packet.",
+      "documents": "Sources: official PUWF legal forms, governance docs, affiliation packet and DMS requirements."
+    }
+  },
+  "unionOps": {
+    "sources": {
+      "finance": "Source: FIN-001 dues, employer remittance and Annual Return finance prefill.",
+      "election": "Source: Election Schedule-1 and NGC Nomination Form.",
+      "grievanceLegal": "Source: grievance SLA, legal case management and hearing logs.",
+      "approval": "Source: Annual Return GS/FS approval workflow."
+    },
+    "status": {
+      "remittance": {
+        "received": "Received",
+        "pending": "Pending",
+        "late": "Late",
+        "missing": "Missing"
+      },
+      "annual": {
+        "draft": "Draft",
+        "gs_review": "GS review",
+        "fs_review": "FS review",
+        "ready": "Ready",
+        "submitted": "Submitted",
+        "returned": "Returned"
+      },
+      "nomination": {
+        "draft": "Draft",
+        "submitted": "Submitted",
+        "scrutiny": "Scrutiny",
+        "accepted": "Accepted",
+        "rejected": "Rejected"
+      },
+      "cba": {
+        "active": "Active",
+        "expiring": "Expiring",
+        "expired": "Expired",
+        "pending": "Pending"
+      },
+      "cod": {
+        "draft": "Draft",
+        "submitted": "Submitted",
+        "management_response": "Management response",
+        "negotiation": "Negotiation",
+        "conciliation": "Conciliation",
+        "settlement": "Settlement"
+      },
+      "priority": {
+        "normal": "Normal",
+        "urgent": "Urgent",
+        "critical": "Critical"
+      },
+      "legal": {
+        "filed": "Filed",
+        "hearing_scheduled": "Hearing scheduled",
+        "adjourned": "Adjourned",
+        "order_issued": "Order issued",
+        "closed": "Closed"
+      }
+    },
+    "finance": {
+      "subtitle": "Dues, remittances, receipts and annual return prefill",
+      "overdueMembers": "Overdue members",
+      "prefill": "Return prefill",
+      "snapshot": "Finance control snapshot",
+      "welfare": "Welfare claims",
+      "recordMock": "Record dues",
+      "recorded": "receipt {{ref}}",
+      "lateRule": "Late if remittance exceeds 15 days",
+      "bulkMock": "Bulk payroll deduction placeholder",
+      "remitMeta": "{{count}} workers, Rs. {{amount}}",
+      "bankRef": "Bank reference: {{ref}}",
+      "ledgerMeta": "{{period}}, Rs. {{amount}}, {{receipt}}"
+    },
+    "annual": {
+      "subtitle": "Form L/J statutory annual return wizard",
+      "memberMovement": "Member movement",
+      "closingBalance": "Closing balance",
+      "reviewState": "Review and submission state",
+      "income": "Income Rs. {{amount}}",
+      "expense": "Expense Rs. {{amount}}",
+      "gsReview": "General Secretary review",
+      "fsReview": "Finance Secretary review",
+      "approveMock": "Approve return",
+      "approved": "approval {{ref}}",
+      "completePct": "{{percent}}% complete",
+      "steps": {
+        "identity": "Union identity",
+        "membership": "Membership movement",
+        "income": "Income and dues",
+        "expenses": "Expenses",
+        "balance": "Balance sheet",
+        "documents": "Documents and evidence",
+        "gsReview": "GS review",
+        "fsReview": "FS review"
+      }
+    },
+    "elections": {
+      "subtitle": "Schedule, nominations, voter readiness and results",
+      "title2026": "Office Bearer Election 2026",
+      "voters": "Voters",
+      "eligible": "Eligible",
+      "turnout": "{{percent}}% turnout",
+      "nominationDeadline": "Nomination",
+      "objectionDeadline": "Objection",
+      "withdrawalDeadline": "Withdrawal",
+      "pollingDate": "Polling",
+      "submitMock": "Submit nomination",
+      "nominationSubmitted": "nomination {{ref}}",
+      "nominations": "Nominations",
+      "nominationMeta": "Nominator {{nominator}}, seconder {{seconder}}",
+      "manifesto": {
+        "service": "Focus on field service counters and grievance response.",
+        "finance": "Focus on transparent receipts and welfare fund records.",
+        "legal": "Focus on legal evidence, hearings and worker representation."
+      }
+    },
+    "cba": {
+      "certificate": "CBA certificate status",
+      "certificateNo": "Certificate no.",
+      "issuer": "Issuer",
+      "orderDate": "Order date",
+      "effective": "Effective {{date}}",
+      "advanceMock": "Advance CoD stage",
+      "stageAdvanced": "CoD update {{ref}}",
+      "demandsTitle": "Charter of Demand items",
+      "timelineTitle": "Negotiation timeline",
+      "categories": {
+        "wages": "Wages",
+        "allowances": "Allowances",
+        "benefits": "Benefits",
+        "working_conditions": "Working conditions"
+      },
+      "demands": {
+        "wages": {
+          "title": "Wage revision demand",
+          "justification": "Demand linked to inflation, overtime and wage parity evidence."
+        },
+        "allowance": {
+          "title": "Risk and field allowance",
+          "justification": "Allowance needed for field operations, safety risk and night duty."
+        },
+        "safety": {
+          "title": "Safety equipment and duty conditions",
+          "justification": "Demand covers PPE, rest areas and safe equipment standards."
+        }
+      },
+      "timeline": {
+        "draftTitle": "CoD draft prepared",
+        "draftBody": "Union office prepared demand categories and evidence packet.",
+        "submittedTitle": "Submitted to management",
+        "submittedBody": "Charter submitted for management response.",
+        "responseTitle": "Management response due",
+        "responseBody": "Prepare conciliation packet if response is not satisfactory."
+      }
+    },
+    "legal": {
+      "legalCases": "Legal cases",
+      "queue": "Grievance triage queue",
+      "urgentCount": "{{count}} urgent",
+      "maskedNote": "Worker identifiers masked",
+      "updateMock": "Update grievance",
+      "updated": "update {{ref}}",
+      "caseList": "Legal case list",
+      "logHearingMock": "Log hearing",
+      "hearingLogged": "hearing {{ref}}",
+      "hearingsTitle": "Hearing timeline",
+      "sla": "SLA {{date}}",
+      "handler": "Handler: {{handler}}",
+      "caseMeta": "{{forum}}, next {{hearing}}",
+      "hearings": {
+        "agendaEvidence": "Evidence packet and employer response review.",
+        "agendaNotice": "Notice, parties and first appearance preparation.",
+        "outcomeAdjourned": "Adjourned"
+      }
+    },
+    "validation": {
+      "period": "Use YYYY-MM period.",
+      "amount": "Enter a valid amount.",
+      "workerCount": "Enter worker count.",
+      "date": "Enter a valid date.",
+      "time": "Enter time.",
+      "reference": "Enter reference.",
+      "balanceEquation": "Income must equal expenditure plus closing balance.",
+      "candidate": "Enter candidate name.",
+      "position": "Enter position.",
+      "nominator": "Enter nominator.",
+      "seconder": "Enter seconder.",
+      "demandTitle": "Enter demand title.",
+      "justification": "Enter justification.",
+      "note": "Enter update note.",
+      "forum": "Enter forum.",
+      "parties": "Enter parties.",
+      "agenda": "Enter agenda."
+    }
+  },
+  "workerPortal": {
+    "identity": {
+      "cnic": "CNIC",
+      "id": "ID"
+    },
+    "dashboard": {
+      "duesNow": "Dues",
+      "caseNow": "Case",
+      "voteNow": "Vote",
+      "nextActions": "Next best actions",
+      "idAction": "Show masked ID and QR placeholder",
+      "grievanceAction": "File or track a complaint",
+      "rightsAction": "Read plain-language rights",
+      "unionAction": "View union leadership and CBA",
+      "noticeAction": "Read route-aware notices",
+      "moreAction": "Open vote, rights, union profile, and notices",
+      "sla": "Grievance SLA",
+      "slaTwoDays": "2 days left"
+    },
+    "more": {
+      "subtitle": "Worker services",
+      "modules": "More worker modules",
+      "vote": "Election availability, candidates, OTP and ballot confirmation.",
+      "rights": "Plain-language rights library in Urdu and English.",
+      "union": "Union profile, office bearers, CBA status and documents.",
+      "notifications": "Grouped notices for dues, grievances, elections and rights."
+    },
+    "digitalId": {
+      "title": "PUWF Digital Worker ID",
+      "issued": "Issued",
+      "offlineReady": "Offline preview ready",
+      "actions": "actions",
+      "downloadMock": "Download",
+      "shareMock": "Share"
+    },
+    "dues": {
+      "empty": "No dues ledger yet.",
+      "summary": "Dues summary",
+      "ledger": "Monthly ledger",
+      "outstanding": "Outstanding",
+      "paidMonths": "Paid months",
+      "latestReceipt": "Latest receipt",
+      "receipt": "Receipt",
+      "noReceipt": "Receipt pending",
+      "amount": "Rs. {{amount}}",
+      "employerDeduction": "Employer deduction is marked as collected but remittance is still pending confirmation.",
+      "periods": {
+        "april2026": "April 2026",
+        "may2026": "May 2026",
+        "march2026": "March 2026"
+      }
+    },
+    "grievance": {
+      "chooseCategory": "Choose the main issue",
+      "submitting": "Creating case...",
+      "submitted": "grievance created: {{ref}}",
+      "empty": "No grievance cases yet.",
+      "activeCases": "Active cases",
+      "timelineTitle": "Case timeline",
+      "sla": "SLA deadline: {{date}}",
+      "timeline": {
+        "submittedTitle": "Complaint received",
+        "submittedBody": "Worker complaint was recorded in intake.",
+        "triageTitle": "Union triage",
+        "triageBody": "Union desk is checking category and urgency.",
+        "investigatingTitle": "Investigation started",
+        "investigatingBody": "Assigned handler is collecting employer and worker details."
+      }
+    },
+    "voting": {
+      "empty": "No active election is available.",
+      "electionTitle": "Union Office Bearer Election 2026",
+      "eligible": "Eligible voter",
+      "notEligible": "Not eligible",
+      "candidates": "Candidates",
+      "otpTitle": "OTP confirmation",
+      "otpPlaceholder": "Enter OTP",
+      "confirming": "Confirming...",
+      "confirmed": "ballot confirmation: {{ref}}",
+      "validation": {
+        "otp": "Enter a 4 to 6 digit OTP.",
+        "candidate": "Select a candidate first."
+      },
+      "manifesto": {
+        "service": "Focus on grievance response, field visits, and worker service counters.",
+        "finance": "Focus on transparent dues receipts and welfare fund records."
+      }
+    },
+    "rights": {
+      "empty": "No matching rights topic found.",
+      "categories": {
+        "all": "All",
+        "wages": "Wages",
+        "safety": "Safety",
+        "union_rights": "Union rights",
+        "benefits": "EOBI/social security",
+        "termination": "Termination",
+        "cba_cod": "CBA/CoD",
+        "grievance": "Grievance"
+      },
+      "actions": {
+        "openGrievance": "Open grievance help",
+        "viewUnion": "View my union"
+      },
+      "topics": {
+        "unionRights": {
+          "title": "Union membership rights",
+          "body": "Workers can join a trade union, participate in collective bargaining, and contact their office bearers."
+        },
+        "eobi": {
+          "title": "EOBI and social security",
+          "body": "Eligible workers should be enrolled for old-age benefits and social security protection."
+        },
+        "wages": {
+          "title": "Wages and overtime",
+          "body": "You can report unpaid wages, overtime, illegal deductions, or delayed employer remittance."
+        },
+        "safety": {
+          "title": "Safety at work",
+          "body": "Unsafe work, missing protective equipment, or dangerous duty can be reported to the union."
+        },
+        "termination": {
+          "title": "Termination or pressure",
+          "body": "If you are removed, threatened, or forced to resign, record the issue quickly with date and employer details."
+        },
+        "cba": {
+          "title": "CBA and Charter of Demand",
+          "body": "A CBA union represents workers in bargaining and can raise demands through official negotiation stages."
+        }
+      }
+    },
+    "union": {
+      "callOffice": "Call union office",
+      "documentsTitle": "Union documents",
+      "documents": {
+        "cba": "CBA certificate",
+        "constitution": "Union constitution",
+        "notice": "Worker notice"
+      }
+    },
+    "notifications": {
+      "empty": "No notifications yet.",
+      "read": "Read",
+      "unread": "Unread",
+      "categories": {
+        "grievance": "Grievance",
+        "dues": "Dues",
+        "election": "Election",
+        "rights": "Rights",
+        "union": "Union"
+      },
+      "cbaTitle": "CBA renewal reminder",
+      "cbaBody": "Your union CBA certificate has an upcoming renewal checkpoint.",
+      "duesTitle": "Dues receipt updated",
+      "duesBody": "April dues receipt is available as a preview.",
+      "grievanceTitle": "Grievance status updated",
+      "grievanceBody": "Your case moved to investigation in the timeline."
+    }
+  }
+}
