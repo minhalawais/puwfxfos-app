@@ -11,7 +11,7 @@ import {
   ShieldCheck,
 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocaleStore } from '@/stores/locale-store';
 import { directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
@@ -82,14 +82,14 @@ export default function RoleSelectScreen() {
   return (
     <View style={{ flex: 1, backgroundColor: tokens.background }}>
       <StatusBar style="dark" />
-      <View
-        style={{
-          flex: 1,
+      <ScrollView
+        contentContainerStyle={{
           paddingTop: safeTop,
           paddingBottom: safeBottom,
           paddingHorizontal: 16,
           gap: 12,
         }}
+        showsVerticalScrollIndicator={false}
       >
         {/* ═══ Header ═══ */}
         <View
@@ -130,21 +130,22 @@ export default function RoleSelectScreen() {
           </View>
 
           {/* Centered branding */}
-          <View style={{ alignItems: 'center', gap: 8 }}>
+          <View style={{ alignItems: 'center', gap: 10 }}>
             <View
               style={{
-                width: 56,
-                height: 56,
-                borderRadius: 16,
                 alignItems: 'center',
                 justifyContent: 'center',
-                backgroundColor: tokens.muted,
+                shadowColor: tokens.primary,
+                shadowOffset: { width: 0, height: 6 },
+                shadowOpacity: 0.2,
+                shadowRadius: 10,
+                elevation: 5,
               }}
             >
               <Image
                 source={require('../../assets/images/puwf_logo.png')}
                 resizeMode="contain"
-                style={{ width: 38, height: 38 }}
+                style={{ width: 76, height: 76 }}
               />
             </View>
             <View style={{ alignItems: 'center', gap: 2 }}>
@@ -191,8 +192,8 @@ export default function RoleSelectScreen() {
           </View>
         </View>
 
-        {/* ═══ Portal Cards — flex-distributed ═══ */}
-        <View style={{ flex: 1, gap: 10 }}>
+        {/* ═══ Portal Cards ═══ */}
+        <View style={{ gap: 10 }}>
           {portals.map((portal) => (
             <PortalCard
               key={portal.id}
@@ -230,7 +231,7 @@ export default function RoleSelectScreen() {
             {t('role.helpline')}
           </Text>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -246,99 +247,148 @@ function PortalCard({
 }) {
   const rtl = isRtlLanguage();
   const Icon = portal.icon;
+  const { t } = useTranslation();
 
   return (
     <Pressable
       accessibilityRole="button"
       accessibilityLabel={portal.title}
       onPress={() => router.push(portal.href)}
-      style={{
-        flex: 1,
-        borderRadius: 14,
-        backgroundColor: tokens.card,
-        borderWidth: 1,
-        borderColor: portal.recommended ? portal.accent : tokens.border,
-        overflow: 'hidden',
-      }}
+      style={({ pressed }) => ({
+        transform: [{ scale: pressed ? 0.98 : 1 }],
+      })}
     >
-      {/* Accent strip */}
+      {/* Outer wrapper for Shadows */}
       <View
         style={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          width: 4,
-          backgroundColor: portal.accent,
-          ...(rtl ? { right: 0 } : { left: 0 }),
-        }}
-      />
-
-      <View
-        style={{
-          flex: 1,
-          paddingVertical: 14,
-          paddingLeft: rtl ? 16 : 20,
-          paddingRight: rtl ? 20 : 16,
-          justifyContent: 'center',
-          gap: 10,
+          borderRadius: 20,
+          shadowColor: portal.recommended ? portal.accent : '#000',
+          shadowOffset: { width: 0, height: 6 },
+          shadowOpacity: portal.recommended ? 0.15 : 0.08,
+          shadowRadius: 16,
+          elevation: 6,
         }}
       >
-        {/* Icon + Title row */}
-        <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 12 }}>
+        {/* Inner wrapper for Background, Borders, and Clipping */}
+        <View
+          style={{
+            borderRadius: 20,
+            backgroundColor: tokens.card,
+            borderWidth: 1,
+            borderColor: portal.recommended ? portal.accent : 'rgba(0,0,0,0.03)',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Accent strip (perfectly clipped by parent overflow: hidden) */}
           <View
             style={{
-              width: 44,
-              height: 44,
-              borderRadius: 12,
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: portal.accentBg,
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              width: 5,
+              backgroundColor: portal.accent,
+              ...(rtl ? { right: 0 } : { left: 0 }),
             }}
-          >
-            <Icon size={22} color={portal.accent} />
-          </View>
+          />
 
-          <View style={{ flex: 1, minWidth: 0, gap: 2 }}>
-            <Text
-              style={{
-                color: tokens.foreground,
-                fontSize: 16,
-                lineHeight: 22, ...directionalText('900'),
-              }}
-              numberOfLines={1}
-            >
-              {portal.title}
-            </Text>
-            <Text
-              style={{
-                color: tokens.mutedForeground,
-                fontSize: 12,
-                lineHeight: 17, ...directionalText('600'),
-              }}
-              numberOfLines={1}
-            >
-              {portal.subtitle}
-            </Text>
-          </View>
-
-          <DirectionIcon size={16} color={tokens.mutedForeground} />
-        </View>
-
-        {/* Feature + action row */}
-        <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between' }}>
-          <Text
+          <View
             style={{
-              color: tokens.mutedForeground,
-              fontSize: 11,
-              ...directionalText('700'),
+              paddingTop: portal.recommended ? 24 : 20,
+              paddingBottom: 20,
+              paddingLeft: rtl ? 20 : 24,
+              paddingRight: rtl ? 24 : 20,
+              justifyContent: 'center',
+              gap: 16,
             }}
-            numberOfLines={1}
           >
-            {portal.supportLine}
-          </Text>
+            {/* Icon + Title row */}
+            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 14 }}>
+              <View
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: 26,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backgroundColor: portal.accentBg,
+                  borderWidth: 1,
+                  borderColor: 'rgba(0,0,0,0.03)',
+                }}
+              >
+                <Icon size={26} color={portal.accent} />
+              </View>
 
-          {portal.recommended ? <View /> : null}
+              <View style={{ flex: 1, minWidth: 0, gap: 4 }}>
+                <Text
+                  style={{
+                    color: tokens.foreground,
+                    fontSize: 18,
+                    lineHeight: 24, ...directionalText('900'),
+                  }}
+                  numberOfLines={1}
+                >
+                  {portal.title}
+                </Text>
+                <Text
+                  style={{
+                    color: tokens.mutedForeground,
+                    fontSize: 13,
+                    lineHeight: 18, ...directionalText('600'),
+                  }}
+                  numberOfLines={2}
+                >
+                  {portal.subtitle}
+                </Text>
+              </View>
+            </View>
+
+            {/* Feature + action row */}
+            <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', backgroundColor: tokens.muted, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10 }}>
+              <Text
+                style={{
+                  flex: 1,
+                  color: tokens.mutedForeground,
+                  fontSize: 11,
+                  ...directionalText('700'),
+                }}
+                numberOfLines={1}
+              >
+                {portal.supportLine}
+              </Text>
+
+              {/* Explicit CTA Pill */}
+              <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6, backgroundColor: portal.accentBg, paddingHorizontal: 12, paddingVertical: 6, borderRadius: 12 }}>
+                <Text style={{ color: portal.accent, fontSize: 11, ...directionalText('800') }}>{portal.actionLabel}</Text>
+                <DirectionIcon size={12} color={portal.accent} />
+              </View>
+            </View>
+          </View>
         </View>
+
+        {/* Recommended Badge (Outside the hidden overflow so it can float!) */}
+        {portal.recommended && (
+          <View
+            style={{
+              position: 'absolute',
+              top: -10,
+              ...(rtl ? { right: 20 } : { left: 20 }),
+              backgroundColor: portal.accent,
+              paddingHorizontal: 12,
+              paddingVertical: 4,
+              borderRadius: 12,
+              shadowColor: portal.accent,
+              shadowOffset: { width: 0, height: 4 },
+              shadowOpacity: 0.3,
+              shadowRadius: 6,
+              elevation: 4,
+              zIndex: 10,
+            }}
+          >
+            <Text style={{ color: '#fff', fontSize: 10, ...directionalText('900') }}>
+              {t('role.recommended')}
+            </Text>
+          </View>
+        )}
       </View>
     </Pressable>
   );

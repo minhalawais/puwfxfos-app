@@ -1,51 +1,173 @@
 import { router } from 'expo-router';
-import { LockKeyhole, LogIn, Mail } from 'lucide-react-native';
+import { StatusBar } from 'expo-status-bar';
+import { ArrowLeft, ArrowRight, Building2, LockKeyhole, LogIn, Mail, ShieldCheck } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
-import { Pressable, Text, TextInput, View } from 'react-native';
-import { AppShell } from '@/components/app-shell';
-import { HeaderBar } from '@/components/header-bar';
+import { Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useSessionStore } from '@/stores/session-store';
-import { directionalText, rowDirection, textAlign, writingDirection } from '@/theme/layout';
+import { directionalText, isRtlLanguage, rowDirection, textAlign, writingDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
 
 export default function UnionLoginScreen() {
   const { t } = useTranslation();
   const { signInUnionAdmin } = useSessionStore();
+  const insets = useSafeAreaInsets();
+  const rtl = isRtlLanguage();
+  const BackIcon = rtl ? ArrowRight : ArrowLeft;
 
   return (
-    <AppShell>
-      <HeaderBar title={t('auth.unionLogin')} />
-      <View style={{ padding: 20, gap: 16 }}>
-        <View style={{ backgroundColor: tokens.card, borderColor: tokens.border, borderWidth: 1, borderRadius: 10, padding: 16, gap: 14 }}>
-          <Text style={{ color: tokens.foreground, fontSize: 20, ...directionalText('900') }}>{t('auth.welcome')}</Text>
-          <View style={{ gap: 8 }}>
-            <Text style={{ color: tokens.mutedForeground, ...directionalText('700') }}>{t('auth.email')}</Text>
-            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 8, borderWidth: 1, borderColor: tokens.border, borderRadius: 8, paddingHorizontal: 12 }}>
-              <Mail size={18} color={tokens.mutedForeground} />
-              <TextInput accessibilityLabel={t('auth.email')} placeholder={t('auth.emailPlaceholder')} placeholderTextColor={tokens.mutedForeground} style={{ flex: 1, minHeight: 46, color: tokens.foreground, textAlign: textAlign(), writingDirection: writingDirection() }} />
+    <KeyboardAvoidingView style={{ flex: 1, backgroundColor: tokens.background }} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+      <StatusBar style="light" />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }} bounces={false} showsVerticalScrollIndicator={false}>
+        {/* ═══ Hero Header (Sovereign Green) ═══ */}
+        <View
+          style={{
+            backgroundColor: tokens.primary,
+            paddingTop: Math.max(insets.top, 20) + 20,
+            paddingBottom: 80, // Extra padding to let the card overlap
+            paddingHorizontal: 24,
+            borderBottomLeftRadius: 36,
+            borderBottomRightRadius: 36,
+          }}
+        >
+          {/* Top Bar: Back Button & Trust */}
+          <View style={{ flexDirection: rowDirection(), justifyContent: 'space-between', alignItems: 'center', marginBottom: 30 }}>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Go back"
+              onPress={() => router.back()}
+              style={{ width: 44, height: 44, borderRadius: 22, backgroundColor: 'rgba(255,255,255,0.15)', alignItems: 'center', justifyContent: 'center' }}
+            >
+              <BackIcon size={20} color={tokens.primaryForeground} />
+            </Pressable>
+            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6, backgroundColor: 'rgba(0,0,0,0.2)', paddingHorizontal: 12, paddingVertical: 8, borderRadius: 12 }}>
+              <Building2 size={14} color={tokens.primaryForeground} />
+              <Text style={{ color: tokens.primaryForeground, fontSize: 11, ...directionalText('700') }}>{t('auth.welcome')}</Text>
             </View>
           </View>
-          <View style={{ gap: 8 }}>
-            <Text style={{ color: tokens.mutedForeground, ...directionalText('700') }}>{t('auth.password')}</Text>
-            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 8, borderWidth: 1, borderColor: tokens.border, borderRadius: 8, paddingHorizontal: 12 }}>
-              <LockKeyhole size={18} color={tokens.mutedForeground} />
-              <TextInput accessibilityLabel={t('auth.password')} placeholder={t('auth.passwordPlaceholder')} placeholderTextColor={tokens.mutedForeground} secureTextEntry style={{ flex: 1, minHeight: 46, color: tokens.foreground, textAlign: textAlign(), writingDirection: writingDirection() }} />
+
+          {/* Branding & Titles */}
+          <View style={{ alignItems: 'center', gap: 16 }}>
+            <View
+              style={{
+                width: 76,
+                height: 76,
+                backgroundColor: tokens.primaryForeground,
+                borderRadius: 22,
+                alignItems: 'center',
+                justifyContent: 'center',
+                shadowColor: '#000',
+                shadowOffset: { width: 0, height: 8 },
+                shadowOpacity: 0.25,
+                shadowRadius: 12,
+                elevation: 8,
+              }}
+            >
+              <Image source={require('../../assets/images/puwf_logo.png')} style={{ width: 50, height: 50 }} resizeMode="contain" />
+            </View>
+            <View style={{ alignItems: 'center', gap: 6 }}>
+              <Text style={{ color: tokens.primaryForeground, fontSize: 22, ...directionalText('900') }}>
+                {t('auth.unionLogin')}
+              </Text>
+              <Text style={{ color: 'rgba(255,255,255,0.8)', fontSize: 13, lineHeight: 22, textAlign: 'center', paddingHorizontal: 10, ...directionalText('500') }}>
+                {t('auth.subtitle')}
+              </Text>
             </View>
           </View>
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={t('auth.signIn')}
-            onPress={() => {
-              signInUnionAdmin();
-              router.replace('/(union-admin)/dashboard');
-            }}
-            style={{ minHeight: 50, backgroundColor: tokens.primary, borderRadius: 8, paddingVertical: 14, alignItems: 'center', flexDirection: rowDirection(), justifyContent: 'center', gap: 8 }}
-          >
-            <LogIn size={18} color={tokens.primaryForeground} />
-            <Text style={{ color: tokens.primaryForeground, ...directionalText('900') }}>{t('auth.signIn')}</Text>
-          </Pressable>
         </View>
-      </View>
-    </AppShell>
+
+        {/* ═══ Overlapping Login Card ═══ */}
+        <View style={{ flex: 1, paddingHorizontal: 24, marginTop: -40, paddingBottom: insets.bottom + 24 }}>
+          <View
+            style={{
+              backgroundColor: tokens.card,
+              borderRadius: 24,
+              padding: 24,
+              shadowColor: '#000',
+              shadowOffset: { width: 0, height: 12 },
+              shadowOpacity: 0.08,
+              shadowRadius: 24,
+              elevation: 10,
+              borderWidth: 1,
+              borderColor: 'rgba(0,0,0,0.05)',
+              gap: 20,
+            }}
+          >
+            {/* Email Input */}
+            <View style={{ gap: 8 }}>
+              <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('700') }}>{t('auth.email')}</Text>
+              <View style={{ flexDirection: rowDirection(), alignItems: 'center', backgroundColor: tokens.muted, borderRadius: 12, paddingHorizontal: 16, height: 56, borderWidth: 1, borderColor: 'transparent' }}>
+                <Mail size={20} color={tokens.mutedForeground} />
+                <TextInput
+                  accessibilityLabel={t('auth.email')}
+                  placeholder={t('auth.emailPlaceholder')}
+                  placeholderTextColor={tokens.mutedForeground}
+                  autoCapitalize="none"
+                  keyboardType="email-address"
+                  style={{ flex: 1, height: '100%', color: tokens.foreground, fontSize: 15, paddingHorizontal: 12, textAlign: textAlign(), writingDirection: writingDirection(), fontFamily: directionalText('600').fontFamily }}
+                />
+              </View>
+            </View>
+
+            {/* Password Input */}
+            <View style={{ gap: 8 }}>
+              <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('700') }}>{t('auth.password')}</Text>
+              <View style={{ flexDirection: rowDirection(), alignItems: 'center', backgroundColor: tokens.muted, borderRadius: 12, paddingHorizontal: 16, height: 56, borderWidth: 1, borderColor: 'transparent' }}>
+                <LockKeyhole size={20} color={tokens.mutedForeground} />
+                <TextInput
+                  accessibilityLabel={t('auth.password')}
+                  placeholder={t('auth.passwordPlaceholder')}
+                  placeholderTextColor={tokens.mutedForeground}
+                  secureTextEntry
+                  style={{ flex: 1, height: '100%', color: tokens.foreground, fontSize: 15, paddingHorizontal: 12, textAlign: textAlign(), writingDirection: writingDirection(), fontFamily: directionalText('600').fontFamily }}
+                />
+              </View>
+            </View>
+
+            {/* Login Button */}
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel={t('auth.signIn')}
+              onPress={() => {
+                signInUnionAdmin();
+                router.replace('/(union-admin)/dashboard');
+              }}
+              style={({ pressed }) => ({
+                marginTop: 8,
+                height: 58,
+                backgroundColor: tokens.primary,
+                borderRadius: 14,
+                flexDirection: rowDirection(),
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 10,
+                opacity: pressed ? 0.9 : 1,
+                shadowColor: tokens.primary,
+                shadowOffset: { width: 0, height: 4 },
+                shadowOpacity: 0.3,
+                shadowRadius: 8,
+                elevation: 4,
+              })}
+            >
+              <LogIn size={20} color={tokens.primaryForeground} />
+              <Text style={{ color: tokens.primaryForeground, fontSize: 16, ...directionalText('900') }}>{t('auth.signIn')}</Text>
+            </Pressable>
+
+            {/* Forgot Password */}
+            <Pressable accessibilityRole="button" style={{ alignItems: 'center', marginTop: 4 }}>
+              <Text style={{ color: tokens.mutedForeground, fontSize: 13, ...directionalText('600') }}>{t('auth.forgotPassword')}</Text>
+            </Pressable>
+          </View>
+
+          {/* ═══ Security Footer ═══ */}
+          <View style={{ marginTop: 'auto', paddingTop: 40, alignItems: 'center', gap: 8 }}>
+            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6 }}>
+              <ShieldCheck size={14} color={tokens.statusSuccess} />
+              <Text style={{ color: tokens.mutedForeground, fontSize: 11, ...directionalText('700') }}>{t('auth.securityBadge')}</Text>
+            </View>
+          </View>
+        </View>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 }
