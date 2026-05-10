@@ -88,13 +88,16 @@
     "helpline": "PUWF ہیلپ لائن: 0333-4333387"
   },
   "auth": {
-    "unionLogin": "یونین لاگ اِن",
+    "unionLogin": "یونین ایڈمنسٹریشن پورٹل",
+    "subtitle": "مجاز عہدیداروں کے لیے ممبرشپ، واجبات اور قانونی تقاضوں کے انتظام تک محفوظ رسائی۔",
     "welcome": "یونین ایڈمن پورٹل",
-    "email": "ای میل",
-    "emailPlaceholder": "union@puwf.org.pk",
-    "password": "پاس ورڈ",
-    "passwordPlaceholder": "پاس ورڈ",
-    "signIn": "سائن اِن",
+    "email": "سرکاری ای میل ایڈریس",
+    "emailPlaceholder": "gs@union.org.pk",
+    "password": "ایکسیس پاس ورڈ",
+    "passwordPlaceholder": "••••••••",
+    "signIn": "محفوظ لاگ اِن",
+    "securityBadge": "256-bit Encrypted Connection | سرکاری PUWF ڈیجیٹل سسٹم",
+    "forgotPassword": "پاس ورڈ بھول گئے؟ PUWF ہیڈ آفس سے رابطہ کریں۔",
     "demoHint": ""
   },
   "onboarding": {

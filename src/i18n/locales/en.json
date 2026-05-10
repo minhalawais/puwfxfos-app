@@ -83,13 +83,16 @@
     "helpline": "PUWF Helpline: 0333-4333387"
   },
   "auth": {
-    "unionLogin": "Union Login",
+    "unionLogin": "Union Administration Portal",
+    "subtitle": "Secure access for authorized office bearers to manage memberships, dues, and legal compliance.",
     "welcome": "Union Admin Portal",
-    "email": "Email",
-    "emailPlaceholder": "union@puwf.org.pk",
-    "password": "Password",
-    "passwordPlaceholder": "password",
-    "signIn": "Sign in",
+    "email": "Official Email Address",
+    "emailPlaceholder": "gs@union.org.pk",
+    "password": "Access Password",
+    "passwordPlaceholder": "••••••••",
+    "signIn": "Secure Login",
+    "securityBadge": "256-bit Encrypted Connection | PUWF Official System",
+    "forgotPassword": "Forgot password? Contact PUWF Head Office.",
     "demoHint": ""
   },
   "onboarding": {
