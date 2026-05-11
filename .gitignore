@@ -7,6 +7,14 @@ expo-env.d.ts
 node_modules/
 .expo/
 .env
+.env.production
+.env.staging
+.env.development
 package-lock.json
 .trae
 yarn.lock
+*.apk
+*.aab
+service-account-key.json
+coverage/
+build/

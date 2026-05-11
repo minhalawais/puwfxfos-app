@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { demoWorker, rightsTopics, workerDues, workerElections, workerGrievances, workerNotifications, workerUnionProfile } from '@/data/mobile-mock-data';
-import type { GrievanceCase, GrievanceDraft, WorkerDashboardSummary } from '@/types/domain';
+import type { DuesDisputeDraft, GrievanceCase, GrievanceDraft, WorkerDashboardSummary } from '@/types/domain';
 
 function delay<T>(data: T, ms = 150): Promise<T> {
   return new Promise((resolve) => setTimeout(() => resolve(data), ms));
@@ -99,5 +99,23 @@ export function useConfirmWorkerVote() {
 export function useMarkWorkerNotificationRead() {
   return useMutation({
     mutationFn: ({ notificationId }: { notificationId: string }) => delay({ notificationId, read: true }, 150),
+  });
+}
+
+export function useConfirmResolutionMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({ grievanceId, satisfied }: { grievanceId: string; satisfied: boolean }) =>
+      delay({ confirmRef: `RES-CONF-${grievanceId}`, satisfied, grievanceId }, 200),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['worker', 'grievances'] }).catch(() => undefined);
+    },
+  });
+}
+
+export function useSubmitDuesDisputeMutation() {
+  return useMutation({
+    mutationFn: (draft: DuesDisputeDraft) =>
+      delay({ disputeRef: `DISP-${draft.dues_id}-${Date.now()}`, period: draft.period, reason: draft.reason, mockOnly: true }, 300),
   });
 }

@@ -6,7 +6,7 @@ import { DataState } from '@/components/data-state';
 import { HeaderBar } from '@/components/header-bar';
 import { MetricCard } from '@/components/metric-card';
 import { SectionCard } from '@/components/section-card';
-import { PriorityStatusStrip, QuickActionCard, WorkerIdentityStrip } from '@/features/worker-portal/components';
+import { LeadershipTicker, PriorityStatusStrip, QuickActionCard, WorkerIdentityStrip } from '@/features/worker-portal/components';
 import { useWorkerDashboard } from '@/services/worker-service';
 import { directionalText, rowDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
@@ -18,6 +18,7 @@ export default function WorkerDashboardScreen() {
   return (
     <AppShell>
       <HeaderBar title={t('worker.dashboard')} subtitle={data?.worker_identity.union_name} />
+      <LeadershipTicker />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
         <DataState loading={isLoading} error={isError} empty={!data} loadingLabel={t('states.loading')} errorLabel={t('states.error')} emptyLabel={t('states.empty')}>
           {data ? (

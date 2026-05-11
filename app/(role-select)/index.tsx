@@ -84,6 +84,7 @@ export default function RoleSelectScreen() {
       <StatusBar style="dark" />
       <ScrollView
         contentContainerStyle={{
+          flexGrow: 1,
           paddingTop: safeTop,
           paddingBottom: safeBottom,
           paddingHorizontal: 16,
@@ -204,7 +205,7 @@ export default function RoleSelectScreen() {
         </View>
 
         {/* ═══ Footer ═══ */}
-        <View style={{ alignItems: 'center', gap: 4, paddingVertical: 4 }}>
+        <View style={{ alignItems: 'center', gap: 4, paddingVertical: 4, marginTop: 'auto' }}>
           <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6 }}>
             <Image
               source={require('../../assets/images/fos_tree.png')}
@@ -262,9 +263,9 @@ function PortalCard({
       <View
         style={{
           borderRadius: 20,
-          shadowColor: portal.recommended ? portal.accent : '#000',
+          shadowColor: '#000',
           shadowOffset: { width: 0, height: 6 },
-          shadowOpacity: portal.recommended ? 0.15 : 0.08,
+          shadowOpacity: 0.08,
           shadowRadius: 16,
           elevation: 6,
         }}
@@ -275,7 +276,7 @@ function PortalCard({
             borderRadius: 20,
             backgroundColor: tokens.card,
             borderWidth: 1,
-            borderColor: portal.recommended ? portal.accent : 'rgba(0,0,0,0.03)',
+            borderColor: 'rgba(0,0,0,0.03)',
             overflow: 'hidden',
           }}
         >
@@ -293,7 +294,7 @@ function PortalCard({
 
           <View
             style={{
-              paddingTop: portal.recommended ? 24 : 20,
+              paddingTop: 20,
               paddingBottom: 20,
               paddingLeft: rtl ? 20 : 24,
               paddingRight: rtl ? 24 : 20,
@@ -342,7 +343,7 @@ function PortalCard({
               </View>
             </View>
 
-            {/* Feature + action row */}
+            {/* Feature row */}
             <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', backgroundColor: tokens.muted, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10 }}>
               <Text
                 style={{
@@ -356,39 +357,14 @@ function PortalCard({
                 {portal.supportLine}
               </Text>
 
-              {/* Explicit CTA Pill */}
-              <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6, backgroundColor: portal.accentBg, paddingHorizontal: 12, paddingVertical: 6, borderRadius: 12 }}>
-                <Text style={{ color: portal.accent, fontSize: 11, ...directionalText('800') }}>{portal.actionLabel}</Text>
-                <DirectionIcon size={12} color={portal.accent} />
+              {/* Arrow Pill */}
+              <View style={{ backgroundColor: portal.accentBg, padding: 4, borderRadius: 100 }}>
+                <DirectionIcon size={14} color={portal.accent} />
               </View>
             </View>
           </View>
         </View>
 
-        {/* Recommended Badge (Outside the hidden overflow so it can float!) */}
-        {portal.recommended && (
-          <View
-            style={{
-              position: 'absolute',
-              top: -10,
-              ...(rtl ? { right: 20 } : { left: 20 }),
-              backgroundColor: portal.accent,
-              paddingHorizontal: 12,
-              paddingVertical: 4,
-              borderRadius: 12,
-              shadowColor: portal.accent,
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.3,
-              shadowRadius: 6,
-              elevation: 4,
-              zIndex: 10,
-            }}
-          >
-            <Text style={{ color: '#fff', fontSize: 10, ...directionalText('900') }}>
-              {t('role.recommended')}
-            </Text>
-          </View>
-        )}
       </View>
     </Pressable>
   );

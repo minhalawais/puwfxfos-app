@@ -7,6 +7,7 @@ import { SectionCard } from '@/components/section-card';
 import { StatusChip } from '@/components/status-chip';
 import { alignSelfStart, directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
+import { formatDate } from '@/utils/date';
 import type { UnionAdminDashboardSummary, UnionComplianceDocument, UnionComplianceObligation, UnionMemberRecord, UnionOfficeBearerRecord } from '@/types/domain';
 
 type IconType = ComponentType<{ size?: number; color?: string }>;
@@ -22,15 +23,15 @@ const complianceTone = {
 export function UnionRiskStrip({ summary }: { summary: UnionAdminDashboardSummary }) {
   const { t } = useTranslation();
   return (
-    <View style={{ gap: 8 }}>
+    <View style={{ gap: 6 }}>
       {summary.risks.map((risk) => (
-        <Pressable key={risk.id} accessibilityRole="button" accessibilityLabel={t(risk.title_key)} onPress={() => router.push(risk.route as Href)} style={{ minHeight: 58, flexDirection: rowDirection(), alignItems: 'center', gap: 10, borderWidth: 1, borderColor: tokens.border, borderRadius: 12, backgroundColor: risk.tone === 'error' ? tokens.statusErrorBg : risk.tone === 'warning' ? tokens.statusWarningBg : tokens.statusInfoBg, padding: 10 }}>
-          <CalendarClock size={18} color={risk.tone === 'error' ? tokens.statusError : risk.tone === 'warning' ? tokens.statusWarning : tokens.statusInfo} />
+        <Pressable key={risk.id} accessibilityRole="button" accessibilityLabel={t(risk.title_key)} onPress={() => router.push(risk.route as Href)} style={{ minHeight: 50, flexDirection: rowDirection(), alignItems: 'center', gap: 8, borderWidth: 1, borderColor: tokens.border, borderRadius: 10, backgroundColor: risk.tone === 'error' ? tokens.statusErrorBg : risk.tone === 'warning' ? tokens.statusWarningBg : tokens.statusInfoBg, padding: 8 }}>
+          <CalendarClock size={16} color={risk.tone === 'error' ? tokens.statusError : risk.tone === 'warning' ? tokens.statusWarning : tokens.statusInfo} />
           <View style={{ flex: 1 }}>
-            <Text style={{ color: tokens.foreground, ...directionalText('900') }}>{t(risk.title_key)}</Text>
-            <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 17, ...directionalText('700') }}>{t(risk.detail_key)}</Text>
+            <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('900') }}>{t(risk.title_key)}</Text>
+            <Text style={{ color: tokens.mutedForeground, fontSize: 11, lineHeight: 15, ...directionalText('700') }}>{t(risk.detail_key)}</Text>
           </View>
-          {isRtlLanguage() ? <ArrowLeft size={17} color={tokens.mutedForeground} /> : <ArrowRight size={17} color={tokens.mutedForeground} />}
+          {isRtlLanguage() ? <ArrowLeft size={15} color={tokens.mutedForeground} /> : <ArrowRight size={15} color={tokens.mutedForeground} />}
         </Pressable>
       ))}
     </View>
@@ -90,7 +91,7 @@ export function OfficeBearerCard({ bearer }: { bearer: UnionOfficeBearerRecord }
             <StatusChip tone={bearer.status === 'active' ? 'success' : 'warning'} label={t(`unionCore.officeStatus.${bearer.status}`)} />
           </View>
           <Text style={{ color: tokens.mutedForeground, fontSize: 12, ...directionalText('800') }}>{t(bearer.designation_key)} - {bearer.masked_cnic}</Text>
-          <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 17, ...directionalText() }}>{t('unionCore.office.term', { start: bearer.term_start_date, expiry: bearer.term_expiry_date })}</Text>
+          <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 17, ...directionalText() }}>{t('unionCore.office.term', { start: formatDate(bearer.term_start_date), expiry: formatDate(bearer.term_expiry_date) })}</Text>
           <View style={{ flexDirection: rowDirection(), gap: 6, flexWrap: 'wrap' }}>
             {bearer.outsider ? <StatusChip tone="error" label={t('union.outsider')} /> : <StatusChip tone="success" label={t('unionCore.office.workerBearer')} />}
             <StatusChip tone={complianceTone[bearer.evidence_status]} label={t(`status.compliance.${bearer.evidence_status}`)} />
@@ -109,7 +110,7 @@ export function ComplianceObligationCard({ obligation }: { obligation: UnionComp
         <Text style={{ flex: 1, color: tokens.foreground, fontSize: 15, ...directionalText('900') }}>{t(obligation.title_key)}</Text>
         <StatusChip tone={complianceTone[obligation.status]} label={t(`status.compliance.${obligation.status}`)} />
       </View>
-      <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 18, ...directionalText('700') }}>{t(obligation.source_key)} - {t('unionCore.compliance.due', { date: obligation.due_date })}</Text>
+      <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 18, ...directionalText('700') }}>{t(obligation.source_key)} - {t('unionCore.compliance.due', { date: formatDate(obligation.due_date) })}</Text>
     </Pressable>
   );
 }
@@ -129,8 +130,8 @@ export function ComplianceDocumentCard({ document }: { document: UnionCompliance
           <View style={{ flexDirection: rowDirection(), gap: 6, flexWrap: 'wrap' }}>
             <StatusChip tone="neutral" label={t(document.owner_role_key)} />
             <StatusChip tone="info" label={t('unionCore.documents.evidenceCount', { count: document.evidence_count })} />
-            {document.expiry_date ? <StatusChip tone="warning" label={t('unionCore.documents.expiry', { date: document.expiry_date })} /> : null}
-            {document.due_date ? <StatusChip tone="warning" label={t('unionCore.compliance.due', { date: document.due_date })} /> : null}
+            {document.expiry_date ? <StatusChip tone="warning" label={t('unionCore.documents.expiry', { date: formatDate(document.expiry_date) })} /> : null}
+            {document.due_date ? <StatusChip tone="warning" label={t('unionCore.compliance.due', { date: formatDate(document.due_date) })} /> : null}
           </View>
         </View>
       </View>

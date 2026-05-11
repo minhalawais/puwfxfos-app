@@ -1,12 +1,13 @@
-import type { ComponentType } from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, QrCode, ShieldCheck } from 'lucide-react-native';
+import { useState, useEffect, useRef, type ComponentType } from 'react';
+import { Animated, Dimensions, Image, Pressable, Text, View } from 'react-native';
+import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, QrCode, ShieldCheck, Landmark } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { router, type Href } from 'expo-router';
 import { StatusChip } from '@/components/status-chip';
 import { alignSelfStart, directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
 import type { DuesPayment, ElectionCandidate, GrievanceCase, GrievanceTimelineEvent, RightTopic, WorkerDashboardSummary } from '@/types/domain';
+import { UNION_LEADERS } from '@/data/union-leadership';
 
 type IconType = ComponentType<{ size?: number; color?: string }>;
 
@@ -134,19 +135,65 @@ export function Timeline({ events }: { events: GrievanceTimelineEvent[] }) {
   );
 }
 
-export function GrievanceCaseCard({ grievance }: { grievance: GrievanceCase }) {
+export function GrievanceCaseCard({ grievance, onConfirmResolution, isConfirming }: { grievance: GrievanceCase; onConfirmResolution?: (id: string, satisfied: boolean) => void; isConfirming?: boolean }) {
   const { t } = useTranslation();
+  const [expanded, setExpanded] = useState(false);
+  const rtl = isRtlLanguage();
+
   return (
-    <View style={{ backgroundColor: tokens.card, borderWidth: 1, borderColor: tokens.border, borderRadius: 14, padding: 12, gap: 8 }}>
-      <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 8 }}>
-        <Clock3 size={18} color={tokens.statusWarning} />
-        <View style={{ flex: 1 }}>
-          <Text style={{ color: tokens.foreground, ...directionalText('900') }}>{grievance.reference_no}</Text>
-          <Text style={{ color: tokens.mutedForeground, fontSize: 12, ...directionalText() }}>{t(`grievance.categories.${grievance.category}`)} - {grievance.establishment_name}</Text>
+    <View style={{ backgroundColor: tokens.card, borderWidth: 1, borderColor: tokens.border, borderRadius: 14, overflow: 'hidden' }}>
+      <Pressable onPress={() => setExpanded(!expanded)} style={{ padding: 12, gap: 8 }}>
+        <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 8 }}>
+          <Clock3 size={18} color={tokens.statusWarning} />
+          <View style={{ flex: 1 }}>
+            <Text style={{ color: tokens.foreground, ...directionalText('900') }}>{grievance.reference_no}</Text>
+            <Text style={{ color: tokens.mutedForeground, fontSize: 12, ...directionalText() }}>{t(`grievance.categories.${grievance.category}`)} - {grievance.establishment_name}</Text>
+          </View>
+          <StatusChip tone={grievance.status === 'resolved' ? 'success' : grievance.status === 'escalated' ? 'error' : 'warning'} label={t(`status.grievance.${grievance.status}`)} />
         </View>
-        <StatusChip tone={grievance.status === 'resolved' ? 'success' : grievance.status === 'escalated' ? 'error' : 'warning'} label={t(`status.grievance.${grievance.status}`)} />
-      </View>
-      <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 18, ...directionalText() }}>{t('workerPortal.grievance.sla', { date: grievance.sla_deadline })}</Text>
+        <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 18, ...directionalText() }}>{t('workerPortal.grievance.sla', { date: grievance.sla_deadline })}</Text>
+      </Pressable>
+
+      {expanded && (
+        <View style={{ paddingHorizontal: 12, paddingBottom: 12, gap: 12, borderTopWidth: 1, borderTopColor: tokens.border, paddingTop: 12 }}>
+          {grievance.legal_case_id && (
+             <View style={{ backgroundColor: tokens.statusErrorBg, padding: 8, borderRadius: 8, flexDirection: rowDirection(), alignItems: 'center', gap: 6 }}>
+               <Landmark size={14} color={tokens.statusError} />
+               <Text style={{ color: tokens.statusError, fontSize: 12, fontWeight: '800' }}>Escalated to Legal Registry</Text>
+             </View>
+          )}
+
+          <Timeline events={grievance.timeline} />
+
+          {grievance.status === 'resolved' && onConfirmResolution && (
+            <View style={{ backgroundColor: tokens.muted, borderRadius: 10, padding: 12, gap: 10, marginTop: 4 }}>
+              <Text style={{ color: tokens.foreground, fontSize: 13, fontWeight: '800', textAlign: 'center' }}>Are you satisfied with this resolution?</Text>
+              <View style={{ flexDirection: rowDirection(), gap: 8 }}>
+                <Pressable
+                  disabled={isConfirming}
+                  onPress={() => onConfirmResolution(grievance.id, true)}
+                  style={{ flex: 1, backgroundColor: tokens.statusSuccess, paddingVertical: 10, borderRadius: 8, alignItems: 'center', opacity: isConfirming ? 0.5 : 1 }}
+                >
+                  <Text style={{ color: '#fff', fontSize: 12, fontWeight: '900' }}>Yes, Close Case</Text>
+                </Pressable>
+                <Pressable
+                  disabled={isConfirming}
+                  onPress={() => onConfirmResolution(grievance.id, false)}
+                  style={{ flex: 1, backgroundColor: tokens.card, borderWidth: 1, borderColor: tokens.border, paddingVertical: 10, borderRadius: 8, alignItems: 'center', opacity: isConfirming ? 0.5 : 1 }}
+                >
+                  <Text style={{ color: tokens.foreground, fontSize: 12, fontWeight: '800' }}>No, Request Review</Text>
+                </Pressable>
+              </View>
+            </View>
+          )}
+
+          {grievance.status === 'review_requested' && (
+             <View style={{ backgroundColor: tokens.statusWarningBg, padding: 10, borderRadius: 8, borderWidth: 1, borderColor: tokens.statusWarning }}>
+               <Text style={{ color: tokens.statusWarning, fontSize: 12, fontWeight: '800', textAlign: 'center' }}>Review Requested - Union Admin notified</Text>
+             </View>
+          )}
+        </View>
+      )}
     </View>
   );
 }
@@ -176,5 +223,136 @@ export function RightsTopicCard({ topic, onPress }: { topic: RightTopic; onPress
       <Text style={{ color: tokens.mutedForeground, lineHeight: 20, ...directionalText() }}>{t(topic.description_key)}</Text>
       <Text style={{ color: tokens.portalWorker, alignSelf: alignSelfStart(), ...directionalText('900') }}>{t(topic.action_key)}</Text>
     </Pressable>
+  );
+}
+
+/* ─────────────────────────────────────────────
+   Leadership Ticker — auto-scrolling marquee
+   Shows all PUWF regional committee members
+───────────────────────────────────────────── */
+
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const TICKER_SPEED = 55; // px per second — comfortable reading speed
+const GOLD = '#c99014';
+const GOLD_SOFT = 'rgba(201,144,20,0.18)';
+
+export function LeadershipTicker() {
+  const { i18n } = useTranslation();
+  const isUrdu = i18n.language === 'ur';
+
+  // Group leaders by region (preserving order from data file)
+  type RegionGroup = { region: string; regionUrdu: string; members: typeof UNION_LEADERS };
+  const grouped: RegionGroup[] = [];
+  for (const leader of UNION_LEADERS) {
+    const existing = grouped.find((g) => g.region === leader.region);
+    if (existing) {
+      existing.members.push(leader);
+    } else {
+      grouped.push({ region: leader.region, regionUrdu: leader.regionUrdu, members: [leader] });
+    }
+  }
+  // Duplicate groups for seamless infinite loop
+  const groups = [...grouped, ...grouped];
+
+  // Measure total content width to set the animation distance
+  const contentWidthRef = useRef(0);
+  const animX = useRef(new Animated.Value(0)).current;
+  const animRef = useRef<Animated.CompositeAnimation | null>(null);
+
+  const startAnimation = (totalWidth: number) => {
+    if (totalWidth === 0) return;
+    animRef.current?.stop();
+    animX.setValue(0);
+    const duration = (totalWidth / 2 / TICKER_SPEED) * 1000;
+    animRef.current = Animated.loop(
+      Animated.timing(animX, {
+        toValue: -(totalWidth / 2),
+        duration,
+        useNativeDriver: true,
+      })
+    );
+    animRef.current.start();
+  };
+
+  useEffect(() => {
+    if (contentWidthRef.current > 0) {
+      startAnimation(contentWidthRef.current);
+    }
+    return () => {
+      animRef.current?.stop();
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [i18n.language]);
+
+  return (
+    <View
+      style={{
+        height: 46,
+        backgroundColor: tokens.primary,
+        overflow: 'hidden',
+        flexDirection: 'row',
+        alignItems: 'center',
+      }}
+    >
+      {/* Scrolling ticker */}
+      <Animated.View
+        style={{ flexDirection: 'row', alignItems: 'center', transform: [{ translateX: animX }] }}
+        onLayout={(e) => {
+          const w = e.nativeEvent.layout.width;
+          if (w > 0 && w !== contentWidthRef.current) {
+            contentWidthRef.current = w;
+            startAnimation(w);
+          }
+        }}
+      >
+        {groups.map((group, gIdx) => (
+          <View key={`${group.region}-${gIdx}`} style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {/* Region tag — shown only once per group */}
+            <View
+              style={{
+                backgroundColor: GOLD_SOFT,
+                borderWidth: 1,
+                borderColor: GOLD,
+                borderRadius: 6,
+                paddingHorizontal: 9,
+                paddingVertical: 3,
+                marginHorizontal: 10,
+              }}
+            >
+              <Text style={{ color: GOLD, fontSize: 10, fontWeight: '800' }}>
+                {isUrdu ? group.regionUrdu : group.region}
+              </Text>
+            </View>
+
+            {/* All members of this region */}
+            {group.members.map((leader, mIdx) => (
+              <View key={`${leader.name}-${mIdx}`} style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={{ paddingHorizontal: 10, paddingVertical: 6 }}>
+                  <Text
+                    style={{ color: 'rgba(255,255,255,0.68)', fontSize: 10, fontWeight: '700' }}
+                    numberOfLines={1}
+                  >
+                    {isUrdu ? leader.roleUrdu : leader.role}
+                  </Text>
+                  <Text
+                    style={{ color: '#ffffff', fontSize: 12, fontWeight: '800' }}
+                    numberOfLines={1}
+                  >
+                    {leader.name}
+                  </Text>
+                </View>
+                {/* Dot separator between members (not after last) */}
+                {mIdx < group.members.length - 1 && (
+                  <Text style={{ color: 'rgba(255,255,255,0.3)', fontSize: 14, paddingHorizontal: 2 }}>·</Text>
+                )}
+              </View>
+            ))}
+
+            {/* Gold diamond separator between regions */}
+            <Text style={{ color: GOLD, fontSize: 12, paddingHorizontal: 6 }}>◆</Text>
+          </View>
+        ))}
+      </Animated.View>
+    </View>
   );
 }

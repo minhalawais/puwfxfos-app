@@ -12,8 +12,21 @@ export default function UnionAdminTabs() {
         headerShown: false,
         tabBarActiveTintColor: tokens.primary,
         tabBarInactiveTintColor: tokens.mutedForeground,
-        tabBarStyle: { backgroundColor: tokens.card, borderTopColor: tokens.border, height: 66, paddingBottom: 8, paddingTop: 6 },
-        tabBarItemStyle: { minHeight: 54 },
+        tabBarStyle: {
+          backgroundColor: tokens.card,
+          borderTopColor: tokens.border,
+          height: 66,
+          paddingBottom: 8,
+          paddingTop: 6,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: -2 },
+          shadowOpacity: 0.05,
+          shadowRadius: 4,
+          elevation: 8,
+        },
+        tabBarActiveBackgroundColor: 'rgba(6, 69, 47, 0.08)', // Very subtle green tint
+        tabBarIconStyle: { marginTop: 2 },
+        tabBarItemStyle: { minHeight: 54, marginHorizontal: 4, marginVertical: 2 },
         tabBarLabelStyle: { fontSize: 10, fontWeight: '800' },
       }}
     >

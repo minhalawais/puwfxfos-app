@@ -133,24 +133,32 @@ export default function UnionLoginScreen() {
                 router.replace('/(union-admin)/dashboard');
               }}
               style={({ pressed }) => ({
-                marginTop: 8,
-                height: 58,
-                backgroundColor: tokens.primary,
-                borderRadius: 14,
-                flexDirection: rowDirection(),
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: 10,
+                transform: [{ scale: pressed ? 0.98 : 1 }],
                 opacity: pressed ? 0.9 : 1,
-                shadowColor: tokens.primary,
-                shadowOffset: { width: 0, height: 4 },
-                shadowOpacity: 0.3,
-                shadowRadius: 8,
-                elevation: 4,
               })}
             >
-              <LogIn size={20} color={tokens.primaryForeground} />
-              <Text style={{ color: tokens.primaryForeground, fontSize: 16, ...directionalText('900') }}>{t('auth.signIn')}</Text>
+              <View
+                style={{
+                  marginTop: 8,
+                  height: 58,
+                  backgroundColor: tokens.primary,
+                  borderRadius: 14,
+                  flexDirection: rowDirection(),
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 10,
+                  shadowColor: '#000',
+                  shadowOffset: { width: 0, height: 4 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 8,
+                  elevation: 4,
+                }}
+              >
+                <LogIn size={20} color={tokens.primaryForeground} />
+                <Text style={{ color: tokens.primaryForeground, fontSize: 16, ...directionalText('900') }}>
+                  {t('auth.signIn')}
+                </Text>
+              </View>
             </Pressable>
 
             {/* Forgot Password */}

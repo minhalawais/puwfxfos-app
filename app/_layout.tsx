@@ -47,7 +47,7 @@ export default function RootLayout() {
       <Stack screenOptions={{ headerShown: false, animation: isRtlLanguage() ? 'slide_from_left' : 'slide_from_right' }}>
         <Stack.Screen name="index" />
         <Stack.Screen name="(role-select)" />
-        <Stack.Screen name="(auth)" />
+        <Stack.Screen name="(auth)/union-login" />
         <Stack.Screen name="(worker)" />
         <Stack.Screen name="(union-admin)" />
       </Stack>

@@ -1,0 +1,52 @@
+# Dependencies - EAS will reinstall from package.json
+node_modules/
+npm-debug.*
+yarn-error.*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build artifacts
+build/
+dist/
+coverage/
+.next/
+
+# Expo
+.expo/
+.expo-shared/
+expo-env.d.ts
+
+# Archives
+*.zip
+*.tar.gz
+
+# Logs
+*.log
+logs/
+
+# Dependencies lock files (EAS installs fresh)
+package-lock.json
+yarn.lock
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Temporary files
+.trae
+*.tmp

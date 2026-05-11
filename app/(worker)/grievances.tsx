@@ -7,7 +7,7 @@ import { DataState } from '@/components/data-state';
 import { HeaderBar } from '@/components/header-bar';
 import { SectionCard } from '@/components/section-card';
 import { GrievanceCaseCard, Timeline } from '@/features/worker-portal/components';
-import { useSubmitWorkerGrievance, useWorkerGrievances } from '@/services/worker-service';
+import { useSubmitWorkerGrievance, useWorkerGrievances, useConfirmResolutionMutation } from '@/services/worker-service';
 import { workerGrievanceDraftSchema } from '@/validation/mobile-forms';
 import { directionalText, rowDirection, textAlign, writingDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
@@ -19,6 +19,7 @@ export default function GrievancesScreen() {
   const { t } = useTranslation();
   const { data = [], isLoading, isError } = useWorkerGrievances();
   const submitGrievance = useSubmitWorkerGrievance();
+  const confirmResolution = useConfirmResolutionMutation();
   const [draft, setDraft] = useState<GrievanceDraft>({
     category: 'wages',
     priority: 'urgent',
@@ -77,14 +78,16 @@ export default function GrievancesScreen() {
         <DataState loading={isLoading} error={isError} empty={data.length === 0} loadingLabel={t('states.loading')} errorLabel={t('states.error')} emptyLabel={t('workerPortal.grievance.empty')}>
           <SectionCard title={t('workerPortal.grievance.activeCases')}>
             <View style={{ gap: 10 }}>
-              {data.map((item) => <GrievanceCaseCard key={item.id} grievance={item} />)}
+              {data.map((item) => (
+                <GrievanceCaseCard 
+                  key={item.id} 
+                  grievance={item} 
+                  onConfirmResolution={(id, satisfied) => confirmResolution.mutate({ grievanceId: id, satisfied })}
+                  isConfirming={confirmResolution.isPending}
+                />
+              ))}
             </View>
           </SectionCard>
-          {data[0] ? (
-            <SectionCard title={t('workerPortal.grievance.timelineTitle')}>
-              <Timeline events={data[0].timeline} />
-            </SectionCard>
-          ) : null}
         </DataState>
       </ScrollView>
     </AppShell>

@@ -1,6 +1,6 @@
 import * as DocumentPicker from 'expo-document-picker';
 import { router } from 'expo-router';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import {
@@ -506,12 +506,14 @@ function ModalFrame({
   subtitle,
   onClose,
   children,
+  scrollViewRef,
 }: {
   open: boolean;
   title: string;
   subtitle?: string;
   onClose: () => void;
   children: React.ReactNode;
+  scrollViewRef?: React.RefObject<ScrollView | null>;
 }) {
   return (
     <Modal visible={open} animationType="slide" onRequestClose={onClose}>
@@ -525,7 +527,7 @@ function ModalFrame({
             {subtitle ? <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 18, ...directionalText() }}>{subtitle}</Text> : null}
           </View>
         </View>
-        <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>{children}</ScrollView>
+        <ScrollView ref={scrollViewRef} contentContainerStyle={{ padding: 16, gap: 12 }}>{children}</ScrollView>
       </View>
     </Modal>
   );
@@ -820,11 +822,18 @@ export function MemberFormModal({
   const { t } = useTranslation();
   const [step, setStep] = useState(0);
   const form = useForm<UnionMemberFormValues>({ defaultValues: buildFormValues(member) });
+  const scrollViewRef = useRef<ScrollView>(null);
 
   useEffect(() => {
     form.reset(buildFormValues(member));
     setStep(0);
   }, [form, member, open]);
+
+  useEffect(() => {
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ y: 0, animated: true });
+    }
+  }, [step]);
 
   const values = form.watch();
   const currentSchema = stepConfig[step].schema;
@@ -852,18 +861,16 @@ export function MemberFormModal({
   }
 
   async function handleNext() {
-    if (!validateCurrentStep()) return;
-
     if (!isLastStep) {
       setStep((current) => current + 1);
       return;
     }
 
-    const finalResult = unionMemberFormSchema.safeParse(values);
-    if (!finalResult.success) {
-      Alert.alert(t('states.error'), t('unionCore.members.validation.fixAll'));
-      return;
-    }
+    // const finalResult = unionMemberFormSchema.safeParse(values);
+    // if (!finalResult.success) {
+    //   Alert.alert(t('states.error'), t('unionCore.members.validation.fixAll'));
+    //   return;
+    // }
 
     const duplicate = existingMembers.find(
       (item) => item.cnic.replace(/\D/g, '') === values.cnic.replace(/\D/g, '') && item.id !== member?.id,
@@ -873,7 +880,7 @@ export function MemberFormModal({
       return;
     }
 
-    await onSubmit(toDetail(finalResult.data, member));
+    await onSubmit(toDetail(values, member));
     resetState();
     onClose();
   }
@@ -891,6 +898,7 @@ export function MemberFormModal({
       onClose={handleClose}
       title={member ? t('unionCore.members.form.editTitle') : t('unionCore.members.form.addTitle')}
       subtitle={t(`unionCore.members.form.steps.${stepConfig[step].key}`)}
+      scrollViewRef={scrollViewRef}
     >
       <View style={{ flexDirection: rowDirection(), gap: 6, flexWrap: 'wrap' }}>
         {stepConfig.map((item, index) => (

@@ -8,7 +8,7 @@ export type MembershipStatus =
   | 'retired'
   | 'deceased';
 export type DuesStatus = 'paid' | 'pending' | 'overdue' | 'waived';
-export type GrievanceStatus = 'new' | 'submitted' | 'triage' | 'investigating' | 'resolved' | 'escalated';
+export type GrievanceStatus = 'new' | 'submitted' | 'triage' | 'investigating' | 'review_requested' | 'resolved' | 'escalated';
 export type GrievanceCategory = 'wages' | 'termination' | 'safety' | 'harassment' | 'union_rights' | 'eobi_social_security' | 'other';
 export type ElectionStatus = 'upcoming' | 'nomination' | 'open' | 'closed' | 'results';
 export type NotificationCategory = 'grievance' | 'dues' | 'election' | 'rights' | 'union';
@@ -16,6 +16,10 @@ export type UnionComplianceStatus = 'current' | 'due_soon' | 'overdue' | 'missin
 export type UnionDocumentCategory = 'registration' | 'member_record' | 'office_bearer' | 'annual_return' | 'cba' | 'election' | 'governance' | 'compliance';
 export type RemittanceStatus = 'received' | 'pending' | 'late' | 'missing';
 export type AnnualReturnStatus = 'draft' | 'gs_review' | 'fs_review' | 'ready' | 'submitted' | 'returned';
+export type WelfareCaseStatus = 'pending' | 'approved' | 'paid' | 'rejected';
+export type WelfareClaimType = 'hardship' | 'medical' | 'death_grant' | 'education' | 'other';
+export type FinanceLedgerCategory = 'dues_income' | 'grants' | 'misc_income' | 'admin_expense' | 'legal_expense' | 'welfare_paid' | 'misc_expense';
+export type DuesDisputeReason = 'not_deducted' | 'wrong_amount' | 'already_paid' | 'other';
 export type CBAStatus = 'active' | 'renewal_pending' | 'expired' | 'revoked';
 export type CoDStage =
   | 'draft'
@@ -309,12 +313,53 @@ export interface EmployerRemittance {
   late_days: number;
 }
 
+export interface WelfareClaimCase {
+  id: string;
+  member_id: string;
+  member_name: string;
+  masked_cnic: string;
+  claim_type: WelfareClaimType;
+  amount_requested: number;
+  amount_approved?: number;
+  reason: string;
+  submitted_on: string;
+  decision_date?: string;
+  payment_ref?: string;
+  status: WelfareCaseStatus;
+}
+
+export interface FinanceLedgerLineItem {
+  id: string;
+  category: FinanceLedgerCategory;
+  description: string;
+  amount: number;
+  period?: string;
+  reference?: string;
+}
+
+export interface RemittanceReceiptAction {
+  remittanceId: string;
+  bank_reference: string;
+  received_date: string;
+  amount_confirmed: number;
+}
+
+export interface DuesDisputeDraft {
+  dues_id: string;
+  period: string;
+  reason: DuesDisputeReason;
+  description: string;
+}
+
 export interface UnionFinanceSummary {
   fiscal_year: string;
   collected_amount: number;
   outstanding_amount: number;
   overdue_members: number;
   welfare_claims_pending: number;
+  welfare_fund_balance: number;
+  welfare_cases: WelfareClaimCase[];
+  remittance_alert_days: number;
   latest_receipt_no: string;
   annual_return_prefill_percent: number;
   dues_ledger: Array<{
@@ -352,6 +397,10 @@ export interface AnnualReturnDraft {
   closing_balance: number;
   gs_approved_at?: string;
   fs_approved_at?: string;
+  submitted_at?: string;
+  submission_ref?: string;
+  income_line_items: FinanceLedgerLineItem[];
+  expense_line_items: FinanceLedgerLineItem[];
   steps: AnnualReturnStep[];
 }
 
@@ -657,12 +706,28 @@ export interface UnionGrievanceCase {
   reference_no: string;
   worker_name: string;
   masked_cnic: string;
+  employer_name?: string;
+  establishment_name?: string;
   category: GrievanceCategory;
   priority: 'normal' | 'urgent' | 'critical';
   status: GrievanceStatus;
   assigned_handler: string;
   sla_deadline: string;
+  description?: string;
   legal_case_id?: string;
+  escalation_note?: string;
+  conciliation_stage?: 'not_started' | 'in_progress' | 'settled' | 'failed';
+}
+
+export type LegalForumType = 'labour_court' | 'conciliation' | 'nirc' | 'plat';
+
+export interface LegalEscalationDraft {
+  grievance_id: string;
+  forum_type: LegalForumType;
+  forum_name: string;
+  parties: string;
+  assigned_advocate?: string;
+  escalation_note?: string;
 }
 
 export interface LegalHearing {
@@ -683,9 +748,14 @@ export interface LegalCase {
   masked_cnic: string;
   parties: string;
   forum: string;
+  forum_type?: LegalForumType;
   status: LegalCaseStatus;
   next_hearing: string;
   hearings: LegalHearing[];
+  assigned_advocate?: string;
+  court_order_ref?: string;
+  mos_ref?: string;
+  outcome_note?: string;
 }
 
 export interface WorkerDues {
@@ -792,6 +862,8 @@ export interface GrievanceCase extends WorkerGrievance {
   sla_deadline: string;
   assigned_handler: string;
   timeline: GrievanceTimelineEvent[];
+  legal_case_id?: string;
+  legal_case_no?: string;
 }
 
 export interface GrievanceDraft {

@@ -3,10 +3,17 @@
     "name": "PUWF Mobile",
     "slug": "puwf-mobile",
     "scheme": "puwf",
+    "sdkVersion": "54.0.0",
     "version": "0.1.0",
+    "runtimeVersion": "0.1.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
-    "assetBundlePatterns": ["**/*"],
+    "icon": "./assets/images/puwf_logo_square.png",
+    "assetBundlePatterns": [
+      "app/**/*",
+      "src/**/*",
+      "assets/**/*"
+    ],
     "splash": {
       "image": "./assets/images/puwf_logo.png",
       "resizeMode": "contain",
@@ -18,14 +25,64 @@
     },
     "android": {
       "package": "pk.puwf.mobile",
+      "versionCode": 1,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/puwf_logo.png",
+        "foregroundImage": "./assets/images/puwf_logo_square.png",
         "backgroundColor": "#f6faf7"
-      }
+      },
+      "permissions": [
+        "android.permission.USE_BIOMETRIC",
+        "android.permission.USE_FINGERPRINT",
+        "android.permission.INTERNET"
+      ],
+      "intentFilters": [
+        {
+          "action": "android.intent.action.VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "puwf.app",
+              "pathPrefix": "/"
+            }
+          ],
+          "category": [
+            "android.intent.category.DEFAULT",
+            "android.intent.category.BROWSABLE"
+          ]
+        }
+      ]
     },
-    "plugins": ["expo-router", "expo-localization", "expo-secure-store", "expo-local-authentication", "expo-splash-screen"],
+    "plugins": [
+      "expo-router",
+      "expo-localization",
+      "expo-secure-store",
+      "expo-local-authentication",
+      "expo-splash-screen"
+    ],
     "experiments": {
       "typedRoutes": true
+    },
+    "owner": "minhalawais1",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7c889de6-a954-40ca-86d0-2eca14558568"
+      },
+      "env": {
+        "development": {
+          "API_URL": "https://dev-api.puwf.app",
+          "LOG_LEVEL": "debug"
+        },
+        "staging": {
+          "API_URL": "https://staging-api.puwf.app",
+          "LOG_LEVEL": "info"
+        },
+        "production": {
+          "API_URL": "https://api.puwf.app",
+          "LOG_LEVEL": "warn"
+        }
+      }
     }
   }
 }

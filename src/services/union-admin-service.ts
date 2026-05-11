@@ -22,10 +22,12 @@ import type {
   CBAEvidenceItem,
   CBAStatus,
   CoDStage,
+  LegalEscalationDraft,
   MemberImportPreview,
   MemberLifecycleEvent,
   MemberVerificationState,
   NegotiationRound,
+  RemittanceReceiptAction,
   UnionElectionCandidateRecord,
   UnionElectionDetail,
   UnionElectionStatus,
@@ -40,6 +42,7 @@ import type {
   UnionMemberRecord,
   UnionOfficeBearerRecord,
   UnionOfficeBearerWorkspaceSummary,
+  WelfareCaseStatus,
 } from '@/types/domain';
 
 function delay<T>(data: T, ms = 150): Promise<T> {
@@ -208,6 +211,8 @@ let cbaRecordState: UnionCBARecord[] = clone(unionCBARecords);
 let codWorkflowState: UnionCoDWorkflow[] = clone(unionCoDWorkflows);
 let cbaEvidenceState: CBAEvidenceItem[] = clone(unionCBAEvidence);
 let electionRegistryState: UnionElectionDetail[] = clone(unionElectionRegistry);
+let grievanceQueueState = clone(unionGrievanceQueue);
+let legalCasesState = clone(legalCases);
 
 export const officeBearerPositionOptions = [
   'President',
@@ -860,6 +865,62 @@ export function useUnionAnnualReturn() {
   return useQuery({ queryKey: ['union-admin', 'annual-return'], queryFn: () => delay(unionAnnualReturnDraft) });
 }
 
+export function useMarkRemittanceReceivedMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: RemittanceReceiptAction) =>
+      delay({ receiptRef: `REM-RECV-${payload.remittanceId}-${payload.received_date}`, ...payload }, 250),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['union-admin', 'finance'] }).catch(() => undefined);
+    },
+  });
+}
+
+export function useApproveWelfareCaseMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: { caseId: string; amount_approved: number; payment_ref?: string }) =>
+      delay({ approvalRef: `WF-APPR-${payload.caseId}`, ...payload }, 250),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['union-admin', 'finance'] }).catch(() => undefined);
+    },
+  });
+}
+
+export function useRejectWelfareCaseMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: { caseId: string; reason: string }) =>
+      delay({ rejectionRef: `WF-REJ-${payload.caseId}`, ...payload }, 200),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['union-admin', 'finance'] }).catch(() => undefined);
+    },
+  });
+}
+
+export function useSubmitAnnualReturnMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: { annualReturnId: string }) =>
+      delay({ submissionRef: `AR-SUBMIT-${payload.annualReturnId}-${new Date().getFullYear()}`, mockOnly: true }, 400),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['union-admin', 'annual-return'] }).catch(() => undefined);
+    },
+  });
+}
+
+// Internal helper: welfare case status toggle (used by approve/reject above in real implementation)
+export function useUpdateWelfareCaseStatusMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (payload: { caseId: string; status: WelfareCaseStatus }) =>
+      delay({ caseId: payload.caseId, status: payload.status }, 150),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['union-admin', 'finance'] }).catch(() => undefined);
+    },
+  });
+}
+
 export function useUnionElectionOperation() {
   return useQuery({ queryKey: ['union-admin', 'election-operation'], queryFn: () => delay(unionElectionOperation) });
 }
@@ -1217,8 +1278,131 @@ export function useAddNegotiationRoundMutation() {
   });
 }
 
+function grievancePriority(priority: string) {
+  if (priority === 'critical') return 0;
+  if (priority === 'urgent') return 1;
+  return 2;
+}
+
+function slaUrgency(deadline: string) {
+  const days = Math.ceil((new Date(deadline).getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+  if (days < 0) return 0; // overdue — most urgent
+  return days;
+}
+
+function sortGrievances(list: typeof grievanceQueueState) {
+  return [...list].sort((a, b) => {
+    const byPriority = grievancePriority(a.priority) - grievancePriority(b.priority);
+    if (byPriority !== 0) return byPriority;
+    return slaUrgency(a.sla_deadline) - slaUrgency(b.sla_deadline);
+  });
+}
+
+function invalidateLegalQueries(queryClient: ReturnType<typeof useQueryClient>) {
+  queryClient.invalidateQueries({ queryKey: ['union-admin', 'legal-operation'] });
+}
+
 export function useUnionLegalOperation() {
-  return useQuery({ queryKey: ['union-admin', 'legal-operation'], queryFn: () => delay({ grievances: unionGrievanceQueue, legalCases }) });
+  return useQuery({
+    queryKey: ['union-admin', 'legal-operation'],
+    queryFn: () => delay({ grievances: sortGrievances(grievanceQueueState), legalCases: clone(legalCasesState) }),
+  });
+}
+
+export function useUpdateGrievanceMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ grievanceId, status }: { grievanceId: string; status: string }) => {
+      grievanceQueueState = grievanceQueueState.map((g) =>
+        g.id === grievanceId ? { ...g, status: status as import('@/types/domain').GrievanceStatus } : g,
+      );
+      const updated = grievanceQueueState.find((g) => g.id === grievanceId);
+      if (!updated) throw new Error(`Grievance ${grievanceId} not found`);
+      return delay({ updateRef: `GRS-UPD-${grievanceId}`, status, updated: clone(updated) }, 200);
+    },
+    onSuccess: () => invalidateLegalQueries(queryClient),
+  });
+}
+
+export function useEscalateGrievanceMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (draft: LegalEscalationDraft) => {
+      const grievance = grievanceQueueState.find((g) => g.id === draft.grievance_id);
+      if (!grievance) throw new Error(`Grievance ${draft.grievance_id} not found`);
+
+      const newCase: import('@/types/domain').LegalCase = {
+        id: `lc-${Date.now()}`,
+        case_no: `LC-${new Date().getFullYear()}-${String(legalCasesState.length + 1).padStart(4, '0')}`,
+        linked_grievance_ref: grievance.reference_no,
+        worker_name: grievance.worker_name,
+        masked_cnic: grievance.masked_cnic,
+        parties: draft.parties,
+        forum: draft.forum_name,
+        forum_type: draft.forum_type,
+        status: 'filed',
+        next_hearing: '',
+        hearings: [],
+        assigned_advocate: draft.assigned_advocate,
+      };
+      legalCasesState = [...legalCasesState, newCase];
+
+      grievanceQueueState = grievanceQueueState.map((g) =>
+        g.id === draft.grievance_id
+          ? { ...g, status: 'escalated' as import('@/types/domain').GrievanceStatus, legal_case_id: newCase.id, escalation_note: draft.escalation_note }
+          : g,
+      );
+      return delay({ caseRef: newCase.case_no, case: clone(newCase) }, 250);
+    },
+    onSuccess: () => invalidateLegalQueries(queryClient),
+  });
+}
+
+export function useRecordOutcomeMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ caseId, outcomeType, ref, note }: { caseId: string; outcomeType: 'court_order' | 'mos' | 'settlement'; ref: string; note?: string }) => {
+      legalCasesState = legalCasesState.map((c) =>
+        c.id === caseId
+          ? {
+              ...c,
+              status: 'order_issued' as import('@/types/domain').LegalCaseStatus,
+              court_order_ref: outcomeType === 'court_order' ? ref : c.court_order_ref,
+              mos_ref: outcomeType === 'mos' || outcomeType === 'settlement' ? ref : c.mos_ref,
+              outcome_note: note,
+            }
+          : c,
+      );
+      const updated = legalCasesState.find((c) => c.id === caseId);
+      if (!updated) throw new Error(`Legal case ${caseId} not found`);
+      return delay({ outcomeRef: ref, updated: clone(updated) }, 200);
+    },
+    onSuccess: () => invalidateLegalQueries(queryClient),
+  });
+}
+
+export function useLogHearingMutation() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async ({ caseId, hearingDate, hearingTime = '10:00', forum, agendaKey, outcomeKey }: { caseId: string; hearingDate: string; hearingTime?: string; forum?: string; agendaKey?: string; outcomeKey?: string }) => {
+      legalCasesState = legalCasesState.map((c) => {
+        if (c.id !== caseId) return c;
+        const newHearing: import('@/types/domain').LegalHearing = {
+          id: `hr-${Date.now()}`,
+          hearing_date: hearingDate,
+          hearing_time: hearingTime,
+          forum: forum ?? c.forum,
+          agenda_key: agendaKey ?? 'unionOps.legal.hearings.agendaGeneral',
+          outcome_key: outcomeKey,
+        };
+        return { ...c, next_hearing: hearingDate, hearings: [newHearing, ...c.hearings] };
+      });
+      const updated = legalCasesState.find((c) => c.id === caseId);
+      if (!updated) throw new Error(`Legal case ${caseId} not found`);
+      return delay({ hearingRef: `HR-${caseId}-${hearingDate}`, updated: clone(updated) }, 200);
+    },
+    onSuccess: () => invalidateLegalQueries(queryClient),
+  });
 }
 
 export function useRecordUnionDuesMutation() {
@@ -1233,10 +1417,3 @@ export function useSubmitNominationMutation() {
   return useMutation({ mutationFn: (payload: { electionId: string; candidateName: string }) => delay({ nominationRef: `MOCK-NOM-${payload.electionId}`, candidateName: payload.candidateName, mockOnly: true }) });
 }
 
-export function useUpdateGrievanceMutation() {
-  return useMutation({ mutationFn: (payload: { grievanceId: string; status: string }) => delay({ updateRef: `MOCK-GRS-${payload.grievanceId}`, status: payload.status, mockOnly: true }) });
-}
-
-export function useLogHearingMutation() {
-  return useMutation({ mutationFn: (payload: { caseId: string; hearingDate: string }) => delay({ hearingRef: `MOCK-HR-${payload.caseId}`, hearingDate: payload.hearingDate, mockOnly: true }) });
-}

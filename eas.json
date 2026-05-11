@@ -1,0 +1,70 @@
+{
+  "cli": {
+    "version": ">= 5.0.0"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "gradleCommand": ":app:assembleDebug"
+      },
+      "ios": {
+        "buildConfiguration": "Debug"
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      }
+    },
+    "staging": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      },
+      "env": {
+        "ENVIRONMENT": "staging"
+      }
+    },
+    "production": {
+      "distribution": "store",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:bundleRelease",
+        "ndk": "27.1.12297006"
+      },
+      "ios": {
+        "buildConfiguration": "Release"
+      },
+      "env": {
+        "ENVIRONMENT": "production"
+      }
+    },
+    "production-apk": {
+      "distribution": "store",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease",
+        "ndk": "27.1.12297006"
+      },
+      "env": {
+        "ENVIRONMENT": "production"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      }
+    }
+  }
+}
