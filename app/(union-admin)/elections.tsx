@@ -86,7 +86,7 @@ export default function ElectionsScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.elections')} subtitle={t('unionCore.elections.workspaceSubtitle')} />
+      <HeaderBar title={t('union.elections')} subtitle={t('unionCore.elections.workspaceSubtitle')} variant="unionAdmin" />
       <View style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 92 }}>
           <ElectionWorkspaceHero summary={summary} />

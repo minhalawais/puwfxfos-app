@@ -38,6 +38,7 @@ import { StatusChip } from '@/components/status-chip';
 import { useAddMemberLifecycleEventMutation, useCommitMemberImportMutation, usePreviewMemberImportMutation, useUpdateMemberVerificationMutation } from '@/services/union-admin-service';
 import { alignSelfStart, directionalText, isRtlLanguage, rowDirection, textAlign, writingDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
+import { getUnionAdminTone, unionAdminTheme } from '@/theme/union-admin';
 import type { MemberImportJob, MemberImportPreview, MemberLifecycleEvent, UnionMemberDetail, UnionMemberRecord } from '@/types/domain';
 import {
   unionMemberBenefitsSchema,
@@ -142,13 +143,13 @@ export function MemberWorkspaceHero({ members }: { members: UnionMemberRecord[] 
   }, [members]);
 
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ gap: 12 }}>
         <View style={{ gap: 6 }}>
-          <Text style={{ color: tokens.foreground, fontSize: 20, ...directionalText('900') }}>
+          <Text style={{ color: unionAdminTheme.text, fontSize: 20, ...directionalText('900') }}>
             {t('unionCore.members.workspaceTitle')}
           </Text>
-          <Text style={{ color: tokens.mutedForeground, fontSize: 13, lineHeight: 19, ...directionalText() }}>
+          <Text style={{ color: unionAdminTheme.mutedText, fontSize: 13, lineHeight: 19, ...directionalText() }}>
             {t('unionCore.members.workspaceBody')}
           </Text>
         </View>
@@ -183,11 +184,11 @@ export function MemberWorkspaceTabs({
             paddingVertical: 10,
             borderRadius: 12,
             borderWidth: 1,
-            borderColor: active === tab ? tokens.portalUnion : tokens.border,
-            backgroundColor: active === tab ? tokens.secondary : tokens.card,
+            borderColor: active === tab ? unionAdminTheme.navy : unionAdminTheme.border,
+            backgroundColor: active === tab ? unionAdminTheme.softNavy : tokens.card,
           }}
         >
-          <Text style={{ color: active === tab ? tokens.portalUnion : tokens.mutedForeground, ...directionalText('900') }}>
+          <Text style={{ color: active === tab ? unionAdminTheme.navy : unionAdminTheme.mutedText, ...directionalText('900') }}>
             {t(`unionCore.members.tabs.${tab}`)}
           </Text>
         </Pressable>
@@ -229,7 +230,7 @@ export function MemberMetricGrid({ members }: { members: UnionMemberRecord[] }) 
     <View style={{ flexDirection: rowDirection(), gap: 8, flexWrap: 'wrap' }}>
       {metrics.map((metric) => (
         <View key={metric.label} style={{ width: '48%' }}>
-          <MetricCard icon={metric.icon} label={metric.label} value={metric.value} tone={metric.tone} />
+          <MetricCard icon={metric.icon} label={metric.label} value={metric.value} tone={metric.tone} variant="unionAdmin" />
         </View>
       ))}
     </View>
@@ -360,8 +361,8 @@ export function RegistryMemberCard({
       style={{
         backgroundColor: tokens.card,
         borderWidth: 1,
-        borderColor: selected ? tokens.portalUnion : tokens.border,
-        borderRadius: 16,
+        borderColor: selected ? unionAdminTheme.navy : unionAdminTheme.border,
+        borderRadius: 20,
         padding: 14,
         gap: 10,
       }}
@@ -376,16 +377,16 @@ export function RegistryMemberCard({
               height: 26,
               borderRadius: 999,
               borderWidth: 1.5,
-              borderColor: selected ? tokens.portalUnion : tokens.border,
+              borderColor: selected ? unionAdminTheme.navy : unionAdminTheme.border,
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: selected ? tokens.secondary : tokens.card,
+              backgroundColor: selected ? unionAdminTheme.softNavy : tokens.card,
             }}
           >
-            {selected ? <CheckCircle2 size={16} color={tokens.portalUnion} /> : null}
+            {selected ? <CheckCircle2 size={16} color={unionAdminTheme.navy} /> : null}
           </Pressable>
-          <View style={{ width: 46, height: 46, borderRadius: 14, backgroundColor: tokens.statusInfoBg, alignItems: 'center', justifyContent: 'center' }}>
-            <IdCard size={21} color={tokens.portalUnion} />
+          <View style={{ width: 46, height: 46, borderRadius: 14, backgroundColor: unionAdminTheme.softNavy, alignItems: 'center', justifyContent: 'center' }}>
+            <IdCard size={21} color={unionAdminTheme.navy} />
           </View>
           <View style={{ flex: 1, gap: 3 }}>
             <Text style={{ color: tokens.foreground, fontSize: 16, ...directionalText('900') }}>{member.name}</Text>
@@ -434,9 +435,9 @@ export function ReviewQueueCard({
       onPress={onPress}
       style={{
         backgroundColor: tokens.card,
-        borderRadius: 14,
+        borderRadius: 18,
         borderWidth: 1,
-        borderColor: tokens.border,
+        borderColor: tone === 'error' ? 'rgba(242, 29, 47, 0.18)' : tone === 'warning' ? 'rgba(166, 18, 31, 0.18)' : unionAdminTheme.border,
         padding: 14,
         gap: 8,
       }}
@@ -453,7 +454,7 @@ export function ReviewQueueCard({
 export function ImportJobCard({ job }: { job: MemberImportJob }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ gap: 6 }}>
         <Text style={{ color: tokens.foreground, ...directionalText('900') }}>{job.file_name}</Text>
         <Text style={{ color: tokens.mutedForeground, fontSize: 12, ...directionalText() }}>
@@ -1346,9 +1347,9 @@ export function IntakeActionCard({
 }) {
   const Icon = icon === 'add' ? UserPlus : icon === 'import' ? FileSpreadsheet : ShieldCheck;
   return (
-    <Pressable onPress={onPress} style={{ backgroundColor: tokens.card, borderWidth: 1, borderColor: tokens.border, borderRadius: 14, padding: 14, gap: 8 }}>
-      <View style={{ width: 42, height: 42, borderRadius: 14, backgroundColor: tokens.secondary, alignItems: 'center', justifyContent: 'center' }}>
-        <Icon size={20} color={tokens.portalUnion} />
+    <Pressable onPress={onPress} style={{ backgroundColor: tokens.card, borderWidth: 1, borderColor: unionAdminTheme.border, borderRadius: 20, padding: 14, gap: 8 }}>
+      <View style={{ width: 42, height: 42, borderRadius: 14, backgroundColor: unionAdminTheme.softNavy, alignItems: 'center', justifyContent: 'center' }}>
+        <Icon size={20} color={unionAdminTheme.navy} />
       </View>
       <Text style={{ color: tokens.foreground, ...directionalText('900') }}>{title}</Text>
       <Text style={{ color: tokens.mutedForeground, fontSize: 12, lineHeight: 18, ...directionalText() }}>{body}</Text>
@@ -1360,9 +1361,9 @@ export function StickyAddButton({ onPress }: { onPress: () => void }) {
   const { t } = useTranslation();
   return (
     <View style={{ position: 'absolute', bottom: 18, right: isRtlLanguage() ? undefined : 18, left: isRtlLanguage() ? 18 : undefined }}>
-      <Pressable onPress={onPress} style={{ minHeight: 54, borderRadius: 999, backgroundColor: tokens.primary, paddingHorizontal: 18, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8, shadowColor: '#000', shadowOpacity: 0.12, shadowRadius: 12, shadowOffset: { width: 0, height: 4 } }}>
-        <Plus size={18} color={tokens.primaryForeground} />
-        <Text style={{ color: tokens.primaryForeground, ...directionalText('900') }}>{t('unionCore.members.form.addTitle')}</Text>
+      <Pressable onPress={onPress} style={{ minHeight: 54, borderRadius: 999, backgroundColor: unionAdminTheme.navy, paddingHorizontal: 18, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8, shadowColor: unionAdminTheme.shadow, shadowOpacity: 0.18, shadowRadius: 14, shadowOffset: { width: 0, height: 6 } }}>
+        <Plus size={18} color="#ffffff" />
+        <Text style={{ color: '#ffffff', ...directionalText('900') }}>{t('unionCore.members.form.addTitle')}</Text>
       </Pressable>
     </View>
   );

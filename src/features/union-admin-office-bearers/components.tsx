@@ -11,6 +11,7 @@ import { StatusChip } from '@/components/status-chip';
 import { officeBearerPositionOptions, useUpdateOfficeBearerStatusMutation } from '@/services/union-admin-service';
 import { directionalText, isRtlLanguage, rowDirection, textAlign, writingDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
+import { unionAdminTheme } from '@/theme/union-admin';
 import type { OfficeBearerHistoryEvent, UnionOfficeBearerRecord, UnionOfficeBearerWorkspaceSummary } from '@/types/domain';
 import { officeBearerFormSchema, type OfficeBearerFormValues } from './schema';
 
@@ -202,13 +203,13 @@ function toRecord(values: OfficeBearerFormValues, existing: UnionOfficeBearerRec
 export function OfficeWorkspaceHero({ summary }: { summary: UnionOfficeBearerWorkspaceSummary }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ gap: 12 }}>
         <View style={{ gap: 6 }}>
-          <Text style={{ color: tokens.foreground, fontSize: 20, ...directionalText('900') }}>
+          <Text style={{ color: unionAdminTheme.text, fontSize: 20, ...directionalText('900') }}>
             {t('unionCore.office.workspaceTitle')}
           </Text>
-          <Text style={{ color: tokens.mutedForeground, fontSize: 13, lineHeight: 19, ...directionalText() }}>
+          <Text style={{ color: unionAdminTheme.mutedText, fontSize: 13, lineHeight: 19, ...directionalText() }}>
             {t('unionCore.office.workspaceBody')}
           </Text>
         </View>
@@ -241,11 +242,11 @@ export function OfficeWorkspaceTabs({
             paddingVertical: 10,
             borderRadius: 12,
             borderWidth: 1,
-            borderColor: active === tab ? tokens.portalUnion : tokens.border,
-            backgroundColor: active === tab ? tokens.secondary : tokens.card,
+            borderColor: active === tab ? unionAdminTheme.navy : unionAdminTheme.border,
+            backgroundColor: active === tab ? unionAdminTheme.softNavy : tokens.card,
           }}
         >
-          <Text style={{ color: active === tab ? tokens.portalUnion : tokens.mutedForeground, ...directionalText('900') }}>
+          <Text style={{ color: active === tab ? unionAdminTheme.navy : unionAdminTheme.mutedText, ...directionalText('900') }}>
             {t(`unionCore.office.tabs.${tab}`)}
           </Text>
         </Pressable>
@@ -269,7 +270,7 @@ export function OfficeMetricGrid({ summary }: { summary: UnionOfficeBearerWorksp
     <View style={{ flexDirection: rowDirection(), gap: 8, flexWrap: 'wrap' }}>
       {metrics.map((metric) => (
         <View key={metric.label} style={{ width: '48%' }}>
-          <MetricCard icon={metric.icon} label={metric.label} value={metric.value} tone={metric.tone} />
+          <MetricCard icon={metric.icon} label={metric.label} value={metric.value} tone={metric.tone} variant="unionAdmin" />
         </View>
       ))}
     </View>
@@ -285,7 +286,7 @@ export function OfficeRegistryControls({
 }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ gap: 8 }}>
         <TextInput
           value={query}
@@ -419,7 +420,7 @@ export function OfficeReviewCard({
   countLabel: string;
 }) {
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ gap: 8 }}>
         <View style={{ flexDirection: rowDirection(), justifyContent: 'space-between', gap: 8 }}>
           <Text style={{ color: tokens.foreground, ...directionalText('900') }}>{title}</Text>
@@ -678,9 +679,9 @@ export function StickyAddBearerButton({ onPress }: { onPress: () => void }) {
   const { t } = useTranslation();
   return (
     <View style={{ position: 'absolute', bottom: 18, right: isRtlLanguage() ? undefined : 18, left: isRtlLanguage() ? 18 : undefined }}>
-      <Pressable onPress={onPress} style={{ minHeight: 54, borderRadius: 999, backgroundColor: tokens.primary, paddingHorizontal: 18, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8 }}>
-        <Plus size={18} color={tokens.primaryForeground} />
-        <Text style={{ color: tokens.primaryForeground, ...directionalText('900') }}>{t('unionCore.office.form.addTitle')}</Text>
+      <Pressable onPress={onPress} style={{ minHeight: 54, borderRadius: 999, backgroundColor: unionAdminTheme.navy, paddingHorizontal: 18, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8 }}>
+        <Plus size={18} color="#ffffff" />
+        <Text style={{ color: '#ffffff', ...directionalText('900') }}>{t('unionCore.office.form.addTitle')}</Text>
       </Pressable>
     </View>
   );

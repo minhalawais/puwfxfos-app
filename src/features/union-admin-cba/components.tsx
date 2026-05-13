@@ -21,6 +21,7 @@ import { SectionCard } from '@/components/section-card';
 import { StatusChip } from '@/components/status-chip';
 import { directionalText, rowDirection, textAlign, writingDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
+import { unionAdminTheme } from '@/theme/union-admin';
 import type {
   CBAEvidenceItem,
   CBAStatus,
@@ -377,11 +378,11 @@ export function CBAWorkspaceHero({ summary }: { summary: UnionCBAWorkspaceSummar
   const days = current ? daysUntil(current.expiry_date) : null;
 
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ gap: 12 }}>
         <View style={{ gap: 6 }}>
-          <Text style={{ color: tokens.foreground, fontSize: 20, ...directionalText('900') }}>{t('unionCore.cba.workspaceTitle')}</Text>
-          <Text style={{ color: tokens.mutedForeground, fontSize: 13, lineHeight: 19, ...directionalText() }}>{t('unionCore.cba.workspaceBody')}</Text>
+          <Text style={{ color: unionAdminTheme.text, fontSize: 20, ...directionalText('900') }}>{t('unionCore.cba.workspaceTitle')}</Text>
+          <Text style={{ color: unionAdminTheme.mutedText, fontSize: 13, lineHeight: 19, ...directionalText() }}>{t('unionCore.cba.workspaceBody')}</Text>
         </View>
         {current ? (
           <View style={{ gap: 8 }}>
@@ -423,11 +424,11 @@ export function CBAWorkspaceTabs({
             paddingVertical: 10,
             borderRadius: 12,
             borderWidth: 1,
-            borderColor: active === tab ? tokens.portalUnion : tokens.border,
-            backgroundColor: active === tab ? tokens.secondary : tokens.card,
+            borderColor: active === tab ? unionAdminTheme.navy : unionAdminTheme.border,
+            backgroundColor: active === tab ? unionAdminTheme.softNavy : tokens.card,
           }}
         >
-          <Text style={{ color: active === tab ? tokens.portalUnion : tokens.mutedForeground, ...directionalText('900') }}>
+          <Text style={{ color: active === tab ? unionAdminTheme.navy : unionAdminTheme.mutedText, ...directionalText('900') }}>
             {t(`unionCore.cba.tabs.${tab}`)}
           </Text>
         </Pressable>
@@ -449,7 +450,7 @@ export function CBAMetricGrid({ summary }: { summary: UnionCBAWorkspaceSummary }
     <View style={{ flexDirection: rowDirection(), gap: 8, flexWrap: 'wrap' }}>
       {metrics.map((metric) => (
         <View key={metric.label} style={{ width: '48%' }}>
-          <MetricCard icon={metric.icon} label={metric.label} value={metric.value} tone={metric.tone} />
+          <MetricCard icon={metric.icon} label={metric.label} value={metric.value} tone={metric.tone} variant="unionAdmin" />
         </View>
       ))}
     </View>
@@ -1095,9 +1096,9 @@ export function StickyCBAActionButton({
 
   return (
     <View pointerEvents="box-none" style={{ position: 'absolute', right: 16, bottom: 16 }}>
-      <Pressable onPress={action.onPress} style={{ minHeight: 52, borderRadius: 999, backgroundColor: tokens.portalUnion, paddingHorizontal: 18, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8, shadowColor: '#000', shadowOpacity: 0.12, shadowRadius: 12, shadowOffset: { width: 0, height: 8 }, elevation: 6 }}>
-        <action.icon size={18} color={tokens.primaryForeground} />
-        <Text style={{ color: tokens.primaryForeground, ...directionalText('900') }}>{action.label}</Text>
+      <Pressable onPress={action.onPress} style={{ minHeight: 52, borderRadius: 999, backgroundColor: unionAdminTheme.navy, paddingHorizontal: 18, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8, shadowColor: unionAdminTheme.shadow, shadowOpacity: 0.18, shadowRadius: 14, shadowOffset: { width: 0, height: 8 }, elevation: 6 }}>
+        <action.icon size={18} color="#ffffff" />
+        <Text style={{ color: '#ffffff', ...directionalText('900') }}>{action.label}</Text>
       </Pressable>
     </View>
   );

@@ -1,6 +1,6 @@
 {
   "app": {
-    "name": "PUWF Mobile",
+    "name": "PUWF Mobile App",
     "subtitle": "Worker and union operations"
   },
   "common": {
@@ -27,13 +27,13 @@
   },
   "role": {
     "menuLabel": "Main menu",
-    "heading": "Which portal do you want to use?",
+    "heading": "This platform is built for workers and labour unions to access rights, guidance, grievances, and operations.",
     "body": "Choose your role so the app can show the right dashboard and legal workflow.",
     "trustLabel": "PUWF verified mobile access",
     "fastAccess": "Fast access",
     "recommendedTitle": "Workers should usually start with the Worker portal",
     "recommendedBody": "It opens digital ID, dues, grievances, voting, rights guidance, and union contact from one place.",
-    "chooseTitle": "Choose your entry point",
+    "chooseTitle": "Select the button below that matches your role.",
     "chooseBody": "Each menu opens a different workflow. Pick the path that matches your current role, not just the information you want to read.",
     "workerTitle": "Are you a factory worker?",
     "workerSubtitle": "ID, dues, grievances, voting, rights.",
@@ -43,9 +43,9 @@
     "workerEntry": "Access Portal",
     "workerMetric": "ID + Dues + Help",
     "workerMetricLabel": "Start here",
-    "unionTitle": "Are you a union office bearer?",
-    "unionSubtitle": "Members, returns, finance, legal cases.",
-    "unionBadge": "Are you a Union Member?",
+    "unionTitle": "Are you a Union Representative",
+    "unionBadge": "Are you a Union Representative",
+    "adminBadge": "Are you a PUWF Administrator",
     "unionMeta": "For General Secretary, Finance Secretary, and authorized union office staff.",
     "unionEntry": "Admin Login",
     "unionMetric": "625+",
@@ -62,11 +62,6 @@
       "dues": "Dues status",
       "grievance": "Grievance help"
     },
-    "unionHighlights": {
-      "members": "Member registry",
-      "returns": "Annual Return",
-      "elections": "Elections"
-    },
     "helpHighlights": {
       "rights": "Worker rights",
       "union": "Union information",
@@ -78,15 +73,57 @@
     "guidanceWorkerValue": "ID + Dues + Rights",
     "guidanceUnion": "Union path",
     "guidanceUnionValue": "Members + Returns + Legal",
-    "coBrand": "Built with Fruit of Sustainability for PUWF",
+    "coBrand": "Developed by Fruit of Sustainability for PUWF",
     "heroTitle": "Pakistan's unified digital platform for",
     "heroSubtitle": "workers, unions & labour rights",
-    "helpline": "PUWF Helpline: 0333-4333387"
+    "helpline": "PUWF Helpline: +920-42-36304281"
   },
+  "workerLookup": {
+    "title": "Verify your worker record",
+    "subtitle": "Enter your CNIC to check your PUWF-linked union status and view your worker details.",
+    "cnicLabel": "Worker CNIC",
+    "cnicPlaceholder": "CNIC (13 digits)",
+    "actionCheck": "Check Record",
+    "actionGuidance": "Get Guidance",
+    "actionAccessPortal": "Access Worker Portal",
+    "redirectingTitle": "Redirecting to your Worker Portal",
+    "redirectingBody": "Your record was found as a member of {{unionName}} in PUWF data. You are being redirected to your PUWF Worker Portal.",
+    "redirectingFallbackUnion": "your union",
+    "validationCnic": "CNIC must contain 13 digits.",
+    "detailTitle": "Worker details",
+    "detailName": "Name",
+    "detailCnic": "CNIC",
+    "detailUnion": "Union",
+    "detailEmployer": "Employer",
+    "detailDepartment": "Department",
+    "detailDesignation": "Designation",
+    "detailStatus": "Membership status",
+    "status": {
+      "not_found": {
+        "title": "No worker record found",
+        "body": "We could not find a worker record for this CNIC. You can still view rights and guidance."
+      },
+      "not_affiliated": {
+        "title": "Union not linked to PUWF",
+        "body": "Your union is not registered with PUWF, so this portal is unavailable."
+      }
+    }
+  },
+    "actionAccessPortal": "Access Worker Portal",
+    "detailTitle": "Worker details",
+    "detailName": "Name",
+    "detailCnic": "CNIC",
+    "detailUnion": "Union",
+    "detailEmployer": "Employer",
+    "detailDepartment": "Department",
+    "detailDesignation": "Designation",
+    "detailStatus": "Membership status",
   "auth": {
     "unionLogin": "Union Administration Portal",
     "subtitle": "Secure access for authorized office bearers to manage memberships, dues, and legal compliance.",
     "welcome": "Union Admin Portal",
+    "cnic": "CNIC Number",
+    "cnicPlaceholder": "CNIC (13 digits)",
     "email": "Official Email Address",
     "emailPlaceholder": "gs@union.org.pk",
     "password": "Access Password",
@@ -310,7 +347,14 @@
     "legalSubtitle": "Grievances, court cases, and hearings",
     "docs": "Documents",
     "docsSubtitle": "DMS, legal packet, and compliance",
-    "cbaCod": "CBA / CoD"
+    "cbaCod": "CBA / CoD",
+    "male": "Male",
+    "female": "Female",
+    "submitted": "Submitted",
+    "pending": "Pending",
+    "legal": "Legal",
+    "grievances": "Grievances",
+    "committeeMembers": "Committee Members"
   },
   "states": {
     "loading": "Loading worker data...",
@@ -381,12 +425,65 @@
       "quickActions": "Core admin actions"
     },
     "actions": {
-      "members": "Form C registry, CNIC check, dues and election readiness.",
-      "officeBearers": "Form A Schedule 1, terms, outsider limit and evidence.",
-      "documents": "DMS, obligations, expiry and evidence packet.",
-      "annualReturn": "Open the statutory annual return workspace.",
-      "finance": "Dues, receipts, remittances, and finance prefill.",
-      "more": "Open elections, CBA, legal, documents, and office bearers."
+      "members": "Form C registry, identity verification, and membership lifecycle.",
+      "officeBearers": "Form A Schedule 1, executive body terms, and outsider limits.",
+      "documents": "DMS, compliance documents, and evidence packet tracking.",
+      "annualReturn": "Statutory Form L/J preparation and annual filing workspace.",
+      "finance": "Manage dues, remittances, receipts, and financial ledger.",
+      "elections": "Voter list preparation, nominations, and election results.",
+      "legal": "Grievance queue, court cases, hearings, and legal evidence.",
+      "cba": "Bargaining certificates, Charter of Demands, and negotiations.",
+      "more": "Access all other operational modules and system settings."
+    },
+    "annualReturnWorkspace": {
+      "subtitle": "Form L & J Statutory Filing",
+      "banner": {
+        "submitted": "Annual Return Transmitted ✓",
+        "submittedDetail": "Successfully filed with the Registrar of Trade Unions.",
+        "trackingRef": "Tracking Ref: {{ref}}",
+        "ledgerNotice": "Immutable Ledger Notice",
+        "ledgerDetail": "This return is strictly auto-generated from your union's active ledgers. To edit values, you must route back and log corrections in the respective Member or Financial registers."
+      },
+      "formL": {
+        "title": "Form L: Membership Demographics",
+        "startOfYear": "Total Start of Year",
+        "admitted": "Members Admitted",
+        "departed": "Members Departed",
+        "endOfYear": "Total End of Year",
+        "male": "Male (Mrd)",
+        "female": "Female (Aurat)"
+      },
+      "formJ": {
+        "title": "Form J: Financial Balance Sheet",
+        "income": "Income (Amdani)",
+        "expenditure": "Expenditure (Kharcha)",
+        "closingBalance": "Closing Balance",
+        "disputeData": "Dispute Data? Route to Financial Ledger"
+      },
+      "approvals": {
+        "fsSign": "Finance Secretary — Sign Return",
+        "ready": "Ready to Transmit",
+        "readyDetail": "Both GS and FS have signed the affidavit. The Annual Return is ready to be filed digitally with PUWF and RTU.",
+        "transmit": "Transmit Annual Return"
+      },
+      "exports": {
+        "title": "Export Legal Documents",
+        "formLTitle": "Form L — Demographics",
+        "formLSub": "Membership counts & breakdown",
+        "formJTitle": "Form J — Financials",
+        "formJSub": "Income & expenditure ledgers",
+        "kbTitle": "Khalfiya Biyan",
+        "kbSub": "Countersigned Legal Affidavit"
+      },
+      "affidavit": {
+        "title": "Khalfiya Biyan (Affidavit)",
+        "intro": "Before legally signing this return on behalf of the union, you must attest to the following statements under PIRA 2010 / IRA 2012:",
+        "check1": "I declare that this form corresponds truly to the registers and ledgers of the Union.",
+        "check2": "I declare that no assets, liabilities, or members have been concealed or misrepresented.",
+        "check3": "I understand that fraudulent submissions result in personal legal liability and potential union deregistration.",
+        "sign": "Sign Legal Affidavit (Khalfiya Biyan)",
+        "signing": "Signing..."
+      }
     },
     "more": {
       "subtitle": "All admin modules",
@@ -1436,8 +1533,13 @@
       "caseNow": "Case",
       "voteNow": "Vote",
       "nextActions": "Next best actions",
+      "knowRights": "Know Your Rights",
+      "seeGrievances": "See Your Grievances",
+      "takePartElections": "Take Part in Elections",
+      "noticesLabel": "Notices",
       "idAction": "Show masked ID and QR placeholder",
       "grievanceAction": "File or track a complaint",
+      "voteAction": "Check election access and participation",
       "rightsAction": "Read plain-language rights",
       "unionAction": "View union leadership and CBA",
       "noticeAction": "Read route-aware notices",
@@ -1458,8 +1560,20 @@
       "issued": "Issued",
       "offlineReady": "Offline preview ready",
       "actions": "actions",
-      "downloadMock": "Download",
-      "shareMock": "Share"
+      "downloadMock": "Download Image",
+      "downloadInProgress": "Saving Image...",
+      "downloadSuccess": "The digital ID card image has been saved to your photo library.",
+      "downloadError": "We could not save the digital ID image. Please try again.",
+      "mediaPermissionDenied": "Photo library access is required to save the digital ID image.",
+      "devBuildRequired": "Downloading the digital ID image requires a development build or production app. Expo Go does not provide full media library access for this flow.",
+      "shareMock": "Share",
+      "shareInProgress": "Preparing Share...",
+      "shareError": "We could not prepare the digital ID image for sharing. Please try again.",
+      "shareUnavailable": "Sharing is not available on this device.",
+      "accessPortal": "Access Worker Portal",
+      "verificationNotice": "This card is digitally issued by PUWF and can be verified by scanning the QR code. Present it as official proof of union membership.",
+      "committeeTitle": "Union committee hierarchy",
+      "committeeSubtitle": "Your union office-bearer structure, ordered by role."
     },
     "dues": {
       "empty": "No dues ledger yet.",
@@ -1589,22 +1703,48 @@
       }
     },
     "notifications": {
-      "empty": "No notifications yet.",
+      "subtitle": "Blog-style updates from PUWF and your union.",
+      "detailSubtitle": "Notice detail",
+      "eyebrow": "NOTICE DESK",
+      "heroTitle": "Important updates, rights guidance, and union activity in one feed.",
+      "heroBody": "Read verified notices from PUWF and your union in a cleaner editorial format built for workers.",
+      "empty": "No notices available yet.",
+      "noFilterResults": "No notices match this filter right now.",
       "read": "Read",
       "unread": "Unread",
-      "categories": {
-        "grievance": "Grievance",
-        "dues": "Dues",
-        "election": "Election",
+      "featured": "Featured",
+      "publishedBy": "Published by",
+      "sourceContext": "Source context",
+      "documentBasis": "Document basis",
+      "referenceLink": "Reference link",
+      "related": "Related notices",
+      "tags": "Tags",
+      "regionFallback": "Worker notice feed",
+      "notFound": "This notice could not be found.",
+      "unreadCountSuffix": "unread notices",
+      "filters": {
+        "all": "All",
+        "puwf": "PUWF",
+        "union": "Union",
         "rights": "Rights",
-        "union": "Union"
+        "election": "Elections",
+        "membership": "Membership",
+        "legal_aid": "Legal Aid"
       },
-      "cbaTitle": "CBA renewal reminder",
-      "cbaBody": "Your union CBA certificate has an upcoming renewal checkpoint.",
-      "duesTitle": "Dues receipt updated",
-      "duesBody": "April dues receipt is available as a preview.",
-      "grievanceTitle": "Grievance status updated",
-      "grievanceBody": "Your case moved to investigation in the timeline."
+      "sources": {
+        "puwf": "PUWF",
+        "union": "Your Union"
+      },
+      "categories": {
+        "election": "Election",
+        "affiliation": "Affiliation",
+        "compliance": "Compliance",
+        "membership": "Membership",
+        "rights": "Rights",
+        "legal_aid": "Legal Aid",
+        "field_activity": "Field Activity",
+        "dues": "Dues"
+      }
     }
   }
 }

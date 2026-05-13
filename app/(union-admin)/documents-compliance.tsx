@@ -20,13 +20,13 @@ export default function DocumentsComplianceScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.docs')} subtitle={t('union.docsSubtitle')} />
+      <HeaderBar title={t('union.docs')} subtitle={t('union.docsSubtitle')} variant="unionAdmin" />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 10 }}>
         <View style={{ flexDirection: rowDirection(), gap: 10 }}>
-          <MetricCard icon={ShieldCheck} label={t('union.compliance')} value={`${dashboard.data?.compliance_score ?? '-'}`} tone="warning" />
-          <MetricCard icon={FileWarning} label={t('unionCore.documents.needsEvidence')} value={String(missingCount)} tone="error" />
+          <MetricCard icon={ShieldCheck} label={t('union.compliance')} value={`${dashboard.data?.compliance_score ?? '-'}`} tone="warning" variant="unionAdmin" />
+          <MetricCard icon={FileWarning} label={t('unionCore.documents.needsEvidence')} value={String(missingCount)} tone="error" variant="unionAdmin" />
         </View>
-        <SectionCard title={t('unionCore.compliance.snapshot')}>
+        <SectionCard title={t('unionCore.compliance.snapshot')} variant="unionAdmin">
           <View style={{ flexDirection: rowDirection(), gap: 8, flexWrap: 'wrap' }}>
             <StatusChip tone="info" label={t('unionCore.documents.total', { count: data?.documents.length ?? 0 })} />
             <StatusChip tone="warning" label={t('unionCore.compliance.openObligations', { count: data?.obligations.filter((item) => item.status !== 'current').length ?? 0 })} />
@@ -34,12 +34,12 @@ export default function DocumentsComplianceScreen() {
           <SourceNote label={t('unionCore.sources.documents')} />
         </SectionCard>
         <DataState loading={isLoading} error={isError} empty={!data?.documents.length} loadingLabel={t('states.loading')} errorLabel={t('states.error')} emptyLabel={t('unionCore.documents.empty')}>
-          <SectionCard title={t('unionCore.compliance.obligationsTitle')}>
+          <SectionCard title={t('unionCore.compliance.obligationsTitle')} variant="unionAdmin">
             <View style={{ gap: 10 }}>
               {data?.obligations.map((obligation) => <ComplianceObligationCard key={obligation.id} obligation={obligation} />)}
             </View>
           </SectionCard>
-          <SectionCard title={t('unionCore.documents.registry')}>
+          <SectionCard title={t('unionCore.documents.registry')} variant="unionAdmin">
             <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 8 }}>
               <FileArchive size={18} color={tokens.portalUnion} />
               <SourceNote label={t('unionCore.documents.uploadMock')} />

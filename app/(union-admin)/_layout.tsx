@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 import { Banknote, FileCheck2, Home, Menu, Users } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { tokens } from '@/theme/tokens';
+import { unionAdminTheme } from '@/theme/union-admin';
 
 export default function UnionAdminTabs() {
   const { t } = useTranslation();
@@ -10,23 +11,23 @@ export default function UnionAdminTabs() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: tokens.primary,
-        tabBarInactiveTintColor: tokens.mutedForeground,
+        tabBarActiveTintColor: unionAdminTheme.navy,
+        tabBarInactiveTintColor: unionAdminTheme.mutedText,
         tabBarStyle: {
-          backgroundColor: tokens.card,
-          borderTopColor: tokens.border,
-          height: 66,
-          paddingBottom: 8,
-          paddingTop: 6,
-          shadowColor: '#000',
-          shadowOffset: { width: 0, height: -2 },
-          shadowOpacity: 0.05,
-          shadowRadius: 4,
-          elevation: 8,
+          backgroundColor: unionAdminTheme.card,
+          borderTopColor: unionAdminTheme.border,
+          height: 74,
+          paddingBottom: 10,
+          paddingTop: 8,
+          shadowColor: unionAdminTheme.shadow,
+          shadowOffset: { width: 0, height: -6 },
+          shadowOpacity: 0.12,
+          shadowRadius: 16,
+          elevation: 10,
         },
-        tabBarActiveBackgroundColor: 'rgba(6, 69, 47, 0.08)', // Very subtle green tint
+        tabBarActiveBackgroundColor: 'rgba(46, 51, 140, 0.08)',
         tabBarIconStyle: { marginTop: 2 },
-        tabBarItemStyle: { minHeight: 54, marginHorizontal: 4, marginVertical: 2 },
+        tabBarItemStyle: { minHeight: 58, marginHorizontal: 4, marginVertical: 3, borderRadius: 14 },
         tabBarLabelStyle: { fontSize: 10, fontWeight: '800' },
       }}
     >

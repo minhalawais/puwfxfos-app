@@ -51,7 +51,7 @@ export default function OfficeBearersScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.officeBearers')} subtitle={t('unionCore.office.workspaceSubtitle')} />
+      <HeaderBar title={t('union.officeBearers')} subtitle={t('unionCore.office.workspaceSubtitle')} variant="unionAdmin" />
       <View style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 92 }}>
           <OfficeWorkspaceHero summary={summary} />

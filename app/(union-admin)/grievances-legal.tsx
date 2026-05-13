@@ -80,7 +80,7 @@ export default function GrievancesLegalScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.legal')} subtitle={t('union.legalSubtitle')} />
+      <HeaderBar title={t('union.legal')} subtitle={t('union.legalSubtitle')} variant="unionAdmin" />
 
       {/* Hearing Alerts */}
       {upcomingHearings.length > 0 && (
@@ -133,9 +133,9 @@ export default function GrievancesLegalScreen() {
             <>
               {/* ── Summary Metrics ── */}
               <View style={{ flexDirection: rowDirection(), gap: 10 }}>
-                <MetricCard icon={Siren} label={t('union.activeCases')} value={String(data.grievances.length)} tone="error" />
-                <MetricCard icon={AlertTriangle} label={t('unionOps.legal.urgentCount', { count: urgentCount })} value={String(urgentCount)} tone="warning" />
-                <MetricCard icon={Landmark} label={t('unionOps.legal.legalCases')} value={String(data.legalCases.length)} tone="info" />
+                <MetricCard icon={Siren} label={t('union.activeCases')} value={String(data.grievances.length)} tone="error" variant="unionAdmin" />
+                <MetricCard icon={AlertTriangle} label={t('unionOps.legal.urgentCount', { count: urgentCount })} value={String(urgentCount)} tone="warning" variant="unionAdmin" />
+                <MetricCard icon={Landmark} label={t('unionOps.legal.legalCases')} value={String(data.legalCases.length)} tone="info" variant="unionAdmin" />
               </View>
 
               {/* ── Grievance Queue ── */}

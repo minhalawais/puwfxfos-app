@@ -7,6 +7,7 @@ import { StatusChip } from '@/components/status-chip';
 import { SourceNote } from '@/features/union-admin-core/components';
 import { directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
+import { unionAdminTheme } from '@/theme/union-admin';
 import { formatDate } from '@/utils/date';
 import type { AnnualReturnDraft, AnnualReturnStep, CandidateNomination, CharterDemand, EmployerRemittance, FinanceLedgerLineItem, LegalCase, LegalEscalationDraft, LegalForumType, NegotiationEvent, UnionGrievanceCase, WelfareClaimCase } from '@/types/domain';
 
@@ -59,9 +60,9 @@ const legalTone = {
 
 export function ActionButton({ label, icon: Icon, onPress, disabled }: { label: string; icon: IconType; onPress: () => void; disabled?: boolean }) {
   return (
-    <Pressable accessibilityRole="button" accessibilityState={{ disabled: !!disabled }} accessibilityLabel={label} disabled={disabled} onPress={onPress} style={{ opacity: disabled ? 0.5 : 1, minHeight: 46, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: tokens.primary, borderRadius: 12, paddingHorizontal: 12 }}>
-      <Icon size={17} color={tokens.primaryForeground} />
-      <Text style={{ color: tokens.primaryForeground, ...directionalText('900') }}>{label}</Text>
+    <Pressable accessibilityRole="button" accessibilityState={{ disabled: !!disabled }} accessibilityLabel={label} disabled={disabled} onPress={onPress} style={{ opacity: disabled ? 0.5 : 1, minHeight: 46, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: unionAdminTheme.navy, borderRadius: 14, paddingHorizontal: 12 }}>
+      <Icon size={17} color="#ffffff" />
+      <Text style={{ color: '#ffffff', ...directionalText('900') }}>{label}</Text>
     </Pressable>
   );
 }
@@ -69,7 +70,7 @@ export function ActionButton({ label, icon: Icon, onPress, disabled }: { label: 
 export function RemittanceCard({ remittance }: { remittance: EmployerRemittance }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 10 }}>
         <ReceiptText size={19} color={tokens.portalUnion} />
         <View style={{ flex: 1 }}>
@@ -86,7 +87,7 @@ export function RemittanceCard({ remittance }: { remittance: EmployerRemittance 
 export function DuesLedgerCard({ item }: { item: { id: string; member_name: string; masked_cnic: string; member_id: string; period: string; amount: number; status: string; receipt_no?: string } }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 10 }}>
         <Banknote size={19} color={tokens.portalUnion} />
         <View style={{ flex: 1 }}>
@@ -103,7 +104,7 @@ export function DuesLedgerCard({ item }: { item: { id: string; member_name: stri
 export function AnnualReturnStepCard({ step }: { step: AnnualReturnStep }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 10 }}>
         <FileText size={19} color={tokens.portalUnion} />
         <View style={{ flex: 1 }}>
@@ -128,11 +129,11 @@ export function FinanceAlertBanner({ days, period }: { days: number; period: str
   if (days <= 0) return null;
   const isUrgent = days >= 10;
   return (
-    <View style={{ backgroundColor: isUrgent ? tokens.statusErrorBg : tokens.statusWarningBg, borderWidth: 1, borderColor: isUrgent ? tokens.statusError : tokens.statusWarning, borderRadius: 12, padding: 12, flexDirection: rowDirection(), alignItems: 'center', gap: 10 }}>
+    <View style={{ backgroundColor: isUrgent ? 'rgba(242, 29, 47, 0.08)' : 'rgba(166, 18, 31, 0.08)', borderWidth: 1, borderColor: isUrgent ? unionAdminTheme.red : unionAdminTheme.crimson, borderRadius: 18, padding: 14, flexDirection: rowDirection(), alignItems: 'center', gap: 10 }}>
       <AlertTriangle size={18} color={isUrgent ? tokens.statusError : tokens.statusWarning} />
       <View style={{ flex: 1 }}>
-        <Text style={{ color: isUrgent ? tokens.statusError : tokens.statusWarning, fontWeight: '900', fontSize: 13 }}>Remittance Overdue — {period}</Text>
-        <Text style={{ color: isUrgent ? tokens.statusError : tokens.statusWarning, fontSize: 12 }}>{days} days since expected receipt. IRA 2012 §14 requires payment within 15 days.</Text>
+        <Text style={{ color: isUrgent ? unionAdminTheme.red : unionAdminTheme.crimson, fontWeight: '900', fontSize: 13 }}>Remittance Overdue — {period}</Text>
+        <Text style={{ color: isUrgent ? unionAdminTheme.red : unionAdminTheme.crimson, fontSize: 12 }}>{days} days since expected receipt. IRA 2012 §14 requires payment within 15 days.</Text>
       </View>
     </View>
   );
@@ -145,16 +146,16 @@ export function FinanceTabSwitcher({ active, onChange }: { active: 'dues' | 'rem
     { key: 'welfare', label: 'Welfare Fund' },
   ];
   return (
-    <View style={{ flexDirection: rowDirection(), backgroundColor: tokens.muted, borderRadius: 10, padding: 3, gap: 2 }}>
+    <View style={{ flexDirection: rowDirection(), backgroundColor: unionAdminTheme.light, borderRadius: 14, padding: 4, gap: 4, borderWidth: 1, borderColor: unionAdminTheme.border }}>
       {tabs.map((tab) => (
         <Pressable
           key={tab.key}
           accessibilityRole="tab"
           accessibilityState={{ selected: active === tab.key }}
           onPress={() => onChange(tab.key)}
-          style={{ flex: 1, paddingVertical: 8, borderRadius: 8, alignItems: 'center', backgroundColor: active === tab.key ? tokens.card : 'transparent' }}
+          style={{ flex: 1, paddingVertical: 9, borderRadius: 10, alignItems: 'center', backgroundColor: active === tab.key ? unionAdminTheme.navy : 'transparent' }}
         >
-          <Text style={{ fontSize: 11, fontWeight: active === tab.key ? '900' : '600', color: active === tab.key ? tokens.primary : tokens.mutedForeground }}>{tab.label}</Text>
+          <Text style={{ fontSize: 11, fontWeight: active === tab.key ? '900' : '700', color: active === tab.key ? '#ffffff' : unionAdminTheme.mutedText }}>{tab.label}</Text>
         </Pressable>
       ))}
     </View>
@@ -177,8 +178,8 @@ export function RemittanceDetailCard({
   const isLate = remittance.late_days >= 15;
 
   return (
-    <View style={{ borderRadius: 14, borderWidth: 1, borderColor: isLate ? `${tokens.statusError}55` : tokens.border, backgroundColor: tokens.card, overflow: 'hidden' }}>
-      {isLate && <View style={{ height: 3, backgroundColor: tokens.statusError }} />}
+    <View style={{ borderRadius: 18, borderWidth: 1, borderColor: isLate ? 'rgba(242, 29, 47, 0.24)' : unionAdminTheme.border, backgroundColor: tokens.card, overflow: 'hidden' }}>
+      {isLate && <View style={{ height: 3, backgroundColor: unionAdminTheme.red }} />}
       <View style={{ padding: 12, gap: 8 }}>
         <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between' }}>
           <View>
@@ -202,11 +203,11 @@ export function RemittanceDetailCard({
         {remittance.status === 'pending' && onMarkReceived && (
           <Pressable
             onPress={() => setShowForm(!showForm)}
-            style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 6, backgroundColor: tokens.primary, borderRadius: 8, paddingVertical: 8 }}
+            style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'center', gap: 6, backgroundColor: unionAdminTheme.navy, borderRadius: 10, paddingVertical: 9 }}
           >
-            <CheckCircle2 size={14} color={tokens.primaryForeground} />
-            <Text style={{ color: tokens.primaryForeground, fontSize: 12, fontWeight: '900' }}>Mark as Received</Text>
-            {showForm ? <ChevronUp size={14} color={tokens.primaryForeground} /> : <ChevronDown size={14} color={tokens.primaryForeground} />}
+            <CheckCircle2 size={14} color="#ffffff" />
+            <Text style={{ color: '#ffffff', fontSize: 12, fontWeight: '900' }}>Mark as Received</Text>
+            {showForm ? <ChevronUp size={14} color="#ffffff" /> : <ChevronDown size={14} color="#ffffff" />}
           </Pressable>
         )}
         {showForm && (

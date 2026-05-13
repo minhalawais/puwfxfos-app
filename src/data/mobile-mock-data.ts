@@ -32,7 +32,6 @@ import type {
   UnionOfficeBearerRecord,
   Worker,
   WorkerElection,
-  WorkerNotification,
   WorkerUnionProfile,
 } from '@/types/domain';
 
@@ -155,12 +154,6 @@ export const rightsTopics: RightTopic[] = [
   { id: 'r-6', category: 'cba_cod', title_key: 'workerPortal.rights.topics.cba.title', description_key: 'workerPortal.rights.topics.cba.body', action_key: 'workerPortal.rights.actions.viewUnion' },
 ];
 
-export const workerNotifications: WorkerNotification[] = [
-  { id: 'n-1', category: 'union', title_key: 'workerPortal.notifications.cbaTitle', message_key: 'workerPortal.notifications.cbaBody', read: false, created_at: '2026-05-08', route: '/(worker)/my-union' },
-  { id: 'n-2', category: 'dues', title_key: 'workerPortal.notifications.duesTitle', message_key: 'workerPortal.notifications.duesBody', read: true, created_at: '2026-05-01', route: '/(worker)/dues' },
-  { id: 'n-3', category: 'grievance', title_key: 'workerPortal.notifications.grievanceTitle', message_key: 'workerPortal.notifications.grievanceBody', read: false, created_at: '2026-05-07', route: '/(worker)/grievances' },
-];
-
 export const workerUnionProfile: WorkerUnionProfile = {
   id: 'union-demo-001',
   union_name: demoWorker.union_name,
@@ -182,6 +175,7 @@ export const unionMembers: Worker[] = [
   demoWorker,
   { ...demoWorker, id: 'worker-0002', name: 'Ayesha Saleem', cnic: '35202-7654321-4', job_title: 'Route Supervisor', membership_status: 'active' },
   { ...demoWorker, id: 'worker-0003', name: 'Bilal Khan', cnic: '35201-5553331-9', job_title: 'Driver', membership_status: 'pending', eobi_verified: false },
+  { ...demoWorker, id: 'worker-0004', name: 'Naveed Ahmed', cnic: '35203-4447771-6', job_title: 'Loader', union_name: 'Independent Transport Workers Union', membership_status: 'active' },
 ];
 
 export const unionAdminDashboardSummary: UnionAdminDashboardSummary = {
@@ -193,16 +187,21 @@ export const unionAdminDashboardSummary: UnionAdminDashboardSummary = {
   members: {
     total: 3250,
     active: 3092,
+    male: 2840,
+    female: 410,
     pending_form_c: 158,
     election_ready: 2928,
   },
   dues: {
     health_percent: 82,
+    submitted_count: 2665,
+    pending_count: 585,
     overdue_members: 214,
     latest_remittance_status: 'pending',
   },
   cases: {
     active_grievances: 18,
+    legal_cases: 7,
     urgent_grievances: 4,
   },
   governance: {
@@ -210,6 +209,9 @@ export const unionAdminDashboardSummary: UnionAdminDashboardSummary = {
     cba_expiry: '2026-04-23',
     next_election: '2026-06-01',
     office_bearer_outsider_percent: 17,
+    committee_members_count: 24,
+    committee_male_count: 18,
+    committee_female_count: 6,
   },
   risks: [
     { id: 'risk-1', title_key: 'unionCore.risks.annualReturn.title', detail_key: 'unionCore.risks.annualReturn.detail', tone: 'warning', route: '/(union-admin)/annual-return' },
@@ -617,6 +619,7 @@ export const officeBearers: UnionOfficeBearer[] = [
     id: 'ob-1',
     name: 'Rashid Ahmed',
     cnic: '35201-1111111-1',
+    union_name: 'Green Clean Labour Union LWMC',
     position: 'President',
     contact_number: '+92 300 1111111',
     email: 'president@green-clean-union.demo',
@@ -632,6 +635,7 @@ export const officeBearers: UnionOfficeBearer[] = [
     id: 'ob-2',
     name: 'Fatima Bibi',
     cnic: '35202-2222222-2',
+    union_name: 'Green Clean Labour Union LWMC',
     position: 'Finance Secretary',
     contact_number: '+92 300 2222222',
     email: 'finance@green-clean-union.demo',
@@ -647,6 +651,7 @@ export const officeBearers: UnionOfficeBearer[] = [
     id: 'ob-3',
     name: 'Advocate Salman',
     cnic: '35201-3333333-3',
+    union_name: 'Green Clean Labour Union LWMC',
     position: 'Secretary Legal Affairs',
     contact_number: '+92 300 3333333',
     email: 'legal@green-clean-union.demo',
@@ -662,6 +667,7 @@ export const officeBearers: UnionOfficeBearer[] = [
     id: 'ob-4',
     name: 'Zafar Iqbal',
     cnic: '35201-4444444-4',
+    union_name: 'Green Clean Labour Union LWMC',
     position: 'General Secretary',
     contact_number: '+92 300 4444444',
     email: 'gs@green-clean-union.demo',

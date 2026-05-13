@@ -11,7 +11,9 @@ export type DuesStatus = 'paid' | 'pending' | 'overdue' | 'waived';
 export type GrievanceStatus = 'new' | 'submitted' | 'triage' | 'investigating' | 'review_requested' | 'resolved' | 'escalated';
 export type GrievanceCategory = 'wages' | 'termination' | 'safety' | 'harassment' | 'union_rights' | 'eobi_social_security' | 'other';
 export type ElectionStatus = 'upcoming' | 'nomination' | 'open' | 'closed' | 'results';
-export type NotificationCategory = 'grievance' | 'dues' | 'election' | 'rights' | 'union';
+export type NoticeSource = 'puwf' | 'union';
+export type NoticeCategory = 'election' | 'affiliation' | 'compliance' | 'membership' | 'rights' | 'legal_aid' | 'field_activity' | 'dues';
+export type NoticeAudience = 'all_workers' | 'union_members' | 'establishment_specific';
 export type UnionComplianceStatus = 'current' | 'due_soon' | 'overdue' | 'missing' | 'draft';
 export type UnionDocumentCategory = 'registration' | 'member_record' | 'office_bearer' | 'annual_return' | 'cba' | 'election' | 'governance' | 'compliance';
 export type RemittanceStatus = 'received' | 'pending' | 'late' | 'missing';
@@ -57,6 +59,7 @@ export interface UnionOfficeBearer {
   id: string;
   name: string;
   cnic: string;
+  union_name?: string;
   position: string;
   contact_number: string;
   email?: string;
@@ -87,16 +90,21 @@ export interface UnionAdminDashboardSummary {
   members: {
     total: number;
     active: number;
+    male: number;
+    female: number;
     pending_form_c: number;
     election_ready: number;
   };
   dues: {
     health_percent: number;
+    submitted_count: number;
+    pending_count: number;
     overdue_members: number;
     latest_remittance_status: 'received' | 'pending' | 'missing';
   };
   cases: {
     active_grievances: number;
+    legal_cases: number;
     urgent_grievances: number;
   };
   governance: {
@@ -104,6 +112,9 @@ export interface UnionAdminDashboardSummary {
     cba_expiry: string;
     next_election: string;
     office_bearer_outsider_percent: number;
+    committee_members_count: number;
+    committee_male_count: number;
+    committee_female_count: number;
   };
   risks: Array<{
     id: string;
@@ -778,6 +789,8 @@ export interface WorkerGrievance {
 export interface WorkerDashboardSummary {
   worker_identity: {
     name: string;
+    father_name: string;
+    phone: string;
     masked_cnic: string;
     designation: string;
     department: string;
@@ -814,7 +827,7 @@ export interface WorkerDashboardSummary {
   };
   notifications_summary: {
     unread_count: number;
-    latest_title_key: string;
+    latest_title: string;
   };
   union_summary: {
     registration_no: string;
@@ -920,12 +933,38 @@ export interface WorkerUnionProfile {
   }>;
 }
 
-export interface WorkerNotification {
+export interface WorkerNoticeSummary {
   id: string;
-  category: NotificationCategory;
-  title_key: string;
-  message_key: string;
+  slug: string;
+  source: NoticeSource;
+  category: NoticeCategory;
+  audience: NoticeAudience;
+  title_en: string;
+  title_ur: string;
+  excerpt_en: string;
+  excerpt_ur: string;
+  published_at: string;
+  region_label_en?: string;
+  region_label_ur?: string;
+  union_name?: string;
+  theme: 'navy' | 'green' | 'crimson' | 'red';
   read: boolean;
-  created_at: string;
-  route: string;
+  featured: boolean;
+}
+
+export interface WorkerNoticeDetail extends WorkerNoticeSummary {
+  body_en: string;
+  body_ur: string;
+  author_label_en: string;
+  author_label_ur: string;
+  source_label_en: string;
+  source_label_ur: string;
+  cta_label_en?: string;
+  cta_label_ur?: string;
+  cta_route?: string;
+  related_notice_ids: string[];
+  tags_en: string[];
+  tags_ur: string[];
+  document_basis?: string;
+  external_source_url?: string;
 }

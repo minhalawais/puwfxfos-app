@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { ArrowLeft, ArrowRight, Building2, LockKeyhole, LogIn, Mail, ShieldCheck } from 'lucide-react-native';
+import { ArrowLeft, ArrowRight, Building2, IdCard, LockKeyhole, LogIn, ShieldCheck } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { Image, KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -93,17 +93,18 @@ export default function UnionLoginScreen() {
               gap: 20,
             }}
           >
-            {/* Email Input */}
+            {/* CNIC Input */}
             <View style={{ gap: 8 }}>
-              <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('700') }}>{t('auth.email')}</Text>
+              <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('700') }}>{t('auth.cnic')}</Text>
               <View style={{ flexDirection: rowDirection(), alignItems: 'center', backgroundColor: tokens.muted, borderRadius: 12, paddingHorizontal: 16, height: 56, borderWidth: 1, borderColor: 'transparent' }}>
-                <Mail size={20} color={tokens.mutedForeground} />
+                <IdCard size={20} color={tokens.mutedForeground} />
                 <TextInput
-                  accessibilityLabel={t('auth.email')}
-                  placeholder={t('auth.emailPlaceholder')}
+                  accessibilityLabel={t('auth.cnic')}
+                  placeholder={t('auth.cnicPlaceholder')}
                   placeholderTextColor={tokens.mutedForeground}
                   autoCapitalize="none"
-                  keyboardType="email-address"
+                  keyboardType="number-pad"
+                  maxLength={13}
                   style={{ flex: 1, height: '100%', color: tokens.foreground, fontSize: 15, paddingHorizontal: 12, textAlign: textAlign(), writingDirection: writingDirection(), fontFamily: directionalText('600').fontFamily }}
                 />
               </View>

@@ -111,7 +111,7 @@ export default function CBAScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.cbaCod')} subtitle={t('unionCore.cba.workspaceSubtitle')} />
+      <HeaderBar title={t('union.cbaCod')} subtitle={t('unionCore.cba.workspaceSubtitle')} variant="unionAdmin" />
       <View style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 96 }}>
           <CBAWorkspaceHero summary={summary} />

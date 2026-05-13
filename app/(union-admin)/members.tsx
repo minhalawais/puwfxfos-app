@@ -83,7 +83,7 @@ export default function MembersScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.members')} subtitle={t('unionCore.members.workspaceSubtitle')} />
+      <HeaderBar title={t('union.members')} subtitle={t('unionCore.members.workspaceSubtitle')} variant="unionAdmin" />
       <View style={{ flex: 1 }}>
         <ScrollView contentContainerStyle={{ padding: 16, gap: 12, paddingBottom: 92 }}>
           <AnimatedSection index={0}>

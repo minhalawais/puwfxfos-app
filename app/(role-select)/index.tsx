@@ -11,7 +11,7 @@ import {
   ShieldCheck,
 } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
-import { Image, Pressable, ScrollView, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, Text, View, Linking } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useLocaleStore } from '@/stores/locale-store';
 import { directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
@@ -36,13 +36,18 @@ export default function RoleSelectScreen() {
   const insets = useSafeAreaInsets();
   const rtl = isRtlLanguage();
   const DirectionIcon = rtl ? ChevronLeft : ChevronRight;
+  const coBrandText = t('role.coBrand');
+  const coBrandHighlight = 'Fruit of Sustainability';
+  const [coBrandBefore, coBrandAfter] = coBrandText.includes(coBrandHighlight)
+    ? coBrandText.split(coBrandHighlight)
+    : [coBrandText, ''];
 
   const portals: PortalEntry[] = [
     {
       id: 'worker',
       title: t('role.workerBadge'),
-      subtitle: t('role.workerSubtitle'),
-      supportLine: `${t('role.workerHighlights.id')} · ${t('role.workerHighlights.dues')} · ${t('role.workerHighlights.grievance')}`,
+      subtitle: '',
+      supportLine: '',
       actionLabel: t('role.workerEntry'),
       icon: BriefcaseBusiness,
       href: '/(worker)/onboarding' as Href,
@@ -53,8 +58,8 @@ export default function RoleSelectScreen() {
     {
       id: 'union',
       title: t('role.unionBadge'),
-      subtitle: t('role.unionSubtitle'),
-      supportLine: `${t('role.unionHighlights.members')} · ${t('role.unionHighlights.returns')} · ${t('role.unionHighlights.elections')}`,
+      subtitle: '',
+      supportLine: '',
       actionLabel: t('role.unionEntry'),
       icon: Building2,
       href: '/(auth)/union-login' as Href,
@@ -63,10 +68,22 @@ export default function RoleSelectScreen() {
       recommended: false,
     },
     {
+      id: 'admin',
+      title: t('role.adminBadge'),
+      subtitle: '',
+      supportLine: '',
+      actionLabel: t('role.unionEntry'),
+      icon: ShieldCheck,
+      href: '/(auth)/admin-login' as Href,
+      accent: tokens.portalPublic,
+      accentBg: tokens.accentSoft,
+      recommended: false,
+    },
+    {
       id: 'help',
       title: t('role.helpBadge'),
-      subtitle: t('role.helpSubtitle'),
-      supportLine: `${t('role.helpHighlights.rights')} · ${t('role.helpHighlights.union')} · ${t('role.helpHighlights.guides')}`,
+      subtitle: '',
+      supportLine: '',
       actionLabel: t('role.helpEntry'),
       icon: CircleHelp,
       href: '/(worker)/rights' as Href,
@@ -85,6 +102,7 @@ export default function RoleSelectScreen() {
       <ScrollView
         contentContainerStyle={{
           flexGrow: 1,
+          justifyContent: 'space-between',
           paddingTop: safeTop,
           paddingBottom: safeBottom,
           paddingHorizontal: 16,
@@ -164,37 +182,27 @@ export default function RoleSelectScreen() {
                   color: tokens.mutedForeground,
                   fontSize: 12,
                   ...directionalText('600'),
+                  textAlign: 'center',
                 }}
               >
                 {t('role.heading')}
               </Text>
             </View>
           </View>
-
-          {/* Trust badge */}
-          <View
-            style={{
-              flexDirection: rowDirection(),
-              justifyContent: 'center',
-              alignItems: 'center',
-              gap: 5,
-            }}
-          >
-            <ShieldCheck size={12} color={tokens.portalUnion} />
-            <Text
-              style={{
-                color: tokens.mutedForeground,
-                fontSize: 10,
-                ...directionalText('700'),
-              }}
-            >
-              {t('role.trustLabel')}
-            </Text>
-          </View>
         </View>
 
         {/* ═══ Portal Cards ═══ */}
-        <View style={{ gap: 10 }}>
+        <View style={{ gap: 12, paddingVertical: 8 }}>
+          <Text
+            style={{
+              color: tokens.mutedForeground,
+              fontSize: 12,
+              ...directionalText('600'),
+              textAlign: rtl ? 'right' : 'left',
+            }}
+          >
+            {t('role.chooseTitle')}
+          </Text>
           {portals.map((portal) => (
             <PortalCard
               key={portal.id}
@@ -205,8 +213,14 @@ export default function RoleSelectScreen() {
         </View>
 
         {/* ═══ Footer ═══ */}
-        <View style={{ alignItems: 'center', gap: 4, paddingVertical: 4, marginTop: 'auto' }}>
-          <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6 }}>
+        <View style={{ alignItems: 'center', gap: 4, paddingVertical: 4 }}>
+          <Pressable
+            accessibilityRole="link"
+            onPress={() => {
+              Linking.openURL('https://fruitofsustainability.com').catch(() => {});
+            }}
+            style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 6 }}
+          >
             <Image
               source={require('../../assets/images/fos_tree.png')}
               resizeMode="contain"
@@ -214,23 +228,47 @@ export default function RoleSelectScreen() {
             />
             <Text
               style={{
-                color: tokens.mutedForeground,
+                color: tokens.foreground,
                 fontSize: 10,
                 ...directionalText('700'),
               }}
             >
-              {t('role.coBrand')}
+              {coBrandBefore}
+              {coBrandAfter === '' ? null : (
+                <Text
+                  style={{
+                    color: '#60BA81',
+                    ...directionalText('700'),
+                  }}
+                >
+                  {coBrandHighlight}
+                </Text>
+              )}
+              {coBrandAfter}
             </Text>
-          </View>
-          <Text
-            style={{
-              color: tokens.mutedForeground,
-              fontSize: 9,
-              opacity: 0.7, ...directionalText('600'),
+          </Pressable>
+          <Pressable
+            accessibilityRole="link"
+            onPress={() => {
+              const full = t('role.helpline');
+              const match = full.match(/(\+?\d[\d\-\s]+)/);
+              if (match) {
+                const digits = match[1].replace(/[^+\d]/g, '');
+                Linking.openURL(`tel:${digits}`).catch(() => {});
+              }
             }}
           >
-            {t('role.helpline')}
-          </Text>
+            <Text
+              style={{
+                color: tokens.primary,
+                fontSize: 9,
+                opacity: 0.85,
+                ...directionalText('600'),
+              }}
+            >
+              {t('role.helpline')}
+            </Text>
+          </Pressable>
         </View>
       </ScrollView>
     </View>
@@ -257,6 +295,7 @@ function PortalCard({
       onPress={() => router.push(portal.href)}
       style={({ pressed }) => ({
         transform: [{ scale: pressed ? 0.98 : 1 }],
+        marginVertical: 6,
       })}
     >
       {/* Outer wrapper for Shadows */}
@@ -276,8 +315,9 @@ function PortalCard({
             borderRadius: 20,
             backgroundColor: tokens.card,
             borderWidth: 1,
-            borderColor: 'rgba(0,0,0,0.03)',
+            borderColor: 'rgba(0,0,0,0.06)',
             overflow: 'hidden',
+            minHeight: 80,
           }}
         >
           {/* Accent strip (perfectly clipped by parent overflow: hidden) */}
@@ -294,16 +334,16 @@ function PortalCard({
 
           <View
             style={{
-              paddingTop: 20,
-              paddingBottom: 20,
-              paddingLeft: rtl ? 20 : 24,
-              paddingRight: rtl ? 24 : 20,
+              paddingTop: 10,
+              paddingBottom: 10,
+              paddingLeft: rtl ? 16 : 18,
+              paddingRight: rtl ? 18 : 16,
               justifyContent: 'center',
-              gap: 16,
+              gap: 10,
             }}
           >
             {/* Icon + Title row */}
-            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 14 }}>
+            <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 12 }}>
               <View
                 style={{
                   width: 52,
@@ -318,50 +358,27 @@ function PortalCard({
               >
                 <Icon size={26} color={portal.accent} />
               </View>
-
-              <View style={{ flex: 1, minWidth: 0, gap: 4 }}>
+              <View style={{ flex: 1, minWidth: 0, flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
                 <Text
                   style={{
                     color: tokens.foreground,
-                    fontSize: 18,
-                    lineHeight: 24, ...directionalText('900'),
-                  }}
-                  numberOfLines={1}
-                >
-                  {portal.title}
-                </Text>
-                <Text
-                  style={{
-                    color: tokens.mutedForeground,
-                    fontSize: 13,
-                    lineHeight: 18, ...directionalText('600'),
+                    fontSize: rtl ? 19 : 17,
+                    lineHeight: rtl ? 22 : 21,
+                    fontWeight: '800',
+                    letterSpacing: 0.2,
+                    ...directionalText('900'),
                   }}
                   numberOfLines={2}
                 >
-                  {portal.subtitle}
+                  {portal.title}
                 </Text>
+
+                <View style={{ backgroundColor: portal.accentBg, padding: 6, borderRadius: 100 }}>
+                  <DirectionIcon size={16} color={portal.accent} />
+                </View>
               </View>
             </View>
 
-            {/* Feature row */}
-            <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', backgroundColor: tokens.muted, borderRadius: 12, paddingHorizontal: 12, paddingVertical: 10 }}>
-              <Text
-                style={{
-                  flex: 1,
-                  color: tokens.mutedForeground,
-                  fontSize: 11,
-                  ...directionalText('700'),
-                }}
-                numberOfLines={1}
-              >
-                {portal.supportLine}
-              </Text>
-
-              {/* Arrow Pill */}
-              <View style={{ backgroundColor: portal.accentBg, padding: 4, borderRadius: 100 }}>
-                <DirectionIcon size={14} color={portal.accent} />
-              </View>
-            </View>
           </View>
         </View>
 

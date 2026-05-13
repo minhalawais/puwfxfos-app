@@ -38,7 +38,7 @@ export default function FinanceScreen() {
 
   return (
     <AppShell>
-      <HeaderBar title={t('union.finance')} subtitle={t('unionOps.finance.subtitle')} />
+      <HeaderBar title={t('union.finance')} subtitle={t('unionOps.finance.subtitle')} variant="unionAdmin" />
       <ScrollView contentContainerStyle={{ padding: 16, gap: 12 }}>
         <DataState loading={isLoading} error={isError} empty={!data} loadingLabel={t('states.loading')} errorLabel={t('states.error')} emptyLabel={t('states.empty')}>
           {data ? (
@@ -50,12 +50,12 @@ export default function FinanceScreen() {
 
               {/* Summary Metrics */}
               <View style={{ flexDirection: rowDirection(), gap: 10 }}>
-                <MetricCard icon={Banknote} label={t('union.collected')} value={`Rs. ${data.collected_amount.toLocaleString()}`} tone="success" />
-                <MetricCard icon={WalletCards} label={t('union.outstanding')} value={`Rs. ${data.outstanding_amount.toLocaleString()}`} tone="warning" />
+                <MetricCard icon={Banknote} label={t('union.collected')} value={`Rs. ${data.collected_amount.toLocaleString()}`} tone="success" variant="unionAdmin" />
+                <MetricCard icon={WalletCards} label={t('union.outstanding')} value={`Rs. ${data.outstanding_amount.toLocaleString()}`} tone="warning" variant="unionAdmin" />
               </View>
               <View style={{ flexDirection: rowDirection(), gap: 10 }}>
-                <MetricCard icon={Users} label={t('unionOps.finance.overdueMembers')} value={String(data.overdue_members)} tone="error" />
-                <MetricCard icon={Heart} label="Welfare Fund" value={`Rs. ${data.welfare_fund_balance.toLocaleString()}`} tone="info" />
+                <MetricCard icon={Users} label={t('unionOps.finance.overdueMembers')} value={String(data.overdue_members)} tone="error" variant="unionAdmin" />
+                <MetricCard icon={Heart} label="Welfare Fund" value={`Rs. ${data.welfare_fund_balance.toLocaleString()}`} tone="info" variant="unionAdmin" />
               </View>
 
               {/* Tab Switcher */}

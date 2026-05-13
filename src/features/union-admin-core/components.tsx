@@ -7,6 +7,7 @@ import { SectionCard } from '@/components/section-card';
 import { StatusChip } from '@/components/status-chip';
 import { alignSelfStart, directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
+import { getUnionAdminTone, unionAdminTheme } from '@/theme/union-admin';
 import { formatDate } from '@/utils/date';
 import type { UnionAdminDashboardSummary, UnionComplianceDocument, UnionComplianceObligation, UnionMemberRecord, UnionOfficeBearerRecord } from '@/types/domain';
 
@@ -25,13 +26,33 @@ export function UnionRiskStrip({ summary }: { summary: UnionAdminDashboardSummar
   return (
     <View style={{ gap: 6 }}>
       {summary.risks.map((risk) => (
-        <Pressable key={risk.id} accessibilityRole="button" accessibilityLabel={t(risk.title_key)} onPress={() => router.push(risk.route as Href)} style={{ minHeight: 50, flexDirection: rowDirection(), alignItems: 'center', gap: 8, borderWidth: 1, borderColor: tokens.border, borderRadius: 10, backgroundColor: risk.tone === 'error' ? tokens.statusErrorBg : risk.tone === 'warning' ? tokens.statusWarningBg : tokens.statusInfoBg, padding: 8 }}>
-          <CalendarClock size={16} color={risk.tone === 'error' ? tokens.statusError : risk.tone === 'warning' ? tokens.statusWarning : tokens.statusInfo} />
-          <View style={{ flex: 1 }}>
-            <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('900') }}>{t(risk.title_key)}</Text>
-            <Text style={{ color: tokens.mutedForeground, fontSize: 11, lineHeight: 15, ...directionalText('700') }}>{t(risk.detail_key)}</Text>
+        <Pressable
+          key={risk.id}
+          accessibilityRole="button"
+          accessibilityLabel={t(risk.title_key)}
+          onPress={() => router.push(risk.route as Href)}
+          style={{
+            minHeight: 72,
+            flexDirection: rowDirection(),
+            alignItems: 'center',
+            gap: 10,
+            borderWidth: 1,
+            borderColor: risk.tone === 'error' ? 'rgba(242, 29, 47, 0.18)' : risk.tone === 'warning' ? 'rgba(166, 18, 31, 0.18)' : unionAdminTheme.border,
+            borderRadius: 18,
+            backgroundColor: risk.tone === 'error' ? 'rgba(242, 29, 47, 0.07)' : risk.tone === 'warning' ? 'rgba(166, 18, 31, 0.07)' : unionAdminTheme.softNavy,
+            padding: 12,
+            overflow: 'hidden',
+          }}
+        >
+          <View style={{ position: 'absolute', top: 0, bottom: 0, width: 4, backgroundColor: risk.tone === 'error' ? unionAdminTheme.red : risk.tone === 'warning' ? unionAdminTheme.crimson : unionAdminTheme.navy, ...(isRtlLanguage() ? { right: 0 } : { left: 0 }) }} />
+          <View style={{ width: 38, height: 38, borderRadius: 12, alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff' }}>
+            <CalendarClock size={16} color={risk.tone === 'error' ? unionAdminTheme.red : risk.tone === 'warning' ? unionAdminTheme.crimson : unionAdminTheme.navy} />
           </View>
-          {isRtlLanguage() ? <ArrowLeft size={15} color={tokens.mutedForeground} /> : <ArrowRight size={15} color={tokens.mutedForeground} />}
+          <View style={{ flex: 1 }}>
+            <Text style={{ color: unionAdminTheme.text, fontSize: 14, ...directionalText('900') }}>{t(risk.title_key)}</Text>
+            <Text style={{ color: unionAdminTheme.mutedText, fontSize: 11, lineHeight: 16, ...directionalText('700') }}>{t(risk.detail_key)}</Text>
+          </View>
+          {isRtlLanguage() ? <ArrowLeft size={15} color={unionAdminTheme.navy} /> : <ArrowRight size={15} color={unionAdminTheme.navy} />}
         </Pressable>
       ))}
     </View>
@@ -40,14 +61,36 @@ export function UnionRiskStrip({ summary }: { summary: UnionAdminDashboardSummar
 
 export function AdminQuickActionCard({ icon: Icon, title, subtitle, href }: { icon: IconType; title: string; subtitle: string; href: Href }) {
   const DirectionIcon = isRtlLanguage() ? ArrowLeft : ArrowRight;
+  const colors = getUnionAdminTone('navy');
   return (
-    <Pressable accessibilityRole="button" accessibilityLabel={title} onPress={() => router.push(href)} style={{ flex: 1, minHeight: 94, backgroundColor: tokens.card, borderWidth: 1, borderColor: tokens.border, borderRadius: 14, padding: 12, gap: 8 }}>
+    <Pressable
+      accessibilityRole="button"
+      accessibilityLabel={title}
+      onPress={() => router.push(href)}
+      style={{
+        flex: 1,
+        minHeight: 100,
+        backgroundColor: '#ffffff',
+        borderWidth: 1,
+        borderColor: colors.border,
+        borderRadius: 20,
+        padding: 14,
+        gap: 10,
+        shadowColor: unionAdminTheme.shadow,
+        shadowOpacity: 0.05,
+        shadowRadius: 12,
+        shadowOffset: { width: 0, height: 6 },
+        elevation: 2,
+      }}
+    >
       <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
-        <Icon size={19} color={tokens.portalUnion} />
-        <DirectionIcon size={17} color={tokens.mutedForeground} />
+        <View style={{ width: 42, height: 42, borderRadius: 14, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.soft, borderWidth: 1, borderColor: colors.border }}>
+          <Icon size={19} color={unionAdminTheme.navy} />
+        </View>
+        <DirectionIcon size={17} color={unionAdminTheme.navy} />
       </View>
-      <Text style={{ color: tokens.foreground, fontSize: 13, ...directionalText('900') }}>{title}</Text>
-      <Text style={{ color: tokens.mutedForeground, fontWeight: '700', fontSize: 11, lineHeight: 16, ...directionalText() }}>{subtitle}</Text>
+      <Text style={{ color: unionAdminTheme.text, fontSize: 14, ...directionalText('900') }}>{title}</Text>
+      <Text style={{ color: unionAdminTheme.mutedText, fontWeight: '700', fontSize: 11, lineHeight: 16, ...directionalText() }}>{subtitle}</Text>
     </Pressable>
   );
 }
@@ -55,10 +98,10 @@ export function AdminQuickActionCard({ icon: Icon, title, subtitle, href }: { ic
 export function UnionMemberCard({ member }: { member: UnionMemberRecord }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ flexDirection: rowDirection(), alignItems: 'flex-start', gap: 10 }}>
-        <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: tokens.statusInfoBg, alignItems: 'center', justifyContent: 'center' }}>
-          <IdCard size={19} color={tokens.portalUnion} />
+        <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: unionAdminTheme.softNavy, alignItems: 'center', justifyContent: 'center' }}>
+          <IdCard size={19} color={unionAdminTheme.navy} />
         </View>
         <View style={{ flex: 1, gap: 5 }}>
           <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
@@ -80,10 +123,10 @@ export function UnionMemberCard({ member }: { member: UnionMemberRecord }) {
 export function OfficeBearerCard({ bearer }: { bearer: UnionOfficeBearerRecord }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ flexDirection: rowDirection(), alignItems: 'flex-start', gap: 10 }}>
-        <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: tokens.statusSuccessBg, alignItems: 'center', justifyContent: 'center' }}>
-          <UserRoundCheck size={19} color={tokens.portalUnion} />
+        <View style={{ width: 44, height: 44, borderRadius: 14, backgroundColor: unionAdminTheme.softGreen, alignItems: 'center', justifyContent: 'center' }}>
+          <UserRoundCheck size={19} color={unionAdminTheme.green} />
         </View>
         <View style={{ flex: 1, gap: 5 }}>
           <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
@@ -105,7 +148,7 @@ export function OfficeBearerCard({ bearer }: { bearer: UnionOfficeBearerRecord }
 export function ComplianceObligationCard({ obligation }: { obligation: UnionComplianceObligation }) {
   const { t } = useTranslation();
   return (
-    <Pressable accessibilityRole="button" accessibilityLabel={t(obligation.title_key)} onPress={() => router.push(obligation.route as Href)} style={{ backgroundColor: tokens.card, borderWidth: 1, borderColor: tokens.border, borderRadius: 14, padding: 12, gap: 8, minHeight: 86 }}>
+    <Pressable accessibilityRole="button" accessibilityLabel={t(obligation.title_key)} onPress={() => router.push(obligation.route as Href)} style={{ backgroundColor: '#ffffff', borderWidth: 1, borderColor: unionAdminTheme.border, borderRadius: 18, padding: 14, gap: 8, minHeight: 90 }}>
       <View style={{ flexDirection: rowDirection(), alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
         <Text style={{ flex: 1, color: tokens.foreground, fontSize: 15, ...directionalText('900') }}>{t(obligation.title_key)}</Text>
         <StatusChip tone={complianceTone[obligation.status]} label={t(`status.compliance.${obligation.status}`)} />
@@ -118,7 +161,7 @@ export function ComplianceObligationCard({ obligation }: { obligation: UnionComp
 export function ComplianceDocumentCard({ document }: { document: UnionComplianceDocument }) {
   const { t } = useTranslation();
   return (
-    <SectionCard>
+    <SectionCard variant="unionAdmin">
       <View style={{ flexDirection: rowDirection(), alignItems: 'flex-start', gap: 10 }}>
         <ShieldCheck size={20} color={document.status === 'current' ? tokens.statusSuccess : tokens.statusWarning} />
         <View style={{ flex: 1, gap: 5 }}>
@@ -141,6 +184,6 @@ export function ComplianceDocumentCard({ document }: { document: UnionCompliance
 
 export function SourceNote({ label }: { label: string }) {
   return (
-    <Text style={{ color: tokens.mutedForeground, fontSize: 11, fontWeight: '800', lineHeight: 16, alignSelf: alignSelfStart(), ...directionalText() }}>{label}</Text>
+    <Text style={{ color: unionAdminTheme.mutedText, fontSize: 11, fontWeight: '800', lineHeight: 16, alignSelf: alignSelfStart(), ...directionalText() }}>{label}</Text>
   );
 }

@@ -23,10 +23,12 @@ export default function WorkerTabs() {
       <Tabs.Screen name="dues" options={{ title: t('tabs.dues'), tabBarAccessibilityLabel: t('tabs.dues'), tabBarIcon: ({ color }) => <CreditCard size={20} color={color} /> }} />
       <Tabs.Screen name="grievances" options={{ title: t('tabs.grievance'), tabBarAccessibilityLabel: t('tabs.grievance'), tabBarIcon: ({ color }) => <Siren size={20} color={color} /> }} />
       <Tabs.Screen name="more" options={{ title: t('tabs.more'), tabBarAccessibilityLabel: t('tabs.more'), tabBarIcon: ({ color }) => <Menu size={20} color={color} /> }} />
+      <Tabs.Screen name="redirecting" options={{ href: null }} />
       <Tabs.Screen name="voting" options={{ href: null }} />
       <Tabs.Screen name="rights" options={{ href: null }} />
       <Tabs.Screen name="my-union" options={{ href: null }} />
-      <Tabs.Screen name="notifications" options={{ href: null }} />
+      <Tabs.Screen name="notifications/index" options={{ href: null }} />
+      <Tabs.Screen name="notifications/[slug]" options={{ href: null }} />
     </Tabs>
   );
 }

@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
-import { demoWorker, rightsTopics, workerDues, workerElections, workerGrievances, workerNotifications, workerUnionProfile } from '@/data/mobile-mock-data';
-import type { DuesDisputeDraft, GrievanceCase, GrievanceDraft, WorkerDashboardSummary } from '@/types/domain';
+import { demoWorker, rightsTopics, workerDues, workerElections, workerGrievances, workerUnionProfile } from '@/data/mobile-mock-data';
+import { workerNoticeDetails, workerNoticeSummaries } from '@/data/worker-notices';
+import type { DuesDisputeDraft, GrievanceCase, GrievanceDraft, WorkerDashboardSummary, WorkerNoticeDetail, WorkerNoticeSummary } from '@/types/domain';
 
 function delay<T>(data: T, ms = 150): Promise<T> {
   return new Promise((resolve) => setTimeout(() => resolve(data), ms));
@@ -8,10 +9,12 @@ function delay<T>(data: T, ms = 150): Promise<T> {
 
 export function useWorkerDashboard() {
   return useQuery({
-    queryKey: ['worker', 'dashboard'],
+    queryKey: ['worker', 'dashboard', 'v2'],
     queryFn: () => delay<WorkerDashboardSummary>({
       worker_identity: {
         name: demoWorker.name,
+        father_name: demoWorker.father_name,
+        phone: demoWorker.phone,
         masked_cnic: '35201-*****-1',
         designation: demoWorker.job_title,
         department: demoWorker.department,
@@ -30,7 +33,7 @@ export function useWorkerDashboard() {
       dues_summary: { current_status: 'pending', outstanding_months: 1, latest_receipt_no: 'RC-2026-041', latest_paid_month: 'April 2026', employer_deduction_status: 'deducted' },
       grievance_summary: { active_count: 1, latest_status: 'investigating', latest_reference: 'GRS-2026-0018', sla_label_key: 'workerPortal.dashboard.slaTwoDays' },
       voting_summary: { active_election_title: 'workerPortal.voting.electionTitle', eligible: true, already_voted: false, status: 'open' },
-      notifications_summary: { unread_count: 2, latest_title_key: 'workerPortal.notifications.cbaTitle' },
+      notifications_summary: { unread_count: workerNoticeSummaries.filter((notice) => !notice.read).length, latest_title: workerNoticeSummaries[0]?.title_en ?? 'Notices' },
       union_summary: {
         registration_no: 'RTU-LHR-2020-52',
         cba_status: 'active',
@@ -63,7 +66,15 @@ export function useWorkerRights() {
 }
 
 export function useWorkerNotifications() {
-  return useQuery({ queryKey: ['worker', 'notifications'], queryFn: () => delay(workerNotifications) });
+  return useQuery({ queryKey: ['worker', 'notifications', 'v2'], queryFn: () => delay(workerNoticeSummaries) });
+}
+
+export function useWorkerNoticeDetail(slug: string) {
+  return useQuery({
+    queryKey: ['worker', 'notifications', 'detail', slug],
+    queryFn: () => delay<WorkerNoticeDetail | undefined>(workerNoticeDetails.find((notice) => notice.slug === slug)),
+    enabled: Boolean(slug),
+  });
 }
 
 export function useSubmitWorkerGrievance() {
@@ -97,8 +108,44 @@ export function useConfirmWorkerVote() {
 }
 
 export function useMarkWorkerNotificationRead() {
+  const queryClient = useQueryClient();
+
   return useMutation({
     mutationFn: ({ notificationId }: { notificationId: string }) => delay({ notificationId, read: true }, 150),
+    onSuccess: ({ notificationId }) => {
+      const existingNotices = queryClient.getQueryData<WorkerNoticeSummary[]>(['worker', 'notifications', 'v2']) ?? workerNoticeSummaries;
+      const wasUnread = existingNotices.some((notice) => notice.id === notificationId && !notice.read);
+
+      queryClient.setQueryData<WorkerNoticeSummary[] | undefined>(['worker', 'notifications', 'v2'], (current) =>
+        current?.map((notice) => (notice.id === notificationId ? { ...notice, read: true } : notice)),
+      );
+
+      const target = workerNoticeDetails.find((notice) => notice.id === notificationId);
+
+      if (target) {
+        queryClient.setQueryData<WorkerNoticeDetail | undefined>(['worker', 'notifications', 'detail', target.slug], (current) =>
+          current ? { ...current, read: true } : current,
+        );
+      }
+
+      queryClient.setQueryData<WorkerDashboardSummary | undefined>(['worker', 'dashboard', 'v2'], (current) => {
+        if (!current) {
+          return current;
+        }
+
+        if (!wasUnread) {
+          return current;
+        }
+
+        return {
+          ...current,
+          notifications_summary: {
+            ...current.notifications_summary,
+            unread_count: Math.max(0, current.notifications_summary.unread_count - 1),
+          },
+        };
+      });
+    },
   });
 }
 

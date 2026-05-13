@@ -56,6 +56,12 @@
     "plugins": [
       "expo-router",
       "expo-localization",
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow PUWF Mobile to save your digital ID card image to your photo library."
+        }
+      ],
       "expo-secure-store",
       "expo-local-authentication",
       "expo-splash-screen"

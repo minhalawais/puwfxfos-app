@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, type ComponentType } from 'react';
 import { Animated, Dimensions, Image, Pressable, Text, View } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, QrCode, ShieldCheck, Landmark } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
 import { router, type Href } from 'expo-router';
@@ -7,7 +8,7 @@ import { StatusChip } from '@/components/status-chip';
 import { alignSelfStart, directionalText, isRtlLanguage, rowDirection } from '@/theme/layout';
 import { tokens } from '@/theme/tokens';
 import type { DuesPayment, ElectionCandidate, GrievanceCase, GrievanceTimelineEvent, RightTopic, WorkerDashboardSummary } from '@/types/domain';
-import { UNION_LEADERS } from '@/data/union-leadership';
+import { unionOfficeBearerRecords } from '@/data/mobile-mock-data';
 
 type IconType = ComponentType<{ size?: number; color?: string }>;
 
@@ -66,38 +67,240 @@ export function QuickActionCard({ icon: Icon, title, subtitle, href }: { icon: I
   );
 }
 
+/* ── PUWF Official Brand Palette ── */
+const ID_NAVY    = '#2E338C';
+const ID_GREEN   = '#03A64A';
+const ID_CRIMSON = '#A6121F';
+
 export function DigitalIdCard({ summary }: { summary: WorkerDashboardSummary }) {
   const { t } = useTranslation();
+  const isActive = summary.worker_identity.membership_status === 'active';
+  const rtl = isRtlLanguage();
+
   return (
-    <View style={{ backgroundColor: tokens.primary, borderRadius: 18, padding: 16, gap: 14 }}>
-      <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 12 }}>
-        <Image source={require('../../../assets/images/puwf_logo.png')} resizeMode="contain" style={{ width: 52, height: 52 }} />
-        <View style={{ flex: 1 }}>
-          <Text style={{ color: tokens.primaryForeground, fontSize: 18, ...directionalText('900') }}>{t('workerPortal.digitalId.title')}</Text>
-          <Text style={{ color: tokens.primaryForeground, opacity: 0.76, fontSize: 12, ...directionalText('700') }}>{summary.worker_identity.union_name}</Text>
+    <View
+      style={{
+        borderRadius: 20,
+        overflow: 'hidden',
+        shadowColor: ID_NAVY,
+        shadowOffset: { width: 0, height: 12 },
+        shadowOpacity: 0.24,
+        shadowRadius: 24,
+        elevation: 14,
+      }}
+    >
+      {/* Crimson left-edge accent strip */}
+      <View
+        style={{
+          position: 'absolute',
+          top: 0,
+          bottom: 0,
+          left: 0,
+          width: 5,
+          backgroundColor: ID_CRIMSON,
+          zIndex: 10,
+        }}
+      />
+
+      {/* ── Navy header band ── */}
+      <View
+        style={{
+          backgroundColor: ID_NAVY,
+          paddingTop: 16,
+          paddingBottom: 14,
+          paddingLeft: 20,
+          paddingRight: 14,
+          flexDirection: rowDirection(),
+          alignItems: 'center',
+          gap: 12,
+        }}
+      >
+        <Image
+          source={require('../../../assets/images/puwf_logo.png')}
+          resizeMode="contain"
+          style={{ width: 44, height: 44 }}
+        />
+        <View style={{ flex: 1, gap: 2 }}>
+          <Text
+            style={{ color: '#ffffff', fontSize: 11, lineHeight: 14, fontWeight: '900', letterSpacing: 0.35, flexShrink: 1, writingDirection: 'ltr', textAlign: 'left' }}
+            numberOfLines={2}
+          >
+            PAKISTAN UNITED WORKERS FEDERATION
+          </Text>
+          <Text style={{ color: 'rgba(255,255,255,0.6)', fontSize: 10, fontWeight: '600', ...directionalText('600') }}>
+            {t('workerPortal.digitalId.title')}
+          </Text>
+        </View>
+        <View
+          style={{
+            backgroundColor: ID_GREEN,
+            borderRadius: 6,
+            paddingHorizontal: 7,
+            paddingVertical: 4,
+            flexDirection: 'row',
+            alignItems: 'center',
+            gap: 3,
+            alignSelf: 'flex-start',
+          }}
+        >
+          <ShieldCheck size={10} color="#fff" />
+          <Text style={{ color: '#fff', fontSize: 8.5, fontWeight: '900', letterSpacing: 0.3 }}>VERIFIED</Text>
         </View>
       </View>
-      <View style={{ gap: 2 }}>
-        <Text style={{ color: tokens.primaryForeground, fontSize: 23, ...directionalText('900') }}>{summary.worker_identity.name}</Text>
-        <Text style={{ color: tokens.primaryForeground, opacity: 0.82, ...directionalText() }}>{summary.worker_identity.designation}</Text>
-      </View>
-      <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 12 }}>
-        <View style={{ backgroundColor: tokens.card, borderRadius: 12, padding: 12 }}>
-          <QrCode size={74} color={tokens.primary} />
+
+      {/* ── White card body ── */}
+      <View style={{ backgroundColor: '#ffffff', paddingLeft: 20, paddingRight: 14, paddingTop: 16, paddingBottom: 14, gap: 14 }}>
+
+        {/* Worker name + membership status pill */}
+        <View style={{ flexDirection: rowDirection(), alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 }}>
+          <View style={{ flex: 1, gap: 3 }}>
+            <Text style={{ color: ID_NAVY, fontSize: 21, fontWeight: '900', letterSpacing: 0.2, ...directionalText('900') }} numberOfLines={2}>
+              {summary.worker_identity.name}
+            </Text>
+            <Text style={{ color: '#555', fontSize: 12, fontWeight: '700', ...directionalText('700') }}>
+              {summary.worker_identity.designation}
+            </Text>
+            <Text style={{ color: '#999', fontSize: 11, fontWeight: '600', ...directionalText('600') }}>
+              {summary.worker_identity.union_name}
+            </Text>
+          </View>
+          <View
+            style={{
+              backgroundColor: isActive ? '#e6f7ee' : '#fff4d8',
+              borderRadius: 100,
+              borderWidth: 1.5,
+              borderColor: isActive ? ID_GREEN : '#c99014',
+              paddingHorizontal: 10,
+              paddingVertical: 5,
+            }}
+          >
+            <Text style={{ color: isActive ? ID_GREEN : '#a76b00', fontSize: 10, fontWeight: '900', letterSpacing: 0.3 }}>
+              {t(`status.membership.${summary.worker_identity.membership_status}`).toUpperCase()}
+            </Text>
+          </View>
         </View>
-        <View style={{ flex: 1, gap: 5 }}>
-          <IdLine label="CNIC" value={summary.worker_identity.masked_cnic} />
-          <IdLine label={t('workerPortal.identity.id')} value={summary.worker_identity.worker_id} />
-          <IdLine label={t('workerPortal.digitalId.issued')} value={summary.digital_id.issued_on} />
+
+        {/* Divider */}
+        <View style={{ height: 1, backgroundColor: '#f0f0f0' }} />
+
+        {/* QR + detail fields */}
+        <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 14 }}>
+          <View
+            style={{
+              backgroundColor: '#F2F2F2',
+              borderRadius: 12,
+              padding: 10,
+              borderWidth: 1,
+              borderColor: '#e4e4e4',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            <QrCode size={70} color={ID_NAVY} />
+            <Text style={{ color: '#bbb', fontSize: 8, fontWeight: '800', marginTop: 4, letterSpacing: 0.5, writingDirection: 'ltr', textAlign: 'center' }}>
+              SCAN TO VERIFY
+            </Text>
+          </View>
+          <View style={{ flex: 1, gap: 9, alignItems: rtl ? 'flex-end' : 'flex-start' }}>
+            <IdFieldRow label="CNIC" value={summary.worker_identity.masked_cnic || '-'} />
+            <IdFieldRow label={t('workerPortal.identity.id')} value={summary.worker_identity.worker_id || '-'} highlight />
+            <IdFieldRow label={t('workerPortal.digitalId.issued')} value={summary.digital_id.issued_on || '-'} forceLtrValue />
+          </View>
+        </View>
+
+        <View style={{ height: 1, backgroundColor: '#f0f0f0' }} />
+
+        <View style={{ flexDirection: rowDirection(), flexWrap: 'wrap', columnGap: 12, rowGap: 10 }}>
+          <View style={{ width: '47%' }}>
+            <IdFieldRow label={t('unionCore.members.fields.fatherName')} value={summary.worker_identity.father_name || '-'} compact />
+          </View>
+          <View style={{ width: '47%' }}>
+            <IdFieldRow label={t('unionCore.members.fields.phone')} value={summary.worker_identity.phone || '-'} compact forceLtrValue />
+          </View>
+          <View style={{ width: '47%' }}>
+            <IdFieldRow label={t('unionCore.members.fields.department')} value={summary.worker_identity.department || '-'} compact />
+          </View>
+          <View style={{ width: '47%' }}>
+            <IdFieldRow label={t('unionCore.members.fields.joinedUnion')} value={summary.worker_identity.join_date || '-'} compact forceLtrValue />
+          </View>
         </View>
       </View>
-      <StatusChip tone="success" label={t('workerPortal.digitalId.offlineReady')} />
+
+      {/* ── Green footer band ── */}
+      <View
+        style={{
+          backgroundColor: ID_GREEN,
+          paddingVertical: 10,
+          paddingHorizontal: 20,
+          flexDirection: rowDirection(),
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <View style={{ flexDirection: rowDirection(), alignItems: 'center', gap: 5 }}>
+          <ShieldCheck size={13} color="rgba(255,255,255,0.9)" />
+          <Text style={{ color: '#ffffff', fontSize: 11, fontWeight: '800', letterSpacing: 0.3, ...directionalText('800') }}>
+            {t('workerPortal.digitalId.offlineReady')}
+          </Text>
+        </View>
+        <Text style={{ color: 'rgba(255,255,255,0.65)', fontSize: 10, fontWeight: '600', writingDirection: 'ltr', textAlign: 'left' }}>
+          PUWF © {new Date().getFullYear()}
+        </Text>
+      </View>
     </View>
   );
 }
 
-function IdLine({ label, value }: { label: string; value: string }) {
-  return <Text style={{ color: tokens.primaryForeground, fontSize: 12, ...directionalText('800') }}>{label}: <Text style={{ writingDirection: 'ltr' }}>{value}</Text></Text>;
+function IdFieldRow({
+  label,
+  value,
+  highlight,
+  compact,
+  forceLtr,
+  forceLtrValue,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+  compact?: boolean;
+  forceLtr?: boolean;
+  forceLtrValue?: boolean;
+}) {
+  const rtl = isRtlLanguage();
+  const localizedLabel = rtl ? label : label.toUpperCase();
+
+  return (
+    <View style={{ gap: 1, width: '100%', alignItems: forceLtr ? 'flex-start' : rtl ? 'flex-end' : 'flex-start' }}>
+      <Text
+        style={{
+          width: '100%',
+          color: '#b0b0b0',
+          fontSize: 9,
+          fontWeight: '800',
+          letterSpacing: rtl ? 0 : 0.6,
+          ...directionalText('800'),
+          textAlign: forceLtr ? 'left' : directionalText('800').textAlign,
+          writingDirection: forceLtr ? 'ltr' : directionalText('800').writingDirection,
+        }}
+      >
+        {localizedLabel}
+      </Text>
+      <Text
+        style={{
+          width: '100%',
+          color: highlight ? ID_NAVY : '#2a2a2a',
+          fontSize: compact ? 11 : highlight ? 14 : 12,
+          fontWeight: highlight ? '900' : '700',
+          writingDirection: forceLtr || forceLtrValue ? 'ltr' : directionalText('700').writingDirection,
+          textAlign: forceLtr ? 'left' : forceLtrValue ? (rtl ? 'right' : 'left') : directionalText('700').textAlign,
+          fontFamily: directionalText(compact ? '600' : '700').fontFamily,
+        }}
+        numberOfLines={compact ? 2 : 1}
+      >
+        {value}
+      </Text>
+    </View>
+  );
 }
 
 export function DuesReceiptCard({ due }: { due: DuesPayment }) {
@@ -233,26 +436,30 @@ export function RightsTopicCard({ topic, onPress }: { topic: RightTopic; onPress
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const TICKER_SPEED = 55; // px per second — comfortable reading speed
-const GOLD = '#c99014';
-const GOLD_SOFT = 'rgba(201,144,20,0.18)';
+const PUWF_CRIMSON = '#A6121F';
+const PUWF_RED = '#F21D2F';
+const PUWF_NAVY = '#2E338C';
+const PUWF_GREEN = '#03A64A';
+const PUWF_LIGHT = '#F2F2F2';
+const CRIMSON_SOFT = 'rgba(166,18,31,0.18)';
 
-export function LeadershipTicker() {
-  const { i18n } = useTranslation();
-  const isUrdu = i18n.language === 'ur';
+export function LeadershipTicker({ unionName }: { unionName?: string }) {
+  const { i18n, t } = useTranslation();
+  const normalizedUnion = unionName?.trim().toLowerCase();
+  const unionBearers = normalizedUnion
+    ? unionOfficeBearerRecords.filter((bearer) => bearer.union_name?.toLowerCase() === normalizedUnion)
+    : [];
 
-  // Group leaders by region (preserving order from data file)
-  type RegionGroup = { region: string; regionUrdu: string; members: typeof UNION_LEADERS };
-  const grouped: RegionGroup[] = [];
-  for (const leader of UNION_LEADERS) {
-    const existing = grouped.find((g) => g.region === leader.region);
-    if (existing) {
-      existing.members.push(leader);
-    } else {
-      grouped.push({ region: leader.region, regionUrdu: leader.regionUrdu, members: [leader] });
-    }
-  }
-  // Duplicate groups for seamless infinite loop
-  const groups = [...grouped, ...grouped];
+  const groups = [
+    {
+      label: unionName ?? t('workerPortal.union.label', 'Union leadership'),
+      members: unionBearers,
+    },
+    {
+      label: unionName ?? t('workerPortal.union.label', 'Union leadership'),
+      members: unionBearers,
+    },
+  ];
 
   // Measure total content width to set the animation distance
   const contentWidthRef = useRef(0);
@@ -275,6 +482,7 @@ export function LeadershipTicker() {
   };
 
   useEffect(() => {
+    if (!unionBearers.length) return undefined;
     if (contentWidthRef.current > 0) {
       startAnimation(contentWidthRef.current);
     }
@@ -282,16 +490,20 @@ export function LeadershipTicker() {
       animRef.current?.stop();
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [i18n.language]);
+  }, [i18n.language, unionName, unionBearers.length]);
+
+  if (!unionBearers.length) return null;
 
   return (
     <View
       style={{
-        height: 46,
-        backgroundColor: tokens.primary,
+        height: 52,
+        backgroundColor: PUWF_NAVY,
         overflow: 'hidden',
         flexDirection: 'row',
         alignItems: 'center',
+        borderBottomWidth: 1,
+        borderBottomColor: 'rgba(242,242,242,0.18)',
       }}
     >
       {/* Scrolling ticker */}
@@ -306,33 +518,66 @@ export function LeadershipTicker() {
         }}
       >
         {groups.map((group, gIdx) => (
-          <View key={`${group.region}-${gIdx}`} style={{ flexDirection: 'row', alignItems: 'center' }}>
-            {/* Region tag — shown only once per group */}
-            <View
-              style={{
-                backgroundColor: GOLD_SOFT,
-                borderWidth: 1,
-                borderColor: GOLD,
-                borderRadius: 6,
-                paddingHorizontal: 9,
-                paddingVertical: 3,
-                marginHorizontal: 10,
-              }}
-            >
-              <Text style={{ color: GOLD, fontSize: 10, fontWeight: '800' }}>
-                {isUrdu ? group.regionUrdu : group.region}
-              </Text>
-            </View>
-
-            {/* All members of this region */}
+          <View key={`${group.label}-${gIdx}`} style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {/* All committee members of this union */}
             {group.members.map((leader, mIdx) => (
               <View key={`${leader.name}-${mIdx}`} style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <View style={{ paddingHorizontal: 10, paddingVertical: 6 }}>
+                <View style={{ paddingHorizontal: 10, paddingVertical: 6, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                  <View
+                    style={{
+                      width: 32,
+                      height: 32,
+                      borderRadius: 16,
+                      backgroundColor:
+                        leader.gender === 'female'
+                          ? 'rgba(242,242,242,0.18)'
+                          : leader.gender === 'male'
+                            ? 'rgba(242,242,242,0.18)'
+                            : 'rgba(242,242,242,0.18)',
+                      borderWidth: 1,
+                      borderColor:
+                        leader.gender === 'female'
+                          ? 'rgba(242, 29, 47, 0.42)'
+                          : leader.gender === 'male'
+                            ? 'rgba(3, 166, 74, 0.42)'
+                            : 'rgba(242,242,242,0.3)',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      shadowColor: leader.gender === 'female' ? PUWF_RED : leader.gender === 'male' ? PUWF_GREEN : '#ffffff',
+                      shadowOpacity: 0.18,
+                      shadowRadius: 6,
+                      shadowOffset: { width: 0, height: 2 },
+                    }}
+                  >
+                    <View
+                      style={{
+                        width: 26,
+                        height: 26,
+                        borderRadius: 13,
+                        backgroundColor:
+                          leader.gender === 'female'
+                            ? 'rgba(242, 29, 47, 0.16)'
+                            : leader.gender === 'male'
+                              ? 'rgba(3, 166, 74, 0.16)'
+                              : 'rgba(242,242,242,0.14)',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      {leader.gender === 'female' ? (
+                        <MaterialCommunityIcons name="account-tie-woman" size={20} color={PUWF_RED} />
+                      ) : leader.gender === 'male' ? (
+                        <MaterialCommunityIcons name="account-tie" size={20} color={PUWF_GREEN} />
+                      ) : (
+                        <MaterialCommunityIcons name="account-circle-outline" size={20} color="#ffffff" />
+                      )}
+                    </View>
+                  </View>
                   <Text
-                    style={{ color: 'rgba(255,255,255,0.68)', fontSize: 10, fontWeight: '700' }}
+                    style={{ color: 'rgba(242,242,242,0.78)', fontSize: 10, fontWeight: '700' }}
                     numberOfLines={1}
                   >
-                    {isUrdu ? leader.roleUrdu : leader.role}
+                    {leader.designation_key ? t(leader.designation_key) : leader.position}
                   </Text>
                   <Text
                     style={{ color: '#ffffff', fontSize: 12, fontWeight: '800' }}
@@ -343,13 +588,13 @@ export function LeadershipTicker() {
                 </View>
                 {/* Dot separator between members (not after last) */}
                 {mIdx < group.members.length - 1 && (
-                  <Text style={{ color: 'rgba(255,255,255,0.3)', fontSize: 14, paddingHorizontal: 2 }}>·</Text>
+                  <Text style={{ color: PUWF_RED, fontSize: 14, paddingHorizontal: 2 }}>·</Text>
                 )}
               </View>
             ))}
 
             {/* Gold diamond separator between regions */}
-            <Text style={{ color: GOLD, fontSize: 12, paddingHorizontal: 6 }}>◆</Text>
+            <Text style={{ color: PUWF_GREEN, fontSize: 12, paddingHorizontal: 6 }}>◆</Text>
           </View>
         ))}
       </Animated.View>
